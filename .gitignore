@@ -36,3 +36,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+
+## AECalc
+bin/*
