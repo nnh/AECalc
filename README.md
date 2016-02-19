@@ -2,8 +2,8 @@
 
 ## requirements
 
-### (nkf)[http://www.vector.co.jp/soft/dl/win95/util/se295331.html]
-上記のファイルをダウンロードし、ソースコードのフォルダの配下に `bin` というフォルダを作成し、nkf32.exe を配置してください
+### [nkf](http://www.vector.co.jp/soft/dl/win95/util/se295331.html)
+上記のリンクからファイルをダウンロードし、ソースコードのフォルダの配下に `bin` というフォルダを作成し、nkf32.exe を配置してください
 
 ## 開発手順
 
