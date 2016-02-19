@@ -1,2 +1,4 @@
-cscript vbac.wsf decombine /binary . /sources macros
-bin\nkf32.exe -Lu --utf-8 --overwrite macros\AECalc.xlsm\*
+@echo off
+
+cscript vbac.wsf decombine /binary . /source macros
+bin\nkf32.exe -Lu -w80 --overwrite macros\AECalc.xlsm\*

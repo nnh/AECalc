@@ -1,20 +1,20 @@
 Attribute VB_Name = "basDecisionGrade"
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFbasDecisionGrade
-'à@–¾F
-'ì¬“úF2016/02/10 sakaguchi,yamamoto
+'åã€€å‰ï¼šbasDecisionGrade
+'èª¬ã€€æ˜ï¼š
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi,yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 
 Option Explicit
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFWBC_Minus_mm3 ”’ŒŒ‹…Œ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 sakaguchi
+'åã€€å‰ï¼šWBC_Minus_mm3 ç™½è¡€çƒæ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
   Dim lngGrade        As Long
@@ -36,11 +36,11 @@ Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFWBC_Minus_10e9L ”’ŒŒ‹…Œ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 sakaguchi
+'åã€€å‰ï¼šWBC_Minus_10e9L ç™½è¡€çƒæ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -67,10 +67,10 @@ Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFWBC_Plus_mm3 ”’ŒŒ‹…‘‰ÁÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šWBC_Plus_mm3 ç™½è¡€çƒå¢—åŠ ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function WBC_Plus_mm3(ByVal dblResult As Double) As Long
@@ -89,12 +89,12 @@ Public Function WBC_Plus_mm3(ByVal dblResult As Double) As Long
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFHgb_Plus_gdL ƒwƒ‚ƒOƒƒrƒ“‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'@@@FdblHgb_gdL  ƒx[ƒXƒ‰ƒCƒ“’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šHgb_Plus_gdL ãƒ˜ãƒ¢ã‚°ãƒ­ãƒ“ãƒ³å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'ã€€ã€€ã€€ï¼šdblHgb_gdL  ãƒ™ãƒ¼ã‚¹ãƒ©ã‚¤ãƒ³å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, ByVal dblHgb_gdL As Double) As Long
@@ -134,12 +134,12 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFHgb_Plus_mgL ƒwƒ‚ƒOƒƒrƒ“‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'@@@FdblHgb_gdL  ƒx[ƒXƒ‰ƒCƒ“’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šHgb_Plus_mgL ãƒ˜ãƒ¢ã‚°ãƒ­ãƒ“ãƒ³å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'ã€€ã€€ã€€ï¼šdblHgb_gdL  ãƒ™ãƒ¼ã‚¹ãƒ©ã‚¤ãƒ³å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, ByVal dblHgb_mgL As Double) As Long
@@ -176,11 +176,11 @@ Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFHgb_Minus_gdL •nŒŒ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šHgb_Minus_gdL è²§è¡€
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -201,11 +201,11 @@ Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFHgb_Minus_mgL •nŒŒ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šHgb_Minus_mgL è²§è¡€
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -226,11 +226,11 @@ Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFPLT_Minus_mm3 ŒŒ¬”ÂŒ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šPLT_Minus_mm3 è¡€å°æ¿æ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -253,11 +253,11 @@ Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFPLT_Minus_10e9L ŒŒ¬”ÂŒ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šPLT_Minus_10e9L è¡€å°æ¿æ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -280,13 +280,13 @@ Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFNe_Minus_Per1 D’†‹…”Œ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'@@@FdblResult_WBC_mm3    ”’ŒŒ‹…”
-'@@@FdblLLN_WBC_mm3    ”’ŒŒ‹…”‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šNe_Minus_Per1 å¥½ä¸­çƒæ•°æ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'ã€€ã€€ã€€ï¼šdblResult_WBC_mm3    ç™½è¡€çƒæ•°
+'ã€€ã€€ã€€ï¼šdblLLN_WBC_mm3    ç™½è¡€çƒæ•°ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblResult_WBC_mm3 As Double, ByVal dblLLN_WBC_mm3 As Double) As Long
@@ -313,13 +313,13 @@ Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFNe_Minus_Per2 D’†‹…”Œ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'@@@FdblResult_WBC_10e9L    ”’ŒŒ‹…”
-'@@@FdblLLN_WBC_10e9L    ”’ŒŒ‹…”‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šNe_Minus_Per2 å¥½ä¸­çƒæ•°æ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'ã€€ã€€ã€€ï¼šdblResult_WBC_10e9L    ç™½è¡€çƒæ•°
+'ã€€ã€€ã€€ï¼šdblLLN_WBC_10e9L    ç™½è¡€çƒæ•°ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblResult_WBC_10e9L As Double, ByVal dblLLN_WBC_10e9L As Double) As Long
@@ -346,13 +346,13 @@ Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFLy_Minus_Per1 ƒŠƒ“ƒp‹…”Œ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'@@@FdblResult_WBC_mm3    ”’ŒŒ‹…”
-'@@@FdblLLN_WBC_mm3    ”’ŒŒ‹…”‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šLy_Minus_Per1 ãƒªãƒ³ãƒ‘çƒæ•°æ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'ã€€ã€€ã€€ï¼šdblResult_WBC_mm3    ç™½è¡€çƒæ•°
+'ã€€ã€€ã€€ï¼šdblLLN_WBC_mm3    ç™½è¡€çƒæ•°ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblResult_WBC_mm3 As Double, ByVal dblLLN_WBC_mm3 As Double) As Long
@@ -379,13 +379,13 @@ Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFLy_Minus_Per2 ƒŠƒ“ƒp‹…”Œ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'@@@FdblResult_WBC_10e9L    ”’ŒŒ‹…”
-'@@@FdblLLN_WBC_10e9L    ”’ŒŒ‹…”‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šLy_Minus_Per2 ãƒªãƒ³ãƒ‘çƒæ•°æ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'ã€€ã€€ã€€ï¼šdblResult_WBC_10e9L    ç™½è¡€çƒæ•°
+'ã€€ã€€ã€€ï¼šdblLLN_WBC_10e9L    ç™½è¡€çƒæ•°ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblResult_WBC_10e9L As Double, ByVal dblLLN_WBC_10e9L As Double) As Long
@@ -412,11 +412,11 @@ Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFLy_Plus_Per1 ƒŠƒ“ƒp‹…”‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblResult_WBC_mm3    ”’ŒŒ‹…”
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šLy_Plus_Per1 ãƒªãƒ³ãƒ‘çƒæ•°å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblResult_WBC_mm3    ç™½è¡€çƒæ•°
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 As Double) As Long
@@ -437,11 +437,11 @@ Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFLy_Plus_Per2 ƒŠƒ“ƒp‹…”‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblResult_WBC_10e9L    ”’ŒŒ‹…”
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/09 yamamoto
+'åã€€å‰ï¼šLy_Plus_Per2 ãƒªãƒ³ãƒ‘çƒæ•°å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblResult_WBC_10e9L    ç™½è¡€çƒæ•°
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9L As Double) As Long
@@ -462,11 +462,11 @@ Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFPT_Plus_INR INR‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šPT_Plus_INR INRå¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -491,11 +491,11 @@ Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFAPTT_Plus_SEC  Šˆ«‰»•”•ªƒgƒƒ“ƒ{ƒvƒ‰ƒXƒ`ƒ“ŠÔ‰„’·
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šAPTT_Plus_SEC  æ´»æ€§åŒ–éƒ¨åˆ†ãƒˆãƒ­ãƒ³ãƒœãƒ—ãƒ©ã‚¹ãƒãƒ³æ™‚é–“å»¶é•·
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -520,12 +520,12 @@ Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFFib_Minus_mgdL ƒtƒBƒuƒŠƒmƒQƒ“Œ¸­
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'@@@FdblFib_mgdL  ƒx[ƒXƒ‰ƒCƒ“’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šFib_Minus_mgdL ãƒ•ã‚£ãƒ–ãƒªãƒã‚²ãƒ³æ¸›å°‘
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'ã€€ã€€ã€€ï¼šdblFib_mgdL  ãƒ™ãƒ¼ã‚¹ãƒ©ã‚¤ãƒ³å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblFib_mgdL As Double) As Long
@@ -549,11 +549,11 @@ Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFALB_Minus_gdL ’áƒAƒ‹ƒuƒ~ƒ“ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šALB_Minus_gdL ä½ã‚¢ãƒ«ãƒ–ãƒŸãƒ³è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -574,11 +574,11 @@ Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFALB_Minus_gL ’áƒAƒ‹ƒuƒ~ƒ“ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šALB_Minus_gL ä½ã‚¢ãƒ«ãƒ–ãƒŸãƒ³è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function ALB_Minus_gL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -600,12 +600,12 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFCre_Plus_mgdL ƒNƒŒƒAƒ`ƒjƒ“‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'@@@FdblCre_mgdL  ƒx[ƒXƒ‰ƒCƒ“’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šCre_Plus_mgdL ã‚¯ãƒ¬ã‚¢ãƒãƒ‹ãƒ³å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'ã€€ã€€ã€€ï¼šdblCre_mgdL  ãƒ™ãƒ¼ã‚¹ãƒ©ã‚¤ãƒ³å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double, ByVal dblCre_mgdL As Double) As Long
@@ -628,12 +628,12 @@ Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFCre_Plus2_mgdL ‹}«t•s‘S
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'@@@FdblCre_mgdL  ƒx[ƒXƒ‰ƒCƒ“’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šCre_Plus2_mgdL æ€¥æ€§è…ä¸å…¨
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'ã€€ã€€ã€€ï¼šdblCre_mgdL  ãƒ™ãƒ¼ã‚¹ãƒ©ã‚¤ãƒ³å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Cre_Plus2_mgdL(ByVal dblResult As Double, ByVal dblULN As Double, ByVal dblCre_mgdL As Double) As Long
@@ -654,11 +654,11 @@ Public Function Cre_Plus2_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFUA_Plus_mgdL ‚”A_ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šUA_Plus_mgdL é«˜å°¿é…¸è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function UA_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -677,11 +677,11 @@ Public Function UA_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFCHO_Plus_mgdL ƒRƒŒƒXƒeƒ[ƒ‹‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šCHO_Plus_mgdL ã‚³ãƒ¬ã‚¹ãƒ†ãƒ­ãƒ¼ãƒ«å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -704,11 +704,11 @@ Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFTbil_Plus_mgdL ŒŒ’†ƒrƒŠƒ‹ƒrƒ“‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šTbil_Plus_mgdL è¡€ä¸­ãƒ“ãƒªãƒ«ãƒ“ãƒ³å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -731,11 +731,11 @@ Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFALP_Plus_UL ƒAƒ‹ƒJƒŠƒzƒXƒtƒ@ƒ^[ƒ[‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šALP_Plus_UL ã‚¢ãƒ«ã‚«ãƒªãƒ›ã‚¹ãƒ•ã‚¡ã‚¿ãƒ¼ã‚¼å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -758,11 +758,11 @@ Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFCPK_Plus_UL CPK‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šCPK_Plus_UL CPKå¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -785,11 +785,11 @@ Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFAST_Plus_UL  ƒAƒXƒpƒ‰ƒMƒ“_ƒAƒ~ƒmƒgƒ‰ƒ“ƒXƒtƒFƒ‰[ƒ[‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šAST_Plus_UL  ã‚¢ã‚¹ãƒ‘ãƒ©ã‚®ãƒ³é…¸ã‚¢ãƒŸãƒãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚§ãƒ©ãƒ¼ã‚¼å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -812,11 +812,11 @@ Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFALT_Plus_UL  ƒAƒ‰ƒjƒ“EƒAƒ~ƒmƒgƒ‰ƒ“ƒXƒtƒFƒ‰[ƒ[‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šALT_Plus_UL  ã‚¢ãƒ©ãƒ‹ãƒ³ãƒ»ã‚¢ãƒŸãƒãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚§ãƒ©ãƒ¼ã‚¼å¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function ALT_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -840,11 +840,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFGTP_Plus_UL GGT‘‰Á
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/12 yamamoto
+'åã€€å‰ï¼šGTP_Plus_UL GGTå¢—åŠ 
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/12 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function GTP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -868,11 +868,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFNa_Plus_mEqL  ‚ƒiƒgƒŠƒEƒ€ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šNa_Plus_mEqL  é«˜ãƒŠãƒˆãƒªã‚¦ãƒ è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -895,11 +895,11 @@ Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFNa_Minus_mEqL  ’áƒiƒgƒŠƒEƒ€ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šNa_Minus_mEqL  ä½ãƒŠãƒˆãƒªã‚¦ãƒ è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -920,11 +920,11 @@ Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFK_Plus_mEqL  ‚ƒJƒŠƒEƒ€ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šK_Plus_mEqL  é«˜ã‚«ãƒªã‚¦ãƒ è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -947,11 +947,11 @@ Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFK_Minus_mEqL  ’áƒJƒŠƒEƒ€ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šK_Minus_mEqL  ä½ã‚«ãƒªã‚¦ãƒ è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -972,11 +972,11 @@ Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFCa_Plus_mgdL  ‚ƒJƒ‹ƒVƒEƒ€ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šCa_Plus_mgdL  é«˜ã‚«ãƒ«ã‚·ã‚¦ãƒ è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -999,11 +999,11 @@ Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFCa_Minus_mgdL  ’áƒJƒ‹ƒVƒEƒ€ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šCa_Minus_mgdL  ä½ã‚«ãƒ«ã‚·ã‚¦ãƒ è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -1026,11 +1026,11 @@ Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFIP_Minus_mgdL  ’áƒŠƒ“ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šIP_Minus_mgdL  ä½ãƒªãƒ³è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -1053,11 +1053,11 @@ Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFMg_Plus_mgdL  ‚ƒ}ƒOƒlƒVƒEƒ€ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šMg_Plus_mgdL  é«˜ãƒã‚°ãƒã‚·ã‚¦ãƒ è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -1078,11 +1078,11 @@ Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFMg_Minus_mgdL  ’áƒ}ƒOƒlƒVƒEƒ€ŒŒÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šMg_Minus_mgdL  ä½ãƒã‚°ãƒã‚·ã‚¦ãƒ è¡€ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -1105,11 +1105,11 @@ Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFGluc_Plus_mgdL  ‚ŒŒ“œ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblULN    ãŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šGluc_Plus_mgdL  é«˜è¡€ç³–
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblULN    ä¸Šé™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -1132,11 +1132,11 @@ Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFGluc_Minus_mgdL  ’áŒŒ“œÇ
-'ˆø@”FdblResult Œ‹‰Ê’l
-'@@@FdblLLN    ‰ºŒÀ’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šGluc_Minus_mgdL  ä½è¡€ç³–ç—‡
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'ã€€ã€€ã€€ï¼šdblLLN    ä¸‹é™å€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -1159,10 +1159,10 @@ Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFUPro_Plus  ”A’`”’
-'ˆø@”FdblResult Œ‹‰Ê’l
-'–ß‚è’lFƒOƒŒ[ƒh
-'ì¬“úF2016/02/10 yamamoto
+'åã€€å‰ï¼šUPro_Plus  å°¿è›‹ç™½
+'å¼•ã€€æ•°ï¼šdblResult çµæœå€¤
+'æˆ»ã‚Šå€¤ï¼šã‚°ãƒ¬ãƒ¼ãƒ‰
+'ä½œæˆæ—¥ï¼š2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function UPro_Plus(ByVal strResult As String) As Long

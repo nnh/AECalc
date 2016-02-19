@@ -1,9 +1,9 @@
 Attribute VB_Name = "basLaboMain"
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFbasLaboMain
-'à@–¾F
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šbasLaboMain
+'èª¬ã€€æ˜ï¼š
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -82,10 +82,10 @@ Private Const mcLnUPro      As Long = 60
 Private mcolAgeKaisou       As collection
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFKeisanGrade ƒOƒŒ[ƒh‚ğŒvZ‚µ‚Ä•\¦‚·‚é
-'ˆø@”F‚È‚µ
-'–ß‚è’lF‚È‚µ
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šKeisanGrade ã‚°ãƒ¬ãƒ¼ãƒ‰ã‚’è¨ˆç®—ã—ã¦è¡¨ç¤ºã™ã‚‹
+'å¼•ã€€æ•°ï¼šãªã—
+'æˆ»ã‚Šå€¤ï¼šãªã—
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Sub KeisanGrade()
   Dim strShoureiNum     As String
@@ -113,7 +113,7 @@ Public Sub KeisanGrade()
   Do
     strShoureiNum = Worksheets("Labo").Cells(i, 1).Value
     
-    If strShoureiNum = "" Then Exit Do                    '/ Ç—á”Ô†‚ª""‚Ü‚ÅŒJ‚è•Ô‚·
+    If strShoureiNum = "" Then Exit Do                    '/ ç—‡ä¾‹ç•ªå·ãŒ""ã¾ã§ç¹°ã‚Šè¿”ã™
     
     dtKensaday = Worksheets("Labo").Cells(i, 2).Value
     
@@ -247,7 +247,7 @@ Public Sub KeisanGrade()
        .Cells(i, mcALT + 1).Value = ALT_Plus_UL(dblKensaValue, dblULN)
       End If
       
-      If IsReady(mcLnGTP, mcGTP, clPatient, i, dblLLN, dblULN) Then '/ ƒÁ-GTP(U/L)
+      If IsReady(mcLnGTP, mcGTP, clPatient, i, dblLLN, dblULN) Then '/ Î³-GTP(U/L)
         dblKensaValue = .Cells(i, mcGTP).Value
        .Cells(i, mcGTP + 1).Value = GTP_Plus_UL(dblKensaValue, dblULN)
       End If
@@ -304,11 +304,11 @@ End Sub
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFGetPatient
-'ˆø@”FstrShoureiNum  Ç—á”Ô†
-'@@@FdtKensaday     ŒŸ¸“ú
-'–ß‚è’lFclsPatientŒ^ŠY“–Š³Ò
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šGetPatient
+'å¼•ã€€æ•°ï¼šstrShoureiNum  ç—‡ä¾‹ç•ªå·
+'ã€€ã€€ã€€ï¼šdtKensaday     æ¤œæŸ»æ—¥
+'æˆ»ã‚Šå€¤ï¼šclsPatientå‹è©²å½“æ‚£è€…
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As Date) As clsPatient
   Dim i               As Long
@@ -327,9 +327,9 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As D
   With Worksheets("Demog")
     Do
       strCurrentNum = .Range("A" & i).Value
-      If strCurrentNum = "" Then Exit Do      '/ Ç—á”Ô†‚ª""‚Ü‚ÅŒJ‚è•Ô‚·
+      If strCurrentNum = "" Then Exit Do      '/ ç—‡ä¾‹ç•ªå·ãŒ""ã¾ã§ç¹°ã‚Šè¿”ã™
       
-      If strCurrentNum = strShoureiNum Then   '/ Ç—á”Ô†Œ©‚Â‚©‚Á‚½
+      If strCurrentNum = strShoureiNum Then   '/ ç—‡ä¾‹ç•ªå·è¦‹ã¤ã‹ã£ãŸ
         Set clPatient = New clsPatient
         clPatient.Num = strShoureiNum
         Exit Do
@@ -338,7 +338,7 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As D
     Loop
   End With
   
-  If clPatient Is Nothing Then Exit Function '/ Ç—á”Ô†Œ©‚Â‚©‚ç‚È‚©‚Á‚½‚È‚ço‚é
+  If clPatient Is Nothing Then Exit Function '/ ç—‡ä¾‹ç•ªå·è¦‹ã¤ã‹ã‚‰ãªã‹ã£ãŸãªã‚‰å‡ºã‚‹
 
   With Worksheets("Demog")
     dtBirthday = .Range("B" & i).Value
@@ -350,10 +350,10 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As D
   End With
   
   
-  '/// ’a¶“ú‚©‚ç”N—îæ“¾
+  '/// èª•ç”Ÿæ—¥ã‹ã‚‰å¹´é½¢å–å¾—
   lngResult = CalcAge(lngAgeY, lngAgeM, dtBirthday, dtKensaday)
   
-  If Not (lngResult = 0) Then Exit Function '/ ”N—îæ“¾o—ˆ‚È‚©‚Á‚½‚ço‚é
+  If Not (lngResult = 0) Then Exit Function '/ å¹´é½¢å–å¾—å‡ºæ¥ãªã‹ã£ãŸã‚‰å‡ºã‚‹
   
   clPatient.AgeY = lngAgeY
   clPatient.AgeM = lngAgeM
@@ -367,13 +367,13 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFJoinKeyAgeSex ”N—î Œ—î «•Ê‚ğƒXƒy[ƒX‹æØ‚è‚Å˜AŒ‹AƒL[‚ğì¬B
-'  @@@@@@@@@@"over20" ‚Í"999"‚ÅƒL[@1ÎˆÈã‚Ìê‡‚ÍŒ—î 0
-'ˆø@”FlngAgeY
-'@@@FlngAgeM
-'@@@FstrSex
-'–ß‚è’lFKey‚Æ‚·‚é•¶š—ñ
-'ì¬“úF2016/02/09 sakaguchi
+'åã€€å‰ï¼šJoinKeyAgeSex å¹´é½¢ æœˆé½¢ æ€§åˆ¥ã‚’ã‚¹ãƒšãƒ¼ã‚¹åŒºåˆ‡ã‚Šã§é€£çµã€ã‚­ãƒ¼ã‚’ä½œæˆã€‚
+'  ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€ã€€"over20" ã¯"999"ã§ã‚­ãƒ¼ã€€1æ­³ä»¥ä¸Šã®å ´åˆã¯æœˆé½¢ 0
+'å¼•ã€€æ•°ï¼šlngAgeY
+'ã€€ã€€ã€€ï¼šlngAgeM
+'ã€€ã€€ã€€ï¼šstrSex
+'æˆ»ã‚Šå€¤ï¼šKeyã¨ã™ã‚‹æ–‡å­—åˆ—
+'ä½œæˆæ—¥ï¼š2016/02/09 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function JoinKeyAgeSex(ByVal lngAgeY As Long, ByVal lngAgeM As Long, ByVal strSex As String) As String
   
@@ -387,15 +387,15 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFIsReady ƒOƒŒ[ƒhŒvZ€”õ‚ª®‚Á‚Ä‚¢‚ê‚ÎTrue‚ğ•Ô‚·
-'ˆø@”FlngRefCOL      ‘ÎÛRefƒV[ƒg—ñ
-'@@@FlngLaboCOL     ‘ÎÛLaboƒV[ƒg—ñ
-'@@@FclPatient      ‘ÎÛŠ³Ò
-'@@@FlngCurrentRow@Œ»İs
-'@@@FdblLLN       @‰ºŒÀ
-'@@@FdblULN       @ãŒÀ
-'–ß‚è’lF
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šIsReady ã‚°ãƒ¬ãƒ¼ãƒ‰è¨ˆç®—æº–å‚™ãŒæ•´ã£ã¦ã„ã‚Œã°Trueã‚’è¿”ã™
+'å¼•ã€€æ•°ï¼šlngRefCOL      å¯¾è±¡Refã‚·ãƒ¼ãƒˆåˆ—
+'ã€€ã€€ã€€ï¼šlngLaboCOL     å¯¾è±¡Laboã‚·ãƒ¼ãƒˆåˆ—
+'ã€€ã€€ã€€ï¼šclPatient      å¯¾è±¡æ‚£è€…
+'ã€€ã€€ã€€ï¼šlngCurrentRowã€€ç¾åœ¨è¡Œ
+'ã€€ã€€ã€€ï¼šdblLLN       ã€€ä¸‹é™
+'ã€€ã€€ã€€ï¼šdblULN       ã€€ä¸Šé™
+'æˆ»ã‚Šå€¤ï¼š
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function IsReady(ByVal lngRefCOL As Long, ByVal lngLaboCOL As Long, ByVal clPatient As clsPatient, ByVal lngCurrentRow As Long, _
                          ByRef dblLLN As Double, ByRef dblULN As Double) As Boolean
@@ -411,7 +411,7 @@ Private Function IsReady(ByVal lngRefCOL As Long, ByVal lngLaboCOL As Long, ByVa
   dblULN = 0
   
   strValue = Worksheets("Labo").Cells(lngCurrentRow, lngLaboCOL).Value
-  If strValue = "" Then Exit Function           '/ ŒŸ¸’l""‚È‚ç‰½‚à‚µ‚È‚¢
+  If strValue = "" Then Exit Function           '/ æ¤œæŸ»å€¤""ãªã‚‰ä½•ã‚‚ã—ãªã„
   
   lngRow = GetRefRow(clPatient, lngRefCOL)      '/ Target Row of RefSheet
   
@@ -439,11 +439,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFGetRefRow RefƒV[ƒg‚ÌŠY“–ROW”Ô†æ“¾
-'ˆø@”FclPatient
-'@@@FlngTargetCOL
-'–ß‚è’lF‘ÎÛ‚Æ‚È‚éRefƒV[ƒgROW”Ô†
-'ì¬“úF2016/02/09 sakaguchi
+'åã€€å‰ï¼šGetRefRow Refã‚·ãƒ¼ãƒˆã®è©²å½“ROWç•ªå·å–å¾—
+'å¼•ã€€æ•°ï¼šclPatient
+'ã€€ã€€ã€€ï¼šlngTargetCOL
+'æˆ»ã‚Šå€¤ï¼šå¯¾è±¡ã¨ãªã‚‹Refã‚·ãƒ¼ãƒˆROWç•ªå·
+'ä½œæˆæ—¥ï¼š2016/02/09 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function GetRefRow(ByVal clPatient As clsPatient, ByVal lngTargetCOL As Long) As Long
   Dim strAge            As String
@@ -463,22 +463,22 @@ Private Function GetRefRow(ByVal clPatient As clsPatient, ByVal lngTargetCOL As 
   strAdultAgeSex = JoinKeyAgeSex(mclngAdult, clPatient.AgeM, clPatient.Sex)
   
     
-  lngRow = GetLngItem(mcolAgeKaisou, strAge)          '/ ”N—î‚¾‚¯‚ÅƒT[ƒ`
+  lngRow = GetLngItem(mcolAgeKaisou, strAge)          '/ å¹´é½¢ã ã‘ã§ã‚µãƒ¼ãƒ
   If mclngRefSttRow <= lngRow Then
     If Worksheets("Ref").Cells(lngRow, lngTargetCOL) <> "" Then GetRefRow = lngRow: Exit Function
   End If
   
-  lngRow = GetLngItem(mcolAgeKaisou, strAgeSex)       '/ ”N—î‚Æ«•Ê‚ÅƒT[ƒ`
+  lngRow = GetLngItem(mcolAgeKaisou, strAgeSex)       '/ å¹´é½¢ã¨æ€§åˆ¥ã§ã‚µãƒ¼ãƒ
   If mclngRefSttRow <= lngRow Then
     If Worksheets("Ref").Cells(lngRow, lngTargetCOL) <> "" Then GetRefRow = lngRow: Exit Function
   End If
   
-  lngRow = GetLngItem(mcolAgeKaisou, strAdultAgeSex)  '/ ¬l‚Æ«•Ê‚ÅƒT[ƒ`
+  lngRow = GetLngItem(mcolAgeKaisou, strAdultAgeSex)  '/ æˆäººã¨æ€§åˆ¥ã§ã‚µãƒ¼ãƒ
   If mclngRefSttRow <= lngRow Then
     If Worksheets("Ref").Cells(lngRow, lngTargetCOL) <> "" Then GetRefRow = lngRow: Exit Function
   End If
 
-  lngRow = GetLngItem(mcolAgeKaisou, strAdultAge)     '/ ¬l‚¾‚¯‚ÅƒT[ƒ`
+  lngRow = GetLngItem(mcolAgeKaisou, strAdultAge)     '/ æˆäººã ã‘ã§ã‚µãƒ¼ãƒ
   If mclngRefSttRow <= lngRow Then
     If Worksheets("Ref").Cells(lngRow, lngTargetCOL) <> "" Then GetRefRow = lngRow: Exit Function
   End If
@@ -488,11 +488,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFGetKaisou
-'ˆø@”F
-'@@@F
-'–ß‚è’lFCollection ”N—î«•ÊŠK‘wƒRƒŒƒNƒVƒ‡ƒ“@ƒAƒCƒeƒ€:s  Key:”N—îŒ—î«•Ê
-'ì¬“úF2016/02/08 sakaguchi
+'åã€€å‰ï¼šGetKaisou
+'å¼•ã€€æ•°ï¼š
+'ã€€ã€€ã€€ï¼š
+'æˆ»ã‚Šå€¤ï¼šCollection å¹´é½¢æ€§åˆ¥éšå±¤ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã€€ã‚¢ã‚¤ãƒ†ãƒ :è¡Œ  Key:å¹´é½¢æœˆé½¢æ€§åˆ¥
+'ä½œæˆæ—¥ï¼š2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function GetKaisou() As collection
   Dim colResult   As collection
@@ -508,7 +508,7 @@ Private Function GetKaisou() As collection
   i = mclngRefSttRow
   With Worksheets("Ref")
     Do
-      strAgeY = .Range("A" & i).Value: If strAgeY = "" Then Exit Do '/ ”N—î‚ª""‚Ü‚ÅŒJ‚è•Ô‚·
+      strAgeY = .Range("A" & i).Value: If strAgeY = "" Then Exit Do '/ å¹´é½¢ãŒ""ã¾ã§ç¹°ã‚Šè¿”ã™
       lngAgeM = .Range("B" & i).Value
       strSex = .Range("C" & i).Value
       
@@ -533,10 +533,10 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFClearSheetLabo
-'ˆø@”F‚È‚µ
-'–ß‚è’lF‚È‚µ
-'ì¬“úF2016/02/15 sakaguchi
+'åã€€å‰ï¼šClearSheetLabo
+'å¼•ã€€æ•°ï¼šãªã—
+'æˆ»ã‚Šå€¤ï¼šãªã—
+'ä½œæˆæ—¥ï¼š2016/02/15 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Sub ClearSheetLabo()
   Dim lngMaxRow  As Long
@@ -576,11 +576,11 @@ Private Sub ClearSheetLabo()
 End Sub
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFClearSheetLaboSub
-'ˆø@”FlngMaxRow@Å‘ås
-'@@@FlngCOL     ‘ÎÛ€–Ú—ñ
-'–ß‚è’lF‚È‚µ
-'ì¬“úF2016/02/15 sakaguchi
+'åã€€å‰ï¼šClearSheetLaboSub
+'å¼•ã€€æ•°ï¼šlngMaxRowã€€æœ€å¤§è¡Œ
+'ã€€ã€€ã€€ï¼šlngCOL     å¯¾è±¡é …ç›®åˆ—
+'æˆ»ã‚Šå€¤ï¼šãªã—
+'ä½œæˆæ—¥ï¼š2016/02/15 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Sub ClearSheetLaboSub(ByVal lngMaxRow As Long, ByVal lngCOL As Long)
   Worksheets("Labo").Range(Cells(mclngLaboSttRow, lngCOL + 1), Cells(lngMaxRow, lngCOL + 2)).Value = ""

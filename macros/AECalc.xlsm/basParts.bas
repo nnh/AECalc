@@ -1,22 +1,22 @@
 Attribute VB_Name = "basParts"
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFbasParts
-'à@–¾F
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šbasParts
+'èª¬ã€€æ˜ï¼š
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFCalcAge
-'ˆø@”FByRef lngY@”N—î
-'@@@FByRef lngM@Œ—î
-'@@@FByVal dtBirthday ’a¶“ú
-'@@@FByVal dtKensaday ŒŸ¸“ú
-'–ß‚è’lF’Êí0(ƒGƒ‰[ƒGƒ‰[”Ô†)@”N—îAŒ—î
-'ì¬“úF2016/02/08 sakaguchi
+'åã€€å‰ï¼šCalcAge
+'å¼•ã€€æ•°ï¼šByRef lngYã€€å¹´é½¢
+'ã€€ã€€ã€€ï¼šByRef lngMã€€æœˆé½¢
+'ã€€ã€€ã€€ï¼šByVal dtBirthday èª•ç”Ÿæ—¥
+'ã€€ã€€ã€€ï¼šByVal dtKensaday æ¤œæŸ»æ—¥
+'æˆ»ã‚Šå€¤ï¼šé€šå¸¸0(ã‚¨ãƒ©ãƒ¼æ™‚ã‚¨ãƒ©ãƒ¼ç•ªå·)ã€€å¹´é½¢ã€æœˆé½¢
+'ä½œæˆæ—¥ï¼š2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function CalcAge(ByRef lngY As Long, ByRef lngM As Long, ByVal dtBirthday As Date, ByVal dtKensaday As Date) As Long
   Dim lngMwork As Long
@@ -27,15 +27,15 @@ Public Function CalcAge(ByRef lngY As Long, ByRef lngM As Long, ByVal dtBirthday
   lngY = 0
   lngM = 0
   
-  '/// ”N—îŒvZ
+  '/// å¹´é½¢è¨ˆç®—
   lngY = DateDiff("yyyy", dtBirthday, dtKensaday)
   If Format(dtKensaday, "mmdd") < Format(dtBirthday, "mmdd") Then lngY = lngY - 1
   
-  '/// Œ—îŒvZ
+  '/// æœˆé½¢è¨ˆç®—
   lngMwork = DateDiff("m", dtBirthday, dtKensaday)
   lngMwork = lngMwork Mod 12
   If Format(dtKensaday, "dd") < Format(dtBirthday, "dd") Then
-    If 0 < lngMwork Then lngMwork = lngMwork - 1 Else lngMwork = 11  '/ -1ƒ–Œ‚Å‚È‚­11ƒ–Œ‚É
+    If 0 < lngMwork Then lngMwork = lngMwork - 1 Else lngMwork = 11  '/ -1ãƒ¶æœˆã§ãªã11ãƒ¶æœˆã«
   End If
   lngM = lngMwork
     
@@ -46,11 +46,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFGetLngItem
-'ˆø@”FByRef colCollection ‘ÎÛLongŒ^ƒRƒŒƒNƒVƒ‡ƒ“
-'@@@FByVal strKey        ƒ†ƒj[ƒNƒL[
-'–ß‚è’lFKsy‚É‘Î‚·‚éItem‚ª‚È‚¯‚ê‚Î-1 ‚ ‚ê‚ÎItem‚Ì”’l
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šGetLngItem
+'å¼•ã€€æ•°ï¼šByRef colCollection å¯¾è±¡Longå‹ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³
+'ã€€ã€€ã€€ï¼šByVal strKey        ãƒ¦ãƒ‹ãƒ¼ã‚¯ã‚­ãƒ¼
+'æˆ»ã‚Šå€¤ï¼šKsyã«å¯¾ã™ã‚‹ItemãŒãªã‘ã‚Œã°-1 ã‚ã‚Œã°Itemã®æ•°å€¤
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function GetLngItem(ByRef colCollection As collection, ByVal strKey As String) As Long
   GetLngItem = -1
@@ -61,12 +61,12 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFAddLngItem
-'ˆø@”FByRef colCollection ‘ÎÛLongŒ^ƒRƒŒƒNƒVƒ‡ƒ“
-'@@@FByVal lngItem       LongŒ^Item
-'@@@FByVal strKey        ƒ†ƒj[ƒNƒL[
-'–ß‚è’lF‚È‚µ
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šAddLngItem
+'å¼•ã€€æ•°ï¼šByRef colCollection å¯¾è±¡Longå‹ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³
+'ã€€ã€€ã€€ï¼šByVal lngItem       Longå‹Item
+'ã€€ã€€ã€€ï¼šByVal strKey        ãƒ¦ãƒ‹ãƒ¼ã‚¯ã‚­ãƒ¼
+'æˆ»ã‚Šå€¤ï¼šãªã—
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Sub AddLngItem(ByRef colCollection As collection, ByVal lngItem As Long, ByVal strKey)
   On Error Resume Next
@@ -77,10 +77,10 @@ End Sub
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFSetIsNumeric
-'ˆø@”FByVal strValue
-'–ß‚è’lF”’l•¶š—ñ‚È‚ç”’l@‚»‚¤‚Å‚È‚¢‚È‚ç0
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šSetIsNumeric
+'å¼•ã€€æ•°ï¼šByVal strValue
+'æˆ»ã‚Šå€¤ï¼šæ•°å€¤æ–‡å­—åˆ—ãªã‚‰æ•°å€¤ã€€ãã†ã§ãªã„ãªã‚‰0
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function SetIsNumeric(ByVal strValue As String) As Double
   If IsNumeric(strValue) Then

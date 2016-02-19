@@ -9,21 +9,21 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'–¼@‘OFclsPatient
-'à@–¾FData of Patient
-'ì¬“úF2016/02/10 sakaguchi
+'åã€€å‰ï¼šclsPatient
+'èª¬ã€€æ˜ï¼šData of Patient
+'ä½œæˆæ—¥ï¼š2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
 
-Private mstrNum       As String '/ Ç—á”Ô†
-Private mstrSex       As String '/ «•Ê
-Private mlngAgeY      As Long   '/ ”N—î
-Private mlngAgeM      As Long   '/ Œ—î
+Private mstrNum       As String '/ ç—‡ä¾‹ç•ªå·
+Private mstrSex       As String '/ æ€§åˆ¥
+Private mlngAgeY      As Long   '/ å¹´é½¢
+Private mlngAgeM      As Long   '/ æœˆé½¢
 Private mdblCre       As Double '/ Cre( mg/dL)
 Private mdblHgb_gdL   As Double '/ Hgb(g/dL)
 Private mdblHgb_mgL   As Double '/ Hgb(mg/L)
-Private mdblFib       As Double '/ ƒtƒBƒuƒŠƒmƒQƒ“(mg/dL)
+Private mdblFib       As Double '/ ãƒ•ã‚£ãƒ–ãƒªãƒã‚²ãƒ³(mg/dL)
 
 
 Private Sub Class_Initialize()
