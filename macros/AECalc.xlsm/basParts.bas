@@ -1,22 +1,21 @@
 Attribute VB_Name = "basParts"
-
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：basParts
-'説　明：
-'作成日：2016/02/10 sakaguchi
+'Name         :basParts
+'Explanation  :
+'Date created : 2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：CalcAge
-'引　数：ByRef lngY　年齢
-'　　　：ByRef lngM　月齢
-'　　　：ByVal dtBirthday 誕生日
-'　　　：ByVal dtKensaday 検査日
-'戻り値：通常0(エラー時エラー番号)　年齢、月齢
-'作成日：2016/02/08 sakaguchi
+'Name         :CalcAge
+'Argument     :ByRef lngY　Age
+'             :ByRef lngM　MonthOld
+'             :ByVal dtBirthday Birthday
+'             :ByVal dtKensaday TestDay
+'Return Value :0(Error then ErrorNumber)
+'Date created :2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function CalcAge(ByRef lngY As Long, ByRef lngM As Long, ByVal dtBirthday As Date, ByVal dtKensaday As Date) As Long
   Dim lngMwork As Long
@@ -27,15 +26,15 @@ Public Function CalcAge(ByRef lngY As Long, ByRef lngM As Long, ByVal dtBirthday
   lngY = 0
   lngM = 0
   
-  '/// 年齢計算
+  '/// CalcAge
   lngY = DateDiff("yyyy", dtBirthday, dtKensaday)
   If Format(dtKensaday, "mmdd") < Format(dtBirthday, "mmdd") Then lngY = lngY - 1
   
-  '/// 月齢計算
+  '/// CalcMonthOld
   lngMwork = DateDiff("m", dtBirthday, dtKensaday)
   lngMwork = lngMwork Mod 12
   If Format(dtKensaday, "dd") < Format(dtBirthday, "dd") Then
-    If 0 < lngMwork Then lngMwork = lngMwork - 1 Else lngMwork = 11  '/ -1ヶ月でなく11ヶ月に
+    If 0 < lngMwork Then lngMwork = lngMwork - 1 Else lngMwork = 11  '/ -1 Month  →  11 Month
   End If
   lngM = lngMwork
     
@@ -46,11 +45,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：GetLngItem
-'引　数：ByRef colCollection 対象Long型コレクション
-'　　　：ByVal strKey        ユニークキー
-'戻り値：Ksyに対するItemがなければ-1 あればItemの数値
-'作成日：2016/02/10 sakaguchi
+'Name         :GetLngItem
+'Argument     :ByRef colCollection LongClassItemCollection
+'             :ByVal strKey        UniqueKey
+'Return Value :Item Value
+'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function GetLngItem(ByRef colCollection As collection, ByVal strKey As String) As Long
   GetLngItem = -1
@@ -61,12 +60,12 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：AddLngItem
-'引　数：ByRef colCollection 対象Long型コレクション
-'　　　：ByVal lngItem       Long型Item
-'　　　：ByVal strKey        ユニークキー
-'戻り値：なし
-'作成日：2016/02/10 sakaguchi
+'Name         :AddLngItem
+'Argument     :ByRef colCollection
+'             :ByVal lngItem       LongClassItem
+'             :ByVal strKey        UniqueKey
+'Return Value :None
+'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Sub AddLngItem(ByRef colCollection As collection, ByVal lngItem As Long, ByVal strKey)
   On Error Resume Next
@@ -77,10 +76,10 @@ End Sub
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：SetIsNumeric
-'引　数：ByVal strValue
-'戻り値：数値文字列なら数値　そうでないなら0
-'作成日：2016/02/10 sakaguchi
+'Name         :SetIsNumeric
+'Argument     :ByVal strValue
+'Return Value :Numeric Value
+'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function SetIsNumeric(ByVal strValue As String) As Double
   If IsNumeric(strValue) Then
@@ -89,16 +88,3 @@ Public Function SetIsNumeric(ByVal strValue As String) As Double
     SetIsNumeric = 0
   End If
 End Function
-
-Private Sub test()
-  Dim y As Long
-  Dim m As Long
-  Call CalcAge(y, m, "1978/2/16", "2016/2/15")
-  Debug.Print y & " " & m
-  
-  Call CalcAge(y, m, "2014/2/15", "2016/2/15")
-  Debug.Print y & " " & m
-  
-  Call CalcAge(y, m, "2016/11/15", "2016/12/15")
-  Debug.Print y & " " & m
-End Sub

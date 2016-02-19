@@ -1,11 +1,10 @@
 Attribute VB_Name = "basLaboMain"
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：basLaboMain
-'説　明：
-'作成日：2016/02/10 sakaguchi
+'Name         :basLaboMain
+'Explanation  :
+'Date created : 2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-
 
 Option Explicit
 
@@ -82,10 +81,10 @@ Private Const mcLnUPro      As Long = 60
 Private mcolAgeKaisou       As collection
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：KeisanGrade グレードを計算して表示する
-'引　数：なし
-'戻り値：なし
-'作成日：2016/02/10 sakaguchi
+'Name         :KeisanGrade
+'Argument     :None
+'Return Value :None
+'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Sub KeisanGrade()
   Dim strShoureiNum     As String
@@ -113,7 +112,7 @@ Public Sub KeisanGrade()
   Do
     strShoureiNum = Worksheets("Labo").Cells(i, 1).Value
     
-    If strShoureiNum = "" Then Exit Do                    '/ 症例番号が""まで繰り返す
+    If strShoureiNum = "" Then Exit Do                    '/ CaseNumberが""まで繰り返す
     
     dtKensaday = Worksheets("Labo").Cells(i, 2).Value
     
@@ -304,11 +303,11 @@ End Sub
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：GetPatient
-'引　数：strShoureiNum  症例番号
-'　　　：dtKensaday     検査日
-'戻り値：clsPatient型該当患者
-'作成日：2016/02/10 sakaguchi
+'Name         :GetPatient
+'Argument     :strShoureiNum  CaseNumber
+'             :dtKensaday     TestDay
+'Return Value :clsPatient
+'Date created : 2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As Date) As clsPatient
   Dim i               As Long
@@ -327,9 +326,9 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As D
   With Worksheets("Demog")
     Do
       strCurrentNum = .Range("A" & i).Value
-      If strCurrentNum = "" Then Exit Do      '/ 症例番号が""まで繰り返す
+      If strCurrentNum = "" Then Exit Do      '/ until CaseNumber=""
       
-      If strCurrentNum = strShoureiNum Then   '/ 症例番号見つかった
+      If strCurrentNum = strShoureiNum Then   '/ found CaseNumber
         Set clPatient = New clsPatient
         clPatient.Num = strShoureiNum
         Exit Do
@@ -338,7 +337,7 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As D
     Loop
   End With
   
-  If clPatient Is Nothing Then Exit Function '/ 症例番号見つからなかったなら出る
+  If clPatient Is Nothing Then Exit Function '/ CaseNumber None
 
   With Worksheets("Demog")
     dtBirthday = .Range("B" & i).Value
@@ -350,30 +349,27 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As D
   End With
   
   
-  '/// 誕生日から年齢取得
-  lngResult = CalcAge(lngAgeY, lngAgeM, dtBirthday, dtKensaday)
   
-  If Not (lngResult = 0) Then Exit Function '/ 年齢取得出来なかったら出る
+  lngResult = CalcAge(lngAgeY, lngAgeM, dtBirthday, dtKensaday) '/// Get Age,Get MonthOld
+  
+  If Not (lngResult = 0) Then Exit Function '/ Age=None Then Exit
   
   clPatient.AgeY = lngAgeY
   clPatient.AgeM = lngAgeM
 
   Set GetPatient = clPatient
   
-  'clPatient.KeyAgeSex = JoinKeyAgeSex(lngAgeY, lngAgeM, clPatient.Sex)
-  'Debug.Print clPatient.Num & "," & clPatient.Sex & "," & clPatient.AgeY & "," & clPatient.AgeM & "," & clPatient.Cre & "," & clPatient.Hgb_mgL & "," & clPatient.Hgb_gdL & "," & clPatient.Fib
   
 End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：JoinKeyAgeSex 年齢 月齢 性別をスペース区切りで連結、キーを作成。
-'  　　　　　　　　　　"over20" は"999"でキー　1歳以上の場合は月齢 0
-'引　数：lngAgeY
-'　　　：lngAgeM
-'　　　：strSex
-'戻り値：Keyとする文字列
-'作成日：2016/02/09 sakaguchi
+'Name         :JoinKeyAgeSex  Key of Age&MonthOld&Sex("over20":Age=999,Over1:Month old =0)
+'Argument     :lngAgeY
+'             :lngAgeM
+'             :strSex
+'Return Value :KeyString
+'Date created :2016/02/09 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function JoinKeyAgeSex(ByVal lngAgeY As Long, ByVal lngAgeM As Long, ByVal strSex As String) As String
   
@@ -387,15 +383,15 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：IsReady グレード計算準備が整っていればTrueを返す
-'引　数：lngRefCOL      対象Refシート列
-'　　　：lngLaboCOL     対象Laboシート列
-'　　　：clPatient      対象患者
-'　　　：lngCurrentRow　現在行
-'　　　：dblLLN       　下限
-'　　　：dblULN       　上限
-'戻り値：
-'作成日：2016/02/10 sakaguchi
+'Name         :IsReady
+'Argument     :lngRefCOL      Ref SheetCol
+'             :lngLaboCOL     LaboSheetCol
+'             :clPatient      Patient
+'             :lngCurrentRow　CurrentRow
+'             :dblLLN       　lower limit
+'             :dblULN       　upper limit
+'Return Value :
+'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function IsReady(ByVal lngRefCOL As Long, ByVal lngLaboCOL As Long, ByVal clPatient As clsPatient, ByVal lngCurrentRow As Long, _
                          ByRef dblLLN As Double, ByRef dblULN As Double) As Boolean
@@ -411,7 +407,7 @@ Private Function IsReady(ByVal lngRefCOL As Long, ByVal lngLaboCOL As Long, ByVa
   dblULN = 0
   
   strValue = Worksheets("Labo").Cells(lngCurrentRow, lngLaboCOL).Value
-  If strValue = "" Then Exit Function           '/ 検査値""なら何もしない
+  If strValue = "" Then Exit Function           '/ strValue="" exit
   
   lngRow = GetRefRow(clPatient, lngRefCOL)      '/ Target Row of RefSheet
   
@@ -439,13 +435,13 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：GetRefRow Refシートの該当ROW番号取得
-'引　数：clPatient
-'　　　：lngTargetCOL
-'戻り値：対象となるRefシートROW番号
-'作成日：2016/02/09 sakaguchi
+'Name         :GetRefRow  Row of RefSheet
+'Argument     :clPatient
+'             :lngTargetCol
+'Return Value :RefSheet TagetRow
+'Date created :2016/02/09 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Private Function GetRefRow(ByVal clPatient As clsPatient, ByVal lngTargetCOL As Long) As Long
+Private Function GetRefRow(ByVal clPatient As clsPatient, ByVal lngTargetCol As Long) As Long
   Dim strAge            As String
   Dim strAgeSex         As String
   Dim strAdultAge       As String
@@ -463,24 +459,24 @@ Private Function GetRefRow(ByVal clPatient As clsPatient, ByVal lngTargetCOL As 
   strAdultAgeSex = JoinKeyAgeSex(mclngAdult, clPatient.AgeM, clPatient.Sex)
   
     
-  lngRow = GetLngItem(mcolAgeKaisou, strAge)          '/ 年齢だけでサーチ
+  lngRow = GetLngItem(mcolAgeKaisou, strAge)          '/ Age Only search
   If mclngRefSttRow <= lngRow Then
-    If Worksheets("Ref").Cells(lngRow, lngTargetCOL) <> "" Then GetRefRow = lngRow: Exit Function
+    If Worksheets("Ref").Cells(lngRow, lngTargetCol) <> "" Then GetRefRow = lngRow: Exit Function
   End If
   
-  lngRow = GetLngItem(mcolAgeKaisou, strAgeSex)       '/ 年齢と性別でサーチ
+  lngRow = GetLngItem(mcolAgeKaisou, strAgeSex)       '/ Age,Sex search
   If mclngRefSttRow <= lngRow Then
-    If Worksheets("Ref").Cells(lngRow, lngTargetCOL) <> "" Then GetRefRow = lngRow: Exit Function
+    If Worksheets("Ref").Cells(lngRow, lngTargetCol) <> "" Then GetRefRow = lngRow: Exit Function
   End If
   
-  lngRow = GetLngItem(mcolAgeKaisou, strAdultAgeSex)  '/ 成人と性別でサーチ
+  lngRow = GetLngItem(mcolAgeKaisou, strAdultAgeSex)  '/ Adult,Sex search
   If mclngRefSttRow <= lngRow Then
-    If Worksheets("Ref").Cells(lngRow, lngTargetCOL) <> "" Then GetRefRow = lngRow: Exit Function
+    If Worksheets("Ref").Cells(lngRow, lngTargetCol) <> "" Then GetRefRow = lngRow: Exit Function
   End If
 
-  lngRow = GetLngItem(mcolAgeKaisou, strAdultAge)     '/ 成人だけでサーチ
+  lngRow = GetLngItem(mcolAgeKaisou, strAdultAge)     '/ Adult Only search
   If mclngRefSttRow <= lngRow Then
-    If Worksheets("Ref").Cells(lngRow, lngTargetCOL) <> "" Then GetRefRow = lngRow: Exit Function
+    If Worksheets("Ref").Cells(lngRow, lngTargetCol) <> "" Then GetRefRow = lngRow: Exit Function
   End If
   
   
@@ -488,11 +484,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：GetKaisou
-'引　数：
-'　　　：
-'戻り値：Collection 年齢性別階層コレクション　アイテム:行  Key:年齢月齢性別
-'作成日：2016/02/08 sakaguchi
+'Name         :GetKaisou
+'Argument     :
+'             :
+'Return Value :Collection 　Item:Row  Key:Age ,Month old,sex
+'Date created :2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function GetKaisou() As collection
   Dim colResult   As collection
@@ -508,7 +504,7 @@ Private Function GetKaisou() As collection
   i = mclngRefSttRow
   With Worksheets("Ref")
     Do
-      strAgeY = .Range("A" & i).Value: If strAgeY = "" Then Exit Do '/ 年齢が""まで繰り返す
+      strAgeY = .Range("A" & i).Value: If strAgeY = "" Then Exit Do '/ until Age=""
       lngAgeM = .Range("B" & i).Value
       strSex = .Range("C" & i).Value
       
@@ -533,10 +529,10 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：ClearSheetLabo
-'引　数：なし
-'戻り値：なし
-'作成日：2016/02/15 sakaguchi
+'Name         :ClearSheetLabo
+'Argument     :None
+'Return Value :None
+'Date created :2016/02/15 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Sub ClearSheetLabo()
   Dim lngMaxRow  As Long
@@ -576,11 +572,11 @@ Private Sub ClearSheetLabo()
 End Sub
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：ClearSheetLaboSub
-'引　数：lngMaxRow　最大行
-'　　　：lngCOL     対象項目列
-'戻り値：なし
-'作成日：2016/02/15 sakaguchi
+'Name         :ClearSheetLaboSub
+'Argument     :lngMaxRow　MaxRow
+'             :lngCOL     TargetCol
+'Return Value :None
+'Date created :2016/02/15 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Sub ClearSheetLaboSub(ByVal lngMaxRow As Long, ByVal lngCOL As Long)
   Worksheets("Labo").Range(Cells(mclngLaboSttRow, lngCOL + 1), Cells(lngMaxRow, lngCOL + 2)).Value = ""

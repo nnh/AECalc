@@ -9,21 +9,21 @@ Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：clsPatient
-'説　明：Data of Patient
-'作成日：2016/02/10 sakaguchi
+'Name         : clsPatient
+'Explanation  : Data of Patient
+'Date created : 2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
 
-Private mstrNum       As String '/ 症例番号
-Private mstrSex       As String '/ 性別
-Private mlngAgeY      As Long   '/ 年齢
-Private mlngAgeM      As Long   '/ 月齢
-Private mdblCre       As Double '/ Cre( mg/dL)
+Private mstrNum       As String '/ CaseNumber
+Private mstrSex       As String '/ Sex
+Private mlngAgeY      As Long   '/ Age
+Private mlngAgeM      As Long   '/ Month old
+Private mdblCre       As Double '/ Cre(mg/dL)
 Private mdblHgb_gdL   As Double '/ Hgb(g/dL)
 Private mdblHgb_mgL   As Double '/ Hgb(mg/L)
-Private mdblFib       As Double '/ フィブリノゲン(mg/dL)
+Private mdblFib       As Double '/ fibrinogen(mg/dL)
 
 
 Private Sub Class_Initialize()

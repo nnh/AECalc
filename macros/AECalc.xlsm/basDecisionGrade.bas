@@ -1,20 +1,20 @@
 Attribute VB_Name = "basDecisionGrade"
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：basDecisionGrade
-'説　明：
-'作成日：2016/02/10 sakaguchi,yamamoto
+'Name         :basDecisionGrade
+'Explanation  :
+'Date created :2016/02/10 sakaguchi,yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 
 Option Explicit
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：WBC_Minus_mm3 白血球減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/09 sakaguchi
+'Name         :WBC_Minus_mm3 白血球減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/09 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
   Dim lngGrade        As Long
@@ -36,11 +36,11 @@ Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：WBC_Minus_10e9L 白血球減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/09 sakaguchi
+'Name         :WBC_Minus_10e9L 白血球減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/09 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -67,10 +67,10 @@ Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：WBC_Plus_mm3 白血球増加症
-'引　数：dblResult 結果値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :WBC_Plus_mm3 白血球増加症
+'Argument     :dblResult      TestValue
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function WBC_Plus_mm3(ByVal dblResult As Double) As Long
@@ -89,12 +89,12 @@ Public Function WBC_Plus_mm3(ByVal dblResult As Double) As Long
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Hgb_Plus_gdL ヘモグロビン増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'　　　：dblHgb_gdL  ベースライン値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Hgb_Plus_gdL ヘモグロビン増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'             :dblHgb_gdL     Base line
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, ByVal dblHgb_gdL As Double) As Long
@@ -134,12 +134,12 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Hgb_Plus_mgL ヘモグロビン増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'　　　：dblHgb_gdL  ベースライン値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Hgb_Plus_mgL ヘモグロビン増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'             :dblHgb_gdL     Base line
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, ByVal dblHgb_mgL As Double) As Long
@@ -176,11 +176,11 @@ Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Hgb_Minus_gdL 貧血
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Hgb_Minus_gdL 貧血
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -201,11 +201,11 @@ Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Hgb_Minus_mgL 貧血
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Hgb_Minus_mgL 貧血
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -226,11 +226,11 @@ Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：PLT_Minus_mm3 血小板減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :PLT_Minus_mm3 血小板減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -253,11 +253,11 @@ Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：PLT_Minus_10e9L 血小板減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :PLT_Minus_10e9L 血小板減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -280,13 +280,13 @@ Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Ne_Minus_Per1 好中球数減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'　　　：dblResult_WBC_mm3    白血球数
-'　　　：dblLLN_WBC_mm3    白血球数下限値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Ne_Minus_Per1 好中球数減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'             :dblResult_WBC_mm3    白血球数
+'             :dblLLN_WBC_mm3    白血球数下限値
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblResult_WBC_mm3 As Double, ByVal dblLLN_WBC_mm3 As Double) As Long
@@ -313,13 +313,13 @@ Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Ne_Minus_Per2 好中球数減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'　　　：dblResult_WBC_10e9L    白血球数
-'　　　：dblLLN_WBC_10e9L    白血球数下限値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Ne_Minus_Per2 好中球数減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'             :dblResult_WBC_10e9L    白血球数
+'             :dblLLN_WBC_10e9L    白血球数下限値
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblResult_WBC_10e9L As Double, ByVal dblLLN_WBC_10e9L As Double) As Long
@@ -346,13 +346,13 @@ Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Ly_Minus_Per1 リンパ球数減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'　　　：dblResult_WBC_mm3    白血球数
-'　　　：dblLLN_WBC_mm3    白血球数下限値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Ly_Minus_Per1 リンパ球数減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'             :dblResult_WBC_mm3    白血球数
+'             :dblLLN_WBC_mm3    白血球数下限値
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblResult_WBC_mm3 As Double, ByVal dblLLN_WBC_mm3 As Double) As Long
@@ -379,13 +379,13 @@ Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Ly_Minus_Per2 リンパ球数減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'　　　：dblResult_WBC_10e9L    白血球数
-'　　　：dblLLN_WBC_10e9L    白血球数下限値
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Ly_Minus_Per2 リンパ球数減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'             :dblResult_WBC_10e9L    白血球数
+'             :dblLLN_WBC_10e9L    白血球数下限値
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblResult_WBC_10e9L As Double, ByVal dblLLN_WBC_10e9L As Double) As Long
@@ -412,11 +412,11 @@ Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Ly_Plus_Per1 リンパ球数増加
-'引　数：dblResult 結果値
-'　　　：dblResult_WBC_mm3    白血球数
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Ly_Plus_Per1 リンパ球数増加
+'Argument     :dblResult      TestValue
+'             :dblResult_WBC_mm3    白血球数
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 As Double) As Long
@@ -437,11 +437,11 @@ Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Ly_Plus_Per2 リンパ球数増加
-'引　数：dblResult 結果値
-'　　　：dblResult_WBC_10e9L    白血球数
-'戻り値：グレード
-'作成日：2016/02/09 yamamoto
+'Name         :Ly_Plus_Per2 リンパ球数増加
+'Argument     :dblResult      TestValue
+'             :dblResult_WBC_10e9L    白血球数
+'Return Value :Grade
+'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9L As Double) As Long
@@ -462,11 +462,11 @@ Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：PT_Plus_INR INR増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :PT_Plus_INR INR増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -491,11 +491,11 @@ Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：APTT_Plus_SEC  活性化部分トロンボプラスチン時間延長
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :APTT_Plus_SEC  活性化部分トロンボプラスチン時間延長
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -520,12 +520,12 @@ Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Fib_Minus_mgdL フィブリノゲン減少
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'　　　：dblFib_mgdL  ベースライン値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Fib_Minus_mgdL fibrinogen減少
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'             :dblFib_mgdL    Base line
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double, ByVal dblFib_mgdL As Double) As Long
@@ -549,11 +549,11 @@ Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：ALB_Minus_gdL 低アルブミン血症
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :ALB_Minus_gdL 低アルブミン血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -574,11 +574,11 @@ Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：ALB_Minus_gL 低アルブミン血症
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :ALB_Minus_gL 低アルブミン血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function ALB_Minus_gL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -600,12 +600,12 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Cre_Plus_mgdL クレアチニン増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'　　　：dblCre_mgdL  ベースライン値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Cre_Plus_mgdL クレアチニン増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'             :dblCre_mgdL    Base line
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double, ByVal dblCre_mgdL As Double) As Long
@@ -628,12 +628,12 @@ Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Cre_Plus2_mgdL 急性腎不全
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'　　　：dblCre_mgdL  ベースライン値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Cre_Plus2_mgdL 急性腎不全
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'             :dblCre_mgdL    Base line
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Cre_Plus2_mgdL(ByVal dblResult As Double, ByVal dblULN As Double, ByVal dblCre_mgdL As Double) As Long
@@ -654,11 +654,11 @@ Public Function Cre_Plus2_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：UA_Plus_mgdL 高尿酸血症
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :UA_Plus_mgdL 高尿酸血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function UA_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -677,11 +677,11 @@ Public Function UA_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：CHO_Plus_mgdL コレステロール増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :CHO_Plus_mgdL コレステロール増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -704,11 +704,11 @@ Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Tbil_Plus_mgdL 血中ビリルビン増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Tbil_Plus_mgdL 血中ビリルビン増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -731,11 +731,11 @@ Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：ALP_Plus_UL アルカリホスファターゼ増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :ALP_Plus_UL アルカリホスファターゼ増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -758,11 +758,11 @@ Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：CPK_Plus_UL CPK増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :CPK_Plus_UL CPK増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -785,11 +785,11 @@ Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：AST_Plus_UL  アスパラギン酸アミノトランスフェラーゼ増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :AST_Plus_UL  アスパラギン酸アミノトランスフェラーゼ増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -812,11 +812,11 @@ Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：ALT_Plus_UL  アラニン・アミノトランスフェラーゼ増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :ALT_Plus_UL  アラニン・アミノトランスフェラーゼ増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function ALT_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -840,11 +840,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：GTP_Plus_UL GGT増加
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/12 yamamoto
+'Name         :GTP_Plus_UL GGT増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/12 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function GTP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -868,11 +868,11 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Na_Plus_mEqL  高ナトリウム血症
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Na_Plus_mEqL  高ナトリウム血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -895,11 +895,11 @@ Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Na_Minus_mEqL  低ナトリウム血症
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Na_Minus_mEqL  低ナトリウム血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -920,11 +920,11 @@ Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：K_Plus_mEqL  高カリウム血症
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :K_Plus_mEqL  高カリウム血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -947,11 +947,11 @@ Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：K_Minus_mEqL  低カリウム血症
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :K_Minus_mEqL  低カリウム血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -972,11 +972,11 @@ Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Ca_Plus_mgdL  高カルシウム血症
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Ca_Plus_mgdL  高カルシウム血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -999,11 +999,11 @@ Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Ca_Minus_mgdL  低カルシウム血症
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Ca_Minus_mgdL  低カルシウム血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -1026,11 +1026,11 @@ Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：IP_Minus_mgdL  低リン血症
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :IP_Minus_mgdL  低リン血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -1053,11 +1053,11 @@ Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Mg_Plus_mgdL  高マグネシウム血症
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Mg_Plus_mgdL  高マグネシウム血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -1078,11 +1078,11 @@ Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Mg_Minus_mgdL  低マグネシウム血症
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Mg_Minus_mgdL  低マグネシウム血症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -1105,11 +1105,11 @@ Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Gluc_Plus_mgdL  高血糖
-'引　数：dblResult 結果値
-'　　　：dblULN    上限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Gluc_Plus_mgdL  高血糖
+'Argument     :dblResult      TestValue
+'             :dblLLN         Upper  Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
@@ -1132,11 +1132,11 @@ Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：Gluc_Minus_mgdL  低血糖症
-'引　数：dblResult 結果値
-'　　　：dblLLN    下限値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :Gluc_Minus_mgdL  低血糖症
+'Argument     :dblResult      TestValue
+'             :dblLLN         Lower Limit
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
@@ -1159,10 +1159,10 @@ Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'名　前：UPro_Plus  尿蛋白
-'引　数：dblResult 結果値
-'戻り値：グレード
-'作成日：2016/02/10 yamamoto
+'Name         :UPro_Plus  尿蛋白
+'Argument     :dblResult      TestValue
+'Return Value :Grade
+'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Public Function UPro_Plus(ByVal strResult As String) As Long
@@ -1179,24 +1179,5 @@ Public Function UPro_Plus(ByVal strResult As String) As Long
   UPro_Plus = lngGrade
   
 End Function
-
-
-
-
-
-
-Private Sub test()
-
-  Debug.Print "WBC_Minus_mm3 " & WBC_Minus_mm3(5400, 5700)
-  Debug.Print "WBC_Minus_mm3 " & WBC_Minus_mm3(998, 5700)
-  Debug.Print "WBC_Minus_mm3 " & WBC_Minus_mm3(3000, 5700)
-  Debug.Print "WBC_Minus_mm3 " & WBC_Minus_mm3(8000, 2900)
-  
-  Debug.Print "WBC_Minus_10e9L " & WBC_Minus_10e9L(0.8, 3.3)
-  Debug.Print "WBC_Minus_10e9L " & WBC_Minus_10e9L(3.2, 6.5)
-  Debug.Print "WBC_Minus_10e9L " & WBC_Minus_10e9L(3.7, 2.8)
-  
-End Sub
-
 
 
