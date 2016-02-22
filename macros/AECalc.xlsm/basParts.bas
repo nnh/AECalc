@@ -10,14 +10,14 @@ Option Explicit
 
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :CalcAge
-'Argument     :ByRef lngY　Age
-'             :ByRef lngM　MonthOld
-'             :ByVal dtBirthday Birthday
-'             :ByVal dtKensaday TestDay
+'Argument     :ByRef lngY　       Age
+'             :ByRef lngM　       MonthOld
+'             :ByVal dtBirthday   Birthday
+'             :ByVal dtTestday    TestDay
 'Return Value :0(Error then ErrorNumber)
 'Date created :2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Public Function CalcAge(ByRef lngY As Long, ByRef lngM As Long, ByVal dtBirthday As Date, ByVal dtKensaday As Date) As Long
+Public Function CalcAge(ByRef lngY As Long, ByRef lngM As Long, ByVal dtBirthday As Date, ByVal dtTestday As Date) As Long
   Dim lngMwork As Long
   
   On Error GoTo lineErr:
@@ -27,13 +27,13 @@ Public Function CalcAge(ByRef lngY As Long, ByRef lngM As Long, ByVal dtBirthday
   lngM = 0
   
   '/// CalcAge
-  lngY = DateDiff("yyyy", dtBirthday, dtKensaday)
-  If Format(dtKensaday, "mmdd") < Format(dtBirthday, "mmdd") Then lngY = lngY - 1
+  lngY = DateDiff("yyyy", dtBirthday, dtTestday)
+  If Format(dtTestday, "mmdd") < Format(dtBirthday, "mmdd") Then lngY = lngY - 1
   
   '/// CalcMonthOld
-  lngMwork = DateDiff("m", dtBirthday, dtKensaday)
+  lngMwork = DateDiff("m", dtBirthday, dtTestday)
   lngMwork = lngMwork Mod 12
-  If Format(dtKensaday, "dd") < Format(dtBirthday, "dd") Then
+  If Format(dtTestday, "dd") < Format(dtBirthday, "dd") Then
     If 0 < lngMwork Then lngMwork = lngMwork - 1 Else lngMwork = 11  '/ -1 Month  →  11 Month
   End If
   lngM = lngMwork
@@ -46,8 +46,8 @@ End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :GetLngItem
-'Argument     :ByRef colCollection LongClassItemCollection
-'             :ByVal strKey        UniqueKey
+'Argument     :ByRef colCollection     LongClassItemCollection
+'             :ByVal strKey            UniqueKey
 'Return Value :Item Value
 'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -62,8 +62,8 @@ End Function
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :AddLngItem
 'Argument     :ByRef colCollection
-'             :ByVal lngItem       LongClassItem
-'             :ByVal strKey        UniqueKey
+'             :ByVal lngItem           LongClassItem
+'             :ByVal strKey            UniqueKey
 'Return Value :None
 'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////

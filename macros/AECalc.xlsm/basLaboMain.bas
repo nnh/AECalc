@@ -1,5 +1,4 @@
 Attribute VB_Name = "basLaboMain"
-
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :basLaboMain
 'Explanation  :
@@ -88,16 +87,16 @@ Private mcolAgeKaisou       As collection
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Sub KeisanGrade()
   Dim strShoureiNum     As String
-  Dim dtKensaday        As Date
+  Dim dtTestday         As Date
   Dim i                 As Long
   Dim clPatient         As clsPatient
-  Dim dblKensaValue     As Double
+  Dim dblTestValue      As Double
   Dim dblLLN            As Double
   Dim dblULN            As Double
-  Dim dblKensaValueWBC  As Double
+  Dim dblTestValueWBC   As Double
   Dim dblLLNWBC         As Double
   Dim dblULNWBC         As Double
-  Dim strKensaValue     As String
+  Dim strTestValue      As String
   
   Application.ScreenUpdating = False
   Application.EnableEvents = False
@@ -114,181 +113,181 @@ Public Sub KeisanGrade()
     
     If strShoureiNum = "" Then Exit Do                    '/ CaseNumberが""まで繰り返す
     
-    dtKensaday = Worksheets("Labo").Cells(i, 2).Value
+    dtTestday = Worksheets("Labo").Cells(i, 2).Value
     
-    Set clPatient = GetPatient(strShoureiNum, dtKensaday)
+    Set clPatient = GetPatient(strShoureiNum, dtTestday)
     
     With Worksheets("Labo")
       If IsReady(mcLnWBC1, mcWBC1, clPatient, i, dblLLN, dblULN) Then '/ WBC(/mm3)
-        dblKensaValue = .Cells(i, mcWBC1).Value
-       .Cells(i, mcWBC1 + 1).Value = WBC_Plus_mm3(dblKensaValue)
-       .Cells(i, mcWBC1 + 2).Value = WBC_Minus_mm3(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcWBC1).Value
+       .Cells(i, mcWBC1 + 1).Value = WBC_Plus_mm3(dblTestValue)
+       .Cells(i, mcWBC1 + 2).Value = WBC_Minus_mm3(dblTestValue, dblLLN)
       
-       dblKensaValueWBC = dblKensaValue
+       dblTestValueWBC = dblTestValue
        dblLLNWBC = dblLLN
-       If IsReady(mcLnNe, mcNe, clPatient, i, dblLLN, dblULN) Then '/ Ne(%)
-        dblKensaValue = .Cells(i, mcNe).Value
-        .Cells(i, mcNe + 2).Value = Ne_Minus_Per1(dblKensaValue, dblLLN, dblKensaValueWBC, dblLLNWBC)
+       If IsReady(mcLnNe, mcNe, clPatient, i, dblLLN, dblULN) Then    '/ Ne(%)
+        dblTestValue = .Cells(i, mcNe).Value
+        .Cells(i, mcNe + 2).Value = Ne_Minus_Per1(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
        
-       If IsReady(mcLnLy, mcLy, clPatient, i, dblLLN, dblULN) Then '/ Ly%)
-        dblKensaValue = .Cells(i, mcLy).Value
-        .Cells(i, mcLy + 1).Value = Ly_Plus_Per1(dblKensaValue, dblKensaValueWBC)
-        .Cells(i, mcLy + 2).Value = Ly_Minus_Per1(dblKensaValue, dblLLN, dblKensaValueWBC, dblLLNWBC)
+       If IsReady(mcLnLy, mcLy, clPatient, i, dblLLN, dblULN) Then    '/ Ly%)
+        dblTestValue = .Cells(i, mcLy).Value
+        .Cells(i, mcLy + 1).Value = Ly_Plus_Per1(dblTestValue, dblTestValueWBC)
+        .Cells(i, mcLy + 2).Value = Ly_Minus_Per1(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
        
       End If
     
       If IsReady(mcLnWBC2, mcWBC2, clPatient, i, dblLLN, dblULN) Then  '/ WBC(WBC(10e9/L))
-        dblKensaValue = .Cells(i, mcWBC2).Value
-       .Cells(i, mcWBC2 + 2).Value = WBC_Minus_10e9L(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcWBC2).Value
+       .Cells(i, mcWBC2 + 2).Value = WBC_Minus_10e9L(dblTestValue, dblLLN)
        
-       dblKensaValueWBC = dblKensaValue
+       dblTestValueWBC = dblTestValue
        dblLLNWBC = dblLLN
        If IsReady(mcLnNe, mcNe, clPatient, i, dblLLN, dblULN) Then      '/ Ne(%)
-        dblKensaValue = .Cells(i, mcNe).Value
-        .Cells(i, mcNe + 2).Value = Ne_Minus_Per2(dblKensaValue, dblLLN, dblKensaValueWBC, dblLLNWBC)
+        dblTestValue = .Cells(i, mcNe).Value
+        .Cells(i, mcNe + 2).Value = Ne_Minus_Per2(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
        
        If IsReady(mcLnLy, mcLy, clPatient, i, dblLLN, dblULN) Then      '/ Ly%)
-        dblKensaValue = .Cells(i, mcLy).Value
-        .Cells(i, mcLy + 1).Value = Ly_Plus_Per2(dblKensaValue, dblKensaValueWBC)
-        .Cells(i, mcLy + 2).Value = Ly_Minus_Per2(dblKensaValue, dblLLN, dblKensaValueWBC, dblLLNWBC)
+        dblTestValue = .Cells(i, mcLy).Value
+        .Cells(i, mcLy + 1).Value = Ly_Plus_Per2(dblTestValue, dblTestValueWBC)
+        .Cells(i, mcLy + 2).Value = Ly_Minus_Per2(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
       
       End If
     
       If IsReady(mcLnHgb1, mcHgb1, clPatient, i, dblLLN, dblULN) Then '/ Hgb(g/dL)
-        dblKensaValue = .Cells(i, mcHgb1).Value
-       .Cells(i, mcHgb1 + 1).Value = Hgb_Plus_gdL(dblKensaValue, dblULN, clPatient.Hgb_gdL)
-       .Cells(i, mcHgb1 + 2).Value = Hgb_Minus_gdL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcHgb1).Value
+       .Cells(i, mcHgb1 + 1).Value = Hgb_Plus_gdL(dblTestValue, dblULN, clPatient.Hgb_gdL)
+       .Cells(i, mcHgb1 + 2).Value = Hgb_Minus_gdL(dblTestValue, dblLLN)
       End If
         
       If IsReady(mcLnHgb2, mcHgb2, clPatient, i, dblLLN, dblULN) Then '/ Hgb(mg/L)
-        dblKensaValue = .Cells(i, mcHgb2).Value
-       .Cells(i, mcHgb2 + 1).Value = Hgb_Plus_mgL(dblKensaValue, dblULN, clPatient.Hgb_mgL)
-       .Cells(i, mcHgb2 + 2).Value = Hgb_Minus_mgL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcHgb2).Value
+       .Cells(i, mcHgb2 + 1).Value = Hgb_Plus_mgL(dblTestValue, dblULN, clPatient.Hgb_mgL)
+       .Cells(i, mcHgb2 + 2).Value = Hgb_Minus_mgL(dblTestValue, dblLLN)
       End If
 
       If IsReady(mcLnPLT1, mcPLT1, clPatient, i, dblLLN, dblULN) Then '/ PLT(/mm3)
-        dblKensaValue = .Cells(i, mcPLT1).Value
-       .Cells(i, mcPLT1 + 2).Value = PLT_Minus_mm3(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcPLT1).Value
+       .Cells(i, mcPLT1 + 2).Value = PLT_Minus_mm3(dblTestValue, dblLLN)
       End If
     
       If IsReady(mcLnPLT2, mcPLT2, clPatient, i, dblLLN, dblULN) Then '/ PLT(10e9/L)
-        dblKensaValue = .Cells(i, mcPLT2).Value
-       .Cells(i, mcPLT2 + 2).Value = PLT_Minus_10e9L(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcPLT2).Value
+       .Cells(i, mcPLT2 + 2).Value = PLT_Minus_10e9L(dblTestValue, dblLLN)
       End If
       
       If IsReady(mcLnPT, mcPT, clPatient, i, dblLLN, dblULN) Then '/ PT(PT-INR)
-        dblKensaValue = .Cells(i, mcPT).Value
-       .Cells(i, mcPT + 1).Value = PT_Plus_INR(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcPT).Value
+       .Cells(i, mcPT + 1).Value = PT_Plus_INR(dblTestValue, dblULN)
       End If
       
       If IsReady(mcLnAPTT, mcAPTT, clPatient, i, dblLLN, dblULN) Then '/ APTT(sec)
-        dblKensaValue = .Cells(i, mcAPTT).Value
-       .Cells(i, mcAPTT + 1).Value = APTT_Plus_SEC(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcAPTT).Value
+       .Cells(i, mcAPTT + 1).Value = APTT_Plus_SEC(dblTestValue, dblULN)
       End If
       
       If IsReady(mcLnFib, mcFib, clPatient, i, dblLLN, dblULN) Then '/ fib
-        dblKensaValue = .Cells(i, mcFib).Value
-       .Cells(i, mcFib + 2).Value = Fib_Minus_mgdL(dblKensaValue, dblLLN, clPatient.Fib)
+        dblTestValue = .Cells(i, mcFib).Value
+       .Cells(i, mcFib + 2).Value = Fib_Minus_mgdL(dblTestValue, dblLLN, clPatient.Fib)
       End If
       
       If IsReady(mcLnALB1, mcALB1, clPatient, i, dblLLN, dblULN) Then '/ ALB(g/dL)
-        dblKensaValue = .Cells(i, mcALB1).Value
-       .Cells(i, mcALB1 + 2).Value = ALB_Minus_gdL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcALB1).Value
+       .Cells(i, mcALB1 + 2).Value = ALB_Minus_gdL(dblTestValue, dblLLN)
       End If
       
       If IsReady(mcLnALB2, mcALB2, clPatient, i, dblLLN, dblULN) Then '/ ALB(g/L)
-        dblKensaValue = .Cells(i, mcALB2).Value
-       .Cells(i, mcALB2 + 2).Value = ALB_Minus_gL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcALB2).Value
+       .Cells(i, mcALB2 + 2).Value = ALB_Minus_gL(dblTestValue, dblLLN)
       End If
       
       If IsReady(mcLnCre, mcCre, clPatient, i, dblLLN, dblULN) Then '/ Cre(mg/dL)
-        dblKensaValue = .Cells(i, mcCre).Value
-       .Cells(i, mcCre + 1).Value = Cre_Plus_mgdL(dblKensaValue, dblULN, clPatient.Cre)
-       .Cells(i, mcCre + 2).Value = Cre_Plus2_mgdL(dblKensaValue, dblULN, clPatient.Cre)
+        dblTestValue = .Cells(i, mcCre).Value
+       .Cells(i, mcCre + 1).Value = Cre_Plus_mgdL(dblTestValue, dblULN, clPatient.Cre)
+       .Cells(i, mcCre + 2).Value = Cre_Plus2_mgdL(dblTestValue, dblULN, clPatient.Cre)
       End If
       
       If IsReady(mcLnUA, mcUA, clPatient, i, dblLLN, dblULN) Then     '/ UA(mg/dL)
-        dblKensaValue = .Cells(i, mcUA).Value
-       .Cells(i, mcUA + 1).Value = UA_Plus_mgdL(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcUA).Value
+       .Cells(i, mcUA + 1).Value = UA_Plus_mgdL(dblTestValue, dblULN)
       End If
      
       If IsReady(mcLnCHO, mcCHO, clPatient, i, dblLLN, dblULN) Then   '/ T-CHO(mg/dL)
-        dblKensaValue = .Cells(i, mcCHO).Value
-       .Cells(i, mcCHO + 1).Value = CHO_Plus_mgdL(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcCHO).Value
+       .Cells(i, mcCHO + 1).Value = CHO_Plus_mgdL(dblTestValue, dblULN)
       End If
      
       If IsReady(mcLnTbil, mcTbil, clPatient, i, dblLLN, dblULN) Then '/ T-Tbil(mg/dL)
-        dblKensaValue = .Cells(i, mcTbil).Value
-       .Cells(i, mcTbil + 1).Value = Tbil_Plus_mgdL(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcTbil).Value
+       .Cells(i, mcTbil + 1).Value = Tbil_Plus_mgdL(dblTestValue, dblULN)
       End If
      
       If IsReady(mcLnALP, mcALP, clPatient, i, dblLLN, dblULN) Then '/ ALT(U/L)
-        dblKensaValue = .Cells(i, mcALP).Value
-       .Cells(i, mcALP + 1).Value = ALP_Plus_UL(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcALP).Value
+       .Cells(i, mcALP + 1).Value = ALP_Plus_UL(dblTestValue, dblULN)
       End If
       
       If IsReady(mcLnCPK, mcCPK, clPatient, i, dblLLN, dblULN) Then '/ CPK(U/L)
-        dblKensaValue = .Cells(i, mcCPK).Value
-       .Cells(i, mcCPK + 1).Value = CPK_Plus_UL(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcCPK).Value
+       .Cells(i, mcCPK + 1).Value = CPK_Plus_UL(dblTestValue, dblULN)
       End If
       
       If IsReady(mcLnAST, mcAST, clPatient, i, dblLLN, dblULN) Then '/ AST(U/L)
-        dblKensaValue = .Cells(i, mcAST).Value
-       .Cells(i, mcAST + 1).Value = AST_Plus_UL(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcAST).Value
+       .Cells(i, mcAST + 1).Value = AST_Plus_UL(dblTestValue, dblULN)
       End If
       
       If IsReady(mcLnALT, mcALT, clPatient, i, dblLLN, dblULN) Then '/ ALT(U/L)
-        dblKensaValue = .Cells(i, mcALT).Value
-       .Cells(i, mcALT + 1).Value = ALT_Plus_UL(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcALT).Value
+       .Cells(i, mcALT + 1).Value = ALT_Plus_UL(dblTestValue, dblULN)
       End If
       
       If IsReady(mcLnGTP, mcGTP, clPatient, i, dblLLN, dblULN) Then '/ γ-GTP(U/L)
-        dblKensaValue = .Cells(i, mcGTP).Value
-       .Cells(i, mcGTP + 1).Value = GTP_Plus_UL(dblKensaValue, dblULN)
+        dblTestValue = .Cells(i, mcGTP).Value
+       .Cells(i, mcGTP + 1).Value = GTP_Plus_UL(dblTestValue, dblULN)
       End If
       
       If IsReady(mcLnNa, mcNa, clPatient, i, dblLLN, dblULN) Then   '/ Na(mEq/L)
-        dblKensaValue = .Cells(i, mcNa).Value
-       .Cells(i, mcNa + 1).Value = Na_Plus_mEqL(dblKensaValue, dblULN)
-       .Cells(i, mcNa + 2).Value = Na_Minus_mEqL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcNa).Value
+       .Cells(i, mcNa + 1).Value = Na_Plus_mEqL(dblTestValue, dblULN)
+       .Cells(i, mcNa + 2).Value = Na_Minus_mEqL(dblTestValue, dblLLN)
       End If
       
       If IsReady(mcLnK, mcK, clPatient, i, dblLLN, dblULN) Then     '/ K(mEq/L)
-        dblKensaValue = .Cells(i, mcK).Value
-       .Cells(i, mcK + 1).Value = K_Plus_mEqL(dblKensaValue, dblULN)
-       .Cells(i, mcK + 2).Value = K_Minus_mEqL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcK).Value
+       .Cells(i, mcK + 1).Value = K_Plus_mEqL(dblTestValue, dblULN)
+       .Cells(i, mcK + 2).Value = K_Minus_mEqL(dblTestValue, dblLLN)
       End If
       
       If IsReady(mcLnCa, mcCa, clPatient, i, dblLLN, dblULN) Then     '/ Ca(mg/dL)
-        dblKensaValue = .Cells(i, mcK).Value
-       .Cells(i, mcCa + 1).Value = Ca_Plus_mgdL(dblKensaValue, dblULN)
-       .Cells(i, mcCa + 2).Value = Ca_Minus_mgdL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcK).Value
+       .Cells(i, mcCa + 1).Value = Ca_Plus_mgdL(dblTestValue, dblULN)
+       .Cells(i, mcCa + 2).Value = Ca_Minus_mgdL(dblTestValue, dblLLN)
       End If
       
       If IsReady(mcLnIP, mcIP, clPatient, i, dblLLN, dblULN) Then     '/ IP(mg/dL)
-        dblKensaValue = .Cells(i, mcIP).Value
-       .Cells(i, mcIP + 2).Value = IP_Minus_mgdL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcIP).Value
+       .Cells(i, mcIP + 2).Value = IP_Minus_mgdL(dblTestValue, dblLLN)
       End If
       
       If IsReady(mcLnMg, mcMg, clPatient, i, dblLLN, dblULN) Then     '/ Mg(mg/dL)
-        dblKensaValue = .Cells(i, mcMg).Value
-       .Cells(i, mcMg + 1).Value = Mg_Plus_mgdL(dblKensaValue, dblULN)
-       .Cells(i, mcMg + 2).Value = Mg_Minus_mgdL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcMg).Value
+       .Cells(i, mcMg + 1).Value = Mg_Plus_mgdL(dblTestValue, dblULN)
+       .Cells(i, mcMg + 2).Value = Mg_Minus_mgdL(dblTestValue, dblLLN)
       End If
       
       If IsReady(mcLnGluc, mcGluc, clPatient, i, dblLLN, dblULN) Then     '/ Gluc(mg/dL)
-        dblKensaValue = .Cells(i, mcGluc).Value
-       .Cells(i, mcGluc + 1).Value = Gluc_Plus_mgdL(dblKensaValue, dblULN)
-       .Cells(i, mcGluc + 2).Value = Gluc_Minus_mgdL(dblKensaValue, dblLLN)
+        dblTestValue = .Cells(i, mcGluc).Value
+       .Cells(i, mcGluc + 1).Value = Gluc_Plus_mgdL(dblTestValue, dblULN)
+       .Cells(i, mcGluc + 2).Value = Gluc_Minus_mgdL(dblTestValue, dblLLN)
       End If
             
       If IsReady(mcLnUPro, mcUPro, clPatient, i, dblLLN, dblULN) Then   '/ Upro
-        strKensaValue = .Cells(i, mcUPro).Value
-       .Cells(i, mcUPro + 1).Value = UPro_Plus(strKensaValue)
+        strTestValue = .Cells(i, mcUPro).Value
+       .Cells(i, mcUPro + 1).Value = UPro_Plus(strTestValue)
       End If
 
     End With
@@ -305,11 +304,11 @@ End Sub
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :GetPatient
 'Argument     :strShoureiNum  CaseNumber
-'             :dtKensaday     TestDay
+'             :dtTestday      TestDay
 'Return Value :clsPatient
 'Date created : 2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As Date) As clsPatient
+Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtTestday As Date) As clsPatient
   Dim i               As Long
   Dim strCurrentNum   As String
   Dim clPatient       As clsPatient
@@ -350,7 +349,7 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtKensaday As D
   
   
   
-  lngResult = CalcAge(lngAgeY, lngAgeM, dtBirthday, dtKensaday) '/// Get Age,Get MonthOld
+  lngResult = CalcAge(lngAgeY, lngAgeM, dtBirthday, dtTestday) '/// Get Age,Get MonthOld
   
   If Not (lngResult = 0) Then Exit Function '/ Age=None Then Exit
   
@@ -573,8 +572,8 @@ End Sub
 
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :ClearSheetLaboSub
-'Argument     :lngMaxRow　MaxRow
-'             :lngCOL     TargetCol
+'Argument     :lngMaxRow　   MaxRow
+'             :lngCOL        TargetCol
 'Return Value :None
 'Date created :2016/02/15 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
