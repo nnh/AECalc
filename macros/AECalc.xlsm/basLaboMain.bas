@@ -15,6 +15,8 @@ Private Const mclngDemogSttRow    As Long = 2     '/ DemogSheet StartRow
 Private Const mclngRefSttRow      As Long = 3     '/ Ref Sheet  StartRow
 
 '// Labo Row
+Private Const mcCaseNo      As Long = 1
+Private Const mcTestDay     As Long = 2
 Private Const mcWBC1        As Long = 3
 Private Const mcWBC2        As Long = 6
 Private Const mcHgb1        As Long = 9
@@ -76,17 +78,19 @@ Private Const mcLnMg        As Long = 56
 Private Const mcLnGluc      As Long = 58
 Private Const mcLnUPro      As Long = 60
 
-'// AgeSexCollection
-Private mcolAgeKaisou       As collection
+'// variable
+Private mcolAgeKaisou       As collection '/ AgeSexCollection
+Private mlngMaxRow          As Long       '/ Labo MaxRows
+Private mlngMaxRowDemog     As Long       '/ Demog MaxRows
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :KeisanGrade
+'Name         :CalcGradeMain
 'Argument     :None
 'Return Value :None
-'Date created :2016/02/10 sakaguchi
+'Date created :2016/02/23 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Public Sub KeisanGrade()
-  Dim strShoureiNum     As String
+Private Sub CalcGradeMain()
+  Dim strCaseNum        As String
   Dim dtTestday         As Date
   Dim i                 As Long
   Dim clPatient         As clsPatient
@@ -98,26 +102,17 @@ Public Sub KeisanGrade()
   Dim dblULNWBC         As Double
   Dim strTestValue      As String
   
-  Application.ScreenUpdating = False
-  Application.EnableEvents = False
-  Application.Calculation = xlCalculationManual
-  Worksheets("Labo").Unprotect
-  
-  Call ClearSheetLabo
   Set mcolAgeKaisou = GetKaisou()
   If mcolAgeKaisou Is Nothing Then Exit Sub
   
-  i = mclngLaboSttRow
-  Do
-    strShoureiNum = Worksheets("Labo").Cells(i, 1).Value
+  With Worksheets("Labo")
+    For i = mclngLaboSttRow To mlngMaxRow
+      strCaseNum = Worksheets("Labo").Cells(i, mcCaseNo).Value
+        
+      dtTestday = Worksheets("Labo").Cells(i, mcTestDay).Value
     
-    If strShoureiNum = "" Then Exit Do                    '/ CaseNumberが""まで繰り返す
+      Set clPatient = GetPatient(strCaseNum, dtTestday)
     
-    dtTestday = Worksheets("Labo").Cells(i, 2).Value
-    
-    Set clPatient = GetPatient(strShoureiNum, dtTestday)
-    
-    With Worksheets("Labo")
       If IsReady(mcLnWBC1, mcWBC1, clPatient, i, dblLLN, dblULN) Then '/ WBC(/mm3)
         dblTestValue = .Cells(i, mcWBC1).Value
        .Cells(i, mcWBC1 + 1).Value = WBC_Plus_mm3(dblTestValue)
@@ -130,7 +125,7 @@ Public Sub KeisanGrade()
         .Cells(i, mcNe + 2).Value = Ne_Minus_Per1(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
        
-       If IsReady(mcLnLy, mcLy, clPatient, i, dblLLN, dblULN) Then    '/ Ly%)
+       If IsReady(mcLnLy, mcLy, clPatient, i, dblLLN, dblULN) Then    '/ Ly(%)
         dblTestValue = .Cells(i, mcLy).Value
         .Cells(i, mcLy + 1).Value = Ly_Plus_Per1(dblTestValue, dblTestValueWBC)
         .Cells(i, mcLy + 2).Value = Ly_Minus_Per1(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
@@ -138,7 +133,7 @@ Public Sub KeisanGrade()
        
       End If
     
-      If IsReady(mcLnWBC2, mcWBC2, clPatient, i, dblLLN, dblULN) Then  '/ WBC(WBC(10e9/L))
+      If IsReady(mcLnWBC2, mcWBC2, clPatient, i, dblLLN, dblULN) Then  '/ WBC(10e9/L)
         dblTestValue = .Cells(i, mcWBC2).Value
        .Cells(i, mcWBC2 + 2).Value = WBC_Minus_10e9L(dblTestValue, dblLLN)
        
@@ -289,26 +284,50 @@ Public Sub KeisanGrade()
         strTestValue = .Cells(i, mcUPro).Value
        .Cells(i, mcUPro + 1).Value = UPro_Plus(strTestValue)
       End If
+      
+    Next
+  End With
+End Sub
 
-    End With
-    i = i + 1 '/ NextRow
-  Loop
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :CalcGrade
+'Argument     :None
+'Return Value :None
+'Date created :2016/02/10 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
+Public Sub CalcGrade()
+
+  mlngMaxRow = Worksheets("Labo").UsedRange.Rows.Count
+  mlngMaxRowDemog = Worksheets("Demog").UsedRange.Rows.Count
+  
+  If Not FirstIsReady() Then Exit Sub
+  If Not DemogIsReady() Then Exit Sub
+  
+  Application.ScreenUpdating = False
+  Application.EnableEvents = False
+  Application.Calculation = xlCalculationManual
+  Worksheets("Labo").Unprotect
+  
+  Call ClearSheetLabo
+  
+  Call CalcGradeMain
   
   Application.ScreenUpdating = True
   Application.EnableEvents = True
   Application.Calculation = xlCalculationAutomatic
   Worksheets("Labo").Protect
+  
 End Sub
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :GetPatient
-'Argument     :strShoureiNum  CaseNumber
+'Argument     :strCaseNum     CaseNumber
 '             :dtTestday      TestDay
 'Return Value :clsPatient
 'Date created : 2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtTestday As Date) As clsPatient
+Private Function GetPatient(ByVal strCaseNum As String, ByVal dtTestday As Date) As clsPatient
   Dim i               As Long
   Dim strCurrentNum   As String
   Dim clPatient       As clsPatient
@@ -323,17 +342,14 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtTestday As Da
   i = mclngDemogSttRow
   
   With Worksheets("Demog")
-    Do
+    For i = mclngDemogSttRow To mlngMaxRowDemog
       strCurrentNum = .Range("A" & i).Value
-      If strCurrentNum = "" Then Exit Do      '/ until CaseNumber=""
-      
-      If strCurrentNum = strShoureiNum Then   '/ found CaseNumber
+      If strCurrentNum = strCaseNum Then   '/ found CaseNumber
         Set clPatient = New clsPatient
-        clPatient.Num = strShoureiNum
-        Exit Do
+        clPatient.Num = strCaseNum
+        Exit For
       End If
-      i = i + 1
-    Loop
+    Next
   End With
   
   If clPatient Is Nothing Then Exit Function '/ CaseNumber None
@@ -346,8 +362,6 @@ Private Function GetPatient(ByVal strShoureiNum As String, ByVal dtTestday As Da
     clPatient.Hgb_mgL = SetIsNumeric(.Range("F" & i).Value)
     clPatient.Fib = SetIsNumeric(.Range("G" & i).Value)
   End With
-  
-  
   
   lngResult = CalcAge(lngAgeY, lngAgeM, dtBirthday, dtTestday) '/// Get Age,Get MonthOld
   
@@ -399,7 +413,6 @@ Private Function IsReady(ByVal lngRefCOL As Long, ByVal lngLaboCOL As Long, ByVa
   Dim strValue      As String
   Dim strLLN        As String
   Dim strULN        As String
-  
   
   IsReady = False '/ Initialization
   dblLLN = 0
@@ -485,7 +498,6 @@ End Function
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :GetKaisou
 'Argument     :
-'             :
 'Return Value :Collection 　Item:Row  Key:Age ,Month old,sex
 'Date created :2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -534,49 +546,112 @@ End Function
 'Date created :2016/02/15 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Sub ClearSheetLabo()
-  Dim lngMaxRow  As Long
-  
-  lngMaxRow = Worksheets("Labo").UsedRange.Rows.Count
 
-  Call ClearSheetLaboSub(lngMaxRow, mcWBC1)
-  Call ClearSheetLaboSub(lngMaxRow, mcWBC2)
-  Call ClearSheetLaboSub(lngMaxRow, mcHgb1)
-  Call ClearSheetLaboSub(lngMaxRow, mcHgb2)
-  Call ClearSheetLaboSub(lngMaxRow, mcPLT1)
-  Call ClearSheetLaboSub(lngMaxRow, mcPLT2)
-  Call ClearSheetLaboSub(lngMaxRow, mcNe)
-  Call ClearSheetLaboSub(lngMaxRow, mcLy)
-  Call ClearSheetLaboSub(lngMaxRow, mcPT)
-  Call ClearSheetLaboSub(lngMaxRow, mcAPTT)
-  Call ClearSheetLaboSub(lngMaxRow, mcFib)
-  Call ClearSheetLaboSub(lngMaxRow, mcALB1)
-  Call ClearSheetLaboSub(lngMaxRow, mcALB2)
-  Call ClearSheetLaboSub(lngMaxRow, mcCre)
-  Call ClearSheetLaboSub(lngMaxRow, mcUA)
-  Call ClearSheetLaboSub(lngMaxRow, mcCHO)
-  Call ClearSheetLaboSub(lngMaxRow, mcTbil)
-  Call ClearSheetLaboSub(lngMaxRow, mcALP)
-  Call ClearSheetLaboSub(lngMaxRow, mcCPK)
-  Call ClearSheetLaboSub(lngMaxRow, mcAST)
-  Call ClearSheetLaboSub(lngMaxRow, mcALT)
-  Call ClearSheetLaboSub(lngMaxRow, mcGTP)
-  Call ClearSheetLaboSub(lngMaxRow, mcNa)
-  Call ClearSheetLaboSub(lngMaxRow, mcK)
-  Call ClearSheetLaboSub(lngMaxRow, mcCa)
-  Call ClearSheetLaboSub(lngMaxRow, mcIP)
-  Call ClearSheetLaboSub(lngMaxRow, mcMg)
-  Call ClearSheetLaboSub(lngMaxRow, mcGluc)
-  Call ClearSheetLaboSub(lngMaxRow, mcUPro)
+  Call ClearSheetLaboSub(mcWBC1)
+  Call ClearSheetLaboSub(mcWBC2)
+  Call ClearSheetLaboSub(mcHgb1)
+  Call ClearSheetLaboSub(mcHgb2)
+  Call ClearSheetLaboSub(mcPLT1)
+  Call ClearSheetLaboSub(mcPLT2)
+  Call ClearSheetLaboSub(mcNe)
+  Call ClearSheetLaboSub(mcLy)
+  Call ClearSheetLaboSub(mcPT)
+  Call ClearSheetLaboSub(mcAPTT)
+  Call ClearSheetLaboSub(mcFib)
+  Call ClearSheetLaboSub(mcALB1)
+  Call ClearSheetLaboSub(mcALB2)
+  Call ClearSheetLaboSub(mcCre)
+  Call ClearSheetLaboSub(mcUA)
+  Call ClearSheetLaboSub(mcCHO)
+  Call ClearSheetLaboSub(mcTbil)
+  Call ClearSheetLaboSub(mcALP)
+  Call ClearSheetLaboSub(mcCPK)
+  Call ClearSheetLaboSub(mcAST)
+  Call ClearSheetLaboSub(mcALT)
+  Call ClearSheetLaboSub(mcGTP)
+  Call ClearSheetLaboSub(mcNa)
+  Call ClearSheetLaboSub(mcK)
+  Call ClearSheetLaboSub(mcCa)
+  Call ClearSheetLaboSub(mcIP)
+  Call ClearSheetLaboSub(mcMg)
+  Call ClearSheetLaboSub(mcGluc)
+  Call ClearSheetLaboSub(mcUPro)
   
 End Sub
 
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :ClearSheetLaboSub
-'Argument     :lngMaxRow　   MaxRow
-'             :lngCOL        TargetCol
+'Argument     :lngCOL        TargetCol
 'Return Value :None
 'Date created :2016/02/15 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Private Sub ClearSheetLaboSub(ByVal lngMaxRow As Long, ByVal lngCOL As Long)
-  Worksheets("Labo").Range(Cells(mclngLaboSttRow, lngCOL + 1), Cells(lngMaxRow, lngCOL + 2)).Value = ""
+Private Sub ClearSheetLaboSub(ByVal lngCOL As Long)
+  Worksheets("Labo").Range(Cells(mclngLaboSttRow, lngCOL + 1), Cells(mlngMaxRow, lngCOL + 2)).Value = ""
 End Sub
+
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :FirstIsReady
+'Argument     :None
+'Return Value :Boolean    ReadyOK then True
+'Date created :2016/02/23 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
+Private Function FirstIsReady() As Boolean
+  Dim strMessage    As String
+  
+  FirstIsReady = False
+  
+  strMessage = ""
+  
+  With Worksheets("Demog")
+    If .Range("B" & mclngDemogSttRow).Value = "" Then
+      strMessage = strMessage & "Demog 誕生日" & vbCrLf
+    End If
+    If .Range("C" & mclngDemogSttRow).Value = "" Then
+      strMessage = strMessage & "Demog 性別" & vbCrLf
+    End If
+  End With
+  
+  With Worksheets("Labo")
+    If .Cells(mclngLaboSttRow, mcTestDay).Value = "" Then
+      strMessage = strMessage & "Labo  検査日" & vbCrLf
+    End If
+  End With
+  
+  If strMessage = "" Then FirstIsReady = True: Exit Function
+  
+  Call MsgBox(strMessage & "を入力してください。", vbInformation Or vbOKOnly, "Input Guide")
+  
+End Function
+
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :DemogIsReady
+'Argument     :None
+'Return Value :Boolean     DemogSheetReadyOK then True(Empty 1 Only)
+'Date created :2016/02/23 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
+Private Function DemogIsReady() As Boolean
+  Dim i             As Long
+  Dim blnIsEmpty    As Boolean
+  Dim blnIsResult   As Boolean
+  
+  blnIsResult = True
+  
+  blnIsEmpty = False
+  
+  With Worksheets("Demog")
+    For i = mclngDemogSttRow To mlngMaxRowDemog
+      If (.Range("A" & i).Value = "") And (.Range("B" & i).Value <> "") Then
+        If blnIsEmpty Then
+          blnIsResult = False: Exit For
+        Else
+          blnIsEmpty = True
+        End If
+      End If
+    Next
+  End With
+  
+  DemogIsReady = blnIsResult
+  
+  If Not blnIsResult Then Call MsgBox("Demog Baseline ID を入力してください。")
+  
+End Function
