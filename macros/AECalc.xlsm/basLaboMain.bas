@@ -79,7 +79,7 @@ Private Const mcLnGluc      As Long = 58
 Private Const mcLnUPro      As Long = 60
 
 '// variable
-Private mcolAgeKaisou       As collection '/ AgeSexCollection
+Private mcolAgeKaisou       As Collection '/ AgeSexCollection
 Private mlngMaxRow          As Long       '/ Labo MaxRows
 Private mlngMaxRowDemog     As Long       '/ Demog MaxRows
 
@@ -501,8 +501,8 @@ End Function
 'Return Value :Collection 　Item:Row  Key:Age ,Month old,sex
 'Date created :2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Private Function GetKaisou() As collection
-  Dim colResult   As collection
+Private Function GetKaisou() As Collection
+  Dim colResult   As Collection
   Dim strAgeY     As String
   Dim lngAgeY     As String
   Dim lngAgeM     As String

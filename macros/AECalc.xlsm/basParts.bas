@@ -51,7 +51,7 @@ End Function
 'Return Value :Item Value
 'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Public Function GetLngItem(ByRef colCollection As collection, ByVal strKey As String) As Long
+Public Function GetLngItem(ByRef colCollection As Collection, ByVal strKey As String) As Long
   GetLngItem = -1
   On Error Resume Next
   GetLngItem = colCollection.Item(strKey)
@@ -67,9 +67,9 @@ End Function
 'Return Value :None
 'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
-Public Sub AddLngItem(ByRef colCollection As collection, ByVal lngItem As Long, ByVal strKey)
+Public Sub AddLngItem(ByRef colCollection As Collection, ByVal lngItem As Long, ByVal strKey)
   On Error Resume Next
-  If colCollection Is Nothing Then Set colCollection = New collection
+  If colCollection Is Nothing Then Set colCollection = New Collection
   colCollection.Add lngItem, strKey
   On Error GoTo 0
 End Sub
@@ -88,3 +88,33 @@ Public Function SetIsNumeric(ByVal strValue As String) As Double
     SetIsNumeric = 0
   End If
 End Function
+
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :Sheet_ApplicationOff
+'Argument     :strSheet
+'Return Value :None
+'Date created :2016/04/19 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
+Public Sub Sheet_ApplicationOff(ByVal strSheet As String)
+
+  Application.ScreenUpdating = False
+  Application.EnableEvents = False
+  Application.Calculation = xlCalculationManual
+  Worksheets(strSheet).Unprotect
+
+End Sub
+
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :Sheet_ApplicationOn
+'Argument     :strSheet
+'Return Value :None
+'Date created :2016/04/19 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
+Public Sub Sheet_ApplicationOn(ByVal strSheet As String)
+  
+  Application.ScreenUpdating = True
+  Application.EnableEvents = True
+  Application.Calculation = xlCalculationAutomatic
+  Worksheets(strSheet).Protect
+  
+End Sub

@@ -1,0 +1,43 @@
+VERSION 1.0 CLASS
+BEGIN
+  MultiUse = -1  'True
+END
+Attribute VB_Name = "Sheet5"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = True
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         : site
+'Explanation  :
+'Date created : 2016/04/19 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
+Option Explicit
+
+
+Private Sub Worksheet_Activate()
+  
+  Dim frmSelectFacDt As frmSelectFacilityDate
+  Set frmSelectFacDt = New frmSelectFacilityDate
+  
+  frmSelectFacDt.StartUpPosition = 1 '/ Center of Form
+  
+  frmSelectFacDt.SelectedFacility = Worksheets("site").Cells(1, 2).Value
+  frmSelectFacDt.SelectedDate = Worksheets("site").Cells(2, 2).Value
+    
+
+  frmSelectFacDt.Show vbModal
+  
+  Call Sheet_ApplicationOff("site")
+  
+  Worksheets("site").Cells(1, 2).Value = frmSelectFacDt.SelectedFacility
+  Worksheets("site").Cells(2, 2).Value = frmSelectFacDt.SelectedDate
+  
+  Call Sheet_ApplicationOn("site")
+  
+  Set frmSelectFacDt = Nothing
+
+
+End Sub
+
+
