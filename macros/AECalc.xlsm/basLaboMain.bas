@@ -3,6 +3,7 @@ Attribute VB_Name = "basLaboMain"
 'Name         :basLaboMain
 'Explanation  :
 'Date created : 2016/02/10 sakaguchi
+'             : 2016/04/21 sakaguchi (Add SettingRefOver20)
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
@@ -303,19 +304,15 @@ Public Sub CalcGrade()
   If Not FirstIsReady() Then Exit Sub
   If Not DemogIsReady() Then Exit Sub
   
-  Application.ScreenUpdating = False
-  Application.EnableEvents = False
-  Application.Calculation = xlCalculationManual
-  Worksheets("Labo").Unprotect
+  Call Sheet_ApplicationOff("Labo")
   
   Call ClearSheetLabo
   
+  Call SettingRefOver20
+  
   Call CalcGradeMain
   
-  Application.ScreenUpdating = True
-  Application.EnableEvents = True
-  Application.Calculation = xlCalculationAutomatic
-  Worksheets("Labo").Protect
+  Call Sheet_ApplicationOn("Labo")
   
 End Sub
 
@@ -604,22 +601,22 @@ Private Function FirstIsReady() As Boolean
   
   With Worksheets("Demog")
     If .Range("B" & mclngDemogSttRow).Value = "" Then
-      strMessage = strMessage & "Demog 誕生日" & vbCrLf
+      strMessage = strMessage & "Demog Birthday" & vbCrLf
     End If
     If .Range("C" & mclngDemogSttRow).Value = "" Then
-      strMessage = strMessage & "Demog 性別" & vbCrLf
+      strMessage = strMessage & "Demog Sex" & vbCrLf
     End If
   End With
   
   With Worksheets("Labo")
     If .Cells(mclngLaboSttRow, mcTestDay).Value = "" Then
-      strMessage = strMessage & "Labo  検査日" & vbCrLf
+      strMessage = strMessage & "Labo  Exam.Date(yyyy/mm/dd)" & vbCrLf
     End If
   End With
   
   If strMessage = "" Then FirstIsReady = True: Exit Function
   
-  Call MsgBox(strMessage & "を入力してください。", vbInformation Or vbOKOnly, "Input Guide")
+  Call MsgBox("Please Input" & strMessage, vbInformation Or vbOKOnly, "Input Guide")
   
 End Function
 
@@ -655,3 +652,55 @@ Private Function DemogIsReady() As Boolean
   If Not blnIsResult Then Call MsgBox("Demog Baseline ID を入力してください。")
   
 End Function
+
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :SettingRefOver20
+'Argument     :None
+'Return Value :None
+'Date created :2016/04/21 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
+Private Sub SettingRefOver20()
+  Const clngRowOv           As Long = 35
+  Const clngRowOvM          As Long = 68
+  Const clngRowOvF          As Long = 101
+  Dim strFacility           As String
+  Dim strDate               As String
+  Dim lngRows               As Long
+  Dim i                     As Long
+  Dim j                     As Long
+  Dim lngSelectedRow        As Long
+  
+  With Worksheets("site")
+    strFacility = .Cells(1, 2).Value
+    strDate = .Cells(2, 2).Value
+  End With
+  
+  lngSelectedRow = 0
+  With Worksheets("Another_facility_date")
+    lngRows = .UsedRange.Rows.Count
+    Do Until lngRows < i
+      i = i + 3
+      
+      If strFacility = .Cells(i, 1).Value And strDate = CStr(.Cells(i, 2)) Then
+        lngSelectedRow = i
+        Exit Do
+      End If
+      
+    Loop
+  End With
+  
+  If lngSelectedRow < 1 Then Exit Sub
+  
+  
+  i = 4   '/WBC_COL of Sheet(Ref)
+  j = 6   '/WBC_COL of Sheet(Another_facility_date)
+  With Worksheets("Another_facility_date")
+    For i = 4 To 61
+      Worksheets("Ref").Cells(clngRowOv, i) = .Cells(lngSelectedRow, j)
+      Worksheets("Ref").Cells(clngRowOvM, i) = .Cells(lngSelectedRow + 1, j)
+      Worksheets("Ref").Cells(clngRowOvF, i) = .Cells(lngSelectedRow + 2, j)
+      j = j + 1
+    Next
+  End With
+  
+End Sub
