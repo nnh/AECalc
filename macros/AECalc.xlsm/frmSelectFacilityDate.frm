@@ -92,11 +92,9 @@ End Sub
 Private Sub SettingFacilityList()
   Dim lngRows       As Long
   Dim i             As Long
-  Dim j             As Long
   Dim strBufName    As String
   Dim strBufDate    As String
   Dim clFacility    As clsFacility
-  Dim varBuf As Variant
 
   lstFacility.Clear
   lstDate.Clear
@@ -124,7 +122,6 @@ Private Sub SettingFacilityList()
         Set clFacility = New clsFacility
         clFacility.Name = strBufName
         clFacility.colDate = New Collection
-        
         
       End If
       
@@ -165,6 +162,12 @@ Private Sub SettingDateList()
   Call SettingEnabledDecision
 End Sub
 
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :SettingEnabledDecision
+'Argument     :None
+'Return Value :None
+'Date created :2016/04/21 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
 Private Sub SettingEnabledDecision()
   cmdDecision.Enabled = False
   If lstFacility.ListCount < 1 Then Exit Sub
@@ -209,6 +212,12 @@ Private Sub lstFacility_Click()
   Call SettingDateList
 End Sub
 
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :DecisionMain
+'Argument     :None
+'Return Value :None
+'Date created :2016/04/21 sakaguchi
+'////////////////////////////////////////////////////////////////////////////////////////
 Private Sub DecisionMain()
   mstrFacility = lstFacility.List(lstFacility.ListIndex)
   mstrDate = lstDate.List(lstDate.ListIndex)
