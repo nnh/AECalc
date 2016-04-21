@@ -616,7 +616,7 @@ Private Function FirstIsReady() As Boolean
   
   If strMessage = "" Then FirstIsReady = True: Exit Function
   
-  Call MsgBox("Please Input" & strMessage, vbInformation Or vbOKOnly, "Input Guide")
+  Call MsgBox("Please Input" & vbCrLf & strMessage, vbInformation Or vbOKOnly, "Input Guide")
   
 End Function
 
@@ -649,7 +649,7 @@ Private Function DemogIsReady() As Boolean
   
   DemogIsReady = blnIsResult
   
-  If Not blnIsResult Then Call MsgBox("Demog Baseline ID を入力してください。")
+  If Not blnIsResult Then Call MsgBox("Please Input" & vbCrLf & "Demog Baseline ID")
   
 End Function
 
