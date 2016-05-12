@@ -8,45 +8,47 @@ Attribute VB_Name = "basLaboMain"
 
 Option Explicit
 
-'// Const
-Private Const mcstrOver20         As String = "over20"
-Private Const mclngAdult          As Long = 999
-Private Const mclngLaboSttRow     As Long = 3     '/ LaboSheet  StartRow
-Private Const mclngDemogSttRow    As Long = 2     '/ DemogSheet StartRow
-Private Const mclngRefSttRow      As Long = 3     '/ Ref Sheet  StartRow
+'// Public Const
+Public Const gclngLaboSttRow     As Long = 3     '/ LaboSheet  StartRow
 
 '// Labo Row
-Private Const mcCaseNo      As Long = 1
-Private Const mcTestDay     As Long = 2
-Private Const mcWBC1        As Long = 3
-Private Const mcWBC2        As Long = 6
-Private Const mcHgb1        As Long = 9
-Private Const mcHgb2        As Long = 12
-Private Const mcPLT1        As Long = 15
-Private Const mcPLT2        As Long = 18
-Private Const mcNe          As Long = 21
-Private Const mcLy          As Long = 24
-Private Const mcPT          As Long = 27
-Private Const mcAPTT        As Long = 30
-Private Const mcFib         As Long = 33
-Private Const mcALB1        As Long = 36
-Private Const mcALB2        As Long = 39
-Private Const mcCre         As Long = 42
-Private Const mcUA          As Long = 45
-Private Const mcCHO         As Long = 48
-Private Const mcTbil        As Long = 51
-Private Const mcALP         As Long = 54
-Private Const mcCPK         As Long = 57
-Private Const mcAST         As Long = 60
-Private Const mcALT         As Long = 63
-Private Const mcGTP         As Long = 66
-Private Const mcNa          As Long = 69
-Private Const mcK           As Long = 72
-Private Const mcCa          As Long = 75
-Private Const mcIP          As Long = 78
-Private Const mcMg          As Long = 81
-Private Const mcGluc        As Long = 84
-Private Const mcUPro        As Long = 87
+Public Const gcCaseNo      As Long = 1
+Public Const gcTestDay     As Long = 2
+Public Const gcWBC1        As Long = 3
+Public Const gcWBC2        As Long = 6
+Public Const gcHgb1        As Long = 9
+Public Const gcHgb2        As Long = 12
+Public Const gcPLT1        As Long = 15
+Public Const gcPLT2        As Long = 18
+Public Const gcNe          As Long = 21
+Public Const gcLy          As Long = 24
+Public Const gcPT          As Long = 27
+Public Const gcAPTT        As Long = 30
+Public Const gcFib         As Long = 33
+Public Const gcALB1        As Long = 36
+Public Const gcALB2        As Long = 39
+Public Const gcCre         As Long = 42
+Public Const gcUA          As Long = 45
+Public Const gcCHO         As Long = 48
+Public Const gcTbil        As Long = 51
+Public Const gcALP         As Long = 54
+Public Const gcCPK         As Long = 57
+Public Const gcAST         As Long = 60
+Public Const gcALT         As Long = 63
+Public Const gcGTP         As Long = 66
+Public Const gcNa          As Long = 69
+Public Const gcK           As Long = 72
+Public Const gcCa          As Long = 75
+Public Const gcIP          As Long = 78
+Public Const gcMg          As Long = 81
+Public Const gcGluc        As Long = 84
+Public Const gcUPro        As Long = 87
+
+'// Private Const
+Private Const mcstrOver20         As String = "over20"
+Private Const mclngAdult          As Long = 999
+Private Const mclngDemogSttRow    As Long = 2     '/ DemogSheet StartRow
+Private Const mclngRefSttRow      As Long = 3     '/ Ref Sheet  StartRow
 
 '// Ref  Row
 Private Const mcLnWBC1      As Long = 4
@@ -107,183 +109,183 @@ Private Sub CalcGradeMain()
   If mcolAgeKaisou Is Nothing Then Exit Sub
   
   With Worksheets("Labo")
-    For i = mclngLaboSttRow To mlngMaxRow
-      strCaseNum = Worksheets("Labo").Cells(i, mcCaseNo).Value
+    For i = gclngLaboSttRow To mlngMaxRow
+      strCaseNum = Worksheets("Labo").Cells(i, gcCaseNo).Value
         
-      dtTestday = Worksheets("Labo").Cells(i, mcTestDay).Value
+      dtTestday = Worksheets("Labo").Cells(i, gcTestDay).Value
     
       Set clPatient = GetPatient(strCaseNum, dtTestday)
     
-      If IsReady(mcLnWBC1, mcWBC1, clPatient, i, dblLLN, dblULN) Then '/ WBC(/mm3)
-        dblTestValue = .Cells(i, mcWBC1).Value
-       .Cells(i, mcWBC1 + 1).Value = WBC_Plus_mm3(dblTestValue)
-       .Cells(i, mcWBC1 + 2).Value = WBC_Minus_mm3(dblTestValue, dblLLN)
+      If IsReady(mcLnWBC1, gcWBC1, clPatient, i, dblLLN, dblULN) Then '/ WBC(/mm3)
+        dblTestValue = .Cells(i, gcWBC1).Value
+       .Cells(i, gcWBC1 + 1).Value = WBC_Plus_mm3(dblTestValue)
+       .Cells(i, gcWBC1 + 2).Value = WBC_Minus_mm3(dblTestValue, dblLLN)
       
        dblTestValueWBC = dblTestValue
        dblLLNWBC = dblLLN
-       If IsReady(mcLnNe, mcNe, clPatient, i, dblLLN, dblULN) Then    '/ Ne(%)
-        dblTestValue = .Cells(i, mcNe).Value
-        .Cells(i, mcNe + 2).Value = Ne_Minus_Per1(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
+       If IsReady(mcLnNe, gcNe, clPatient, i, dblLLN, dblULN) Then    '/ Ne(%)
+        dblTestValue = .Cells(i, gcNe).Value
+        .Cells(i, gcNe + 2).Value = Ne_Minus_Per1(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
        
-       If IsReady(mcLnLy, mcLy, clPatient, i, dblLLN, dblULN) Then    '/ Ly(%)
-        dblTestValue = .Cells(i, mcLy).Value
-        .Cells(i, mcLy + 1).Value = Ly_Plus_Per1(dblTestValue, dblTestValueWBC)
-        .Cells(i, mcLy + 2).Value = Ly_Minus_Per1(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
+       If IsReady(mcLnLy, gcLy, clPatient, i, dblLLN, dblULN) Then    '/ Ly(%)
+        dblTestValue = .Cells(i, gcLy).Value
+        .Cells(i, gcLy + 1).Value = Ly_Plus_Per1(dblTestValue, dblTestValueWBC)
+        .Cells(i, gcLy + 2).Value = Ly_Minus_Per1(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
        
       End If
     
-      If IsReady(mcLnWBC2, mcWBC2, clPatient, i, dblLLN, dblULN) Then  '/ WBC(10e9/L)
-        dblTestValue = .Cells(i, mcWBC2).Value
-       .Cells(i, mcWBC2 + 2).Value = WBC_Minus_10e9L(dblTestValue, dblLLN)
+      If IsReady(mcLnWBC2, gcWBC2, clPatient, i, dblLLN, dblULN) Then  '/ WBC(10e9/L)
+        dblTestValue = .Cells(i, gcWBC2).Value
+       .Cells(i, gcWBC2 + 2).Value = WBC_Minus_10e9L(dblTestValue, dblLLN)
        
        dblTestValueWBC = dblTestValue
        dblLLNWBC = dblLLN
-       If IsReady(mcLnNe, mcNe, clPatient, i, dblLLN, dblULN) Then      '/ Ne(%)
-        dblTestValue = .Cells(i, mcNe).Value
-        .Cells(i, mcNe + 2).Value = Ne_Minus_Per2(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
+       If IsReady(mcLnNe, gcNe, clPatient, i, dblLLN, dblULN) Then      '/ Ne(%)
+        dblTestValue = .Cells(i, gcNe).Value
+        .Cells(i, gcNe + 2).Value = Ne_Minus_Per2(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
        
-       If IsReady(mcLnLy, mcLy, clPatient, i, dblLLN, dblULN) Then      '/ Ly%)
-        dblTestValue = .Cells(i, mcLy).Value
-        .Cells(i, mcLy + 1).Value = Ly_Plus_Per2(dblTestValue, dblTestValueWBC)
-        .Cells(i, mcLy + 2).Value = Ly_Minus_Per2(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
+       If IsReady(mcLnLy, gcLy, clPatient, i, dblLLN, dblULN) Then      '/ Ly%)
+        dblTestValue = .Cells(i, gcLy).Value
+        .Cells(i, gcLy + 1).Value = Ly_Plus_Per2(dblTestValue, dblTestValueWBC)
+        .Cells(i, gcLy + 2).Value = Ly_Minus_Per2(dblTestValue, dblLLN, dblTestValueWBC, dblLLNWBC)
        End If
       
       End If
     
-      If IsReady(mcLnHgb1, mcHgb1, clPatient, i, dblLLN, dblULN) Then '/ Hgb(g/dL)
-        dblTestValue = .Cells(i, mcHgb1).Value
-       .Cells(i, mcHgb1 + 1).Value = Hgb_Plus_gdL(dblTestValue, dblULN, clPatient.Hgb_gdL)
-       .Cells(i, mcHgb1 + 2).Value = Hgb_Minus_gdL(dblTestValue, dblLLN)
+      If IsReady(mcLnHgb1, gcHgb1, clPatient, i, dblLLN, dblULN) Then '/ Hgb(g/dL)
+        dblTestValue = .Cells(i, gcHgb1).Value
+       .Cells(i, gcHgb1 + 1).Value = Hgb_Plus_gdL(dblTestValue, dblULN, clPatient.Hgb_gdL)
+       .Cells(i, gcHgb1 + 2).Value = Hgb_Minus_gdL(dblTestValue, dblLLN)
       End If
         
-      If IsReady(mcLnHgb2, mcHgb2, clPatient, i, dblLLN, dblULN) Then '/ Hgb(mg/L)
-        dblTestValue = .Cells(i, mcHgb2).Value
-       .Cells(i, mcHgb2 + 1).Value = Hgb_Plus_mgL(dblTestValue, dblULN, clPatient.Hgb_mgL)
-       .Cells(i, mcHgb2 + 2).Value = Hgb_Minus_mgL(dblTestValue, dblLLN)
+      If IsReady(mcLnHgb2, gcHgb2, clPatient, i, dblLLN, dblULN) Then '/ Hgb(mg/L)
+        dblTestValue = .Cells(i, gcHgb2).Value
+       .Cells(i, gcHgb2 + 1).Value = Hgb_Plus_mgL(dblTestValue, dblULN, clPatient.Hgb_mgL)
+       .Cells(i, gcHgb2 + 2).Value = Hgb_Minus_mgL(dblTestValue, dblLLN)
       End If
 
-      If IsReady(mcLnPLT1, mcPLT1, clPatient, i, dblLLN, dblULN) Then '/ PLT(/mm3)
-        dblTestValue = .Cells(i, mcPLT1).Value
-       .Cells(i, mcPLT1 + 2).Value = PLT_Minus_mm3(dblTestValue, dblLLN)
+      If IsReady(mcLnPLT1, gcPLT1, clPatient, i, dblLLN, dblULN) Then '/ PLT(/mm3)
+        dblTestValue = .Cells(i, gcPLT1).Value
+       .Cells(i, gcPLT1 + 2).Value = PLT_Minus_mm3(dblTestValue, dblLLN)
       End If
     
-      If IsReady(mcLnPLT2, mcPLT2, clPatient, i, dblLLN, dblULN) Then '/ PLT(10e9/L)
-        dblTestValue = .Cells(i, mcPLT2).Value
-       .Cells(i, mcPLT2 + 2).Value = PLT_Minus_10e9L(dblTestValue, dblLLN)
+      If IsReady(mcLnPLT2, gcPLT2, clPatient, i, dblLLN, dblULN) Then '/ PLT(10e9/L)
+        dblTestValue = .Cells(i, gcPLT2).Value
+       .Cells(i, gcPLT2 + 2).Value = PLT_Minus_10e9L(dblTestValue, dblLLN)
       End If
       
-      If IsReady(mcLnPT, mcPT, clPatient, i, dblLLN, dblULN) Then '/ PT(PT-INR)
-        dblTestValue = .Cells(i, mcPT).Value
-       .Cells(i, mcPT + 1).Value = PT_Plus_INR(dblTestValue, dblULN)
+      If IsReady(mcLnPT, gcPT, clPatient, i, dblLLN, dblULN) Then '/ PT(PT-INR)
+        dblTestValue = .Cells(i, gcPT).Value
+       .Cells(i, gcPT + 1).Value = PT_Plus_INR(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnAPTT, mcAPTT, clPatient, i, dblLLN, dblULN) Then '/ APTT(sec)
-        dblTestValue = .Cells(i, mcAPTT).Value
-       .Cells(i, mcAPTT + 1).Value = APTT_Plus_SEC(dblTestValue, dblULN)
+      If IsReady(mcLnAPTT, gcAPTT, clPatient, i, dblLLN, dblULN) Then '/ APTT(sec)
+        dblTestValue = .Cells(i, gcAPTT).Value
+       .Cells(i, gcAPTT + 1).Value = APTT_Plus_SEC(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnFib, mcFib, clPatient, i, dblLLN, dblULN) Then '/ fib
-        dblTestValue = .Cells(i, mcFib).Value
-       .Cells(i, mcFib + 2).Value = Fib_Minus_mgdL(dblTestValue, dblLLN, clPatient.Fib)
+      If IsReady(mcLnFib, gcFib, clPatient, i, dblLLN, dblULN) Then '/ fib
+        dblTestValue = .Cells(i, gcFib).Value
+       .Cells(i, gcFib + 2).Value = Fib_Minus_mgdL(dblTestValue, dblLLN, clPatient.Fib)
       End If
       
-      If IsReady(mcLnALB1, mcALB1, clPatient, i, dblLLN, dblULN) Then '/ ALB(g/dL)
-        dblTestValue = .Cells(i, mcALB1).Value
-       .Cells(i, mcALB1 + 2).Value = ALB_Minus_gdL(dblTestValue, dblLLN)
+      If IsReady(mcLnALB1, gcALB1, clPatient, i, dblLLN, dblULN) Then '/ ALB(g/dL)
+        dblTestValue = .Cells(i, gcALB1).Value
+       .Cells(i, gcALB1 + 2).Value = ALB_Minus_gdL(dblTestValue, dblLLN)
       End If
       
-      If IsReady(mcLnALB2, mcALB2, clPatient, i, dblLLN, dblULN) Then '/ ALB(g/L)
-        dblTestValue = .Cells(i, mcALB2).Value
-       .Cells(i, mcALB2 + 2).Value = ALB_Minus_gL(dblTestValue, dblLLN)
+      If IsReady(mcLnALB2, gcALB2, clPatient, i, dblLLN, dblULN) Then '/ ALB(g/L)
+        dblTestValue = .Cells(i, gcALB2).Value
+       .Cells(i, gcALB2 + 2).Value = ALB_Minus_gL(dblTestValue, dblLLN)
       End If
       
-      If IsReady(mcLnCre, mcCre, clPatient, i, dblLLN, dblULN) Then '/ Cre(mg/dL)
-        dblTestValue = .Cells(i, mcCre).Value
-       .Cells(i, mcCre + 1).Value = Cre_Plus_mgdL(dblTestValue, dblULN, clPatient.Cre)
-       .Cells(i, mcCre + 2).Value = Cre_Plus2_mgdL(dblTestValue, dblULN, clPatient.Cre)
+      If IsReady(mcLnCre, gcCre, clPatient, i, dblLLN, dblULN) Then '/ Cre(mg/dL)
+        dblTestValue = .Cells(i, gcCre).Value
+       .Cells(i, gcCre + 1).Value = Cre_Plus_mgdL(dblTestValue, dblULN, clPatient.Cre)
+       .Cells(i, gcCre + 2).Value = Cre_Plus2_mgdL(dblTestValue, dblULN, clPatient.Cre)
       End If
       
-      If IsReady(mcLnUA, mcUA, clPatient, i, dblLLN, dblULN) Then     '/ UA(mg/dL)
-        dblTestValue = .Cells(i, mcUA).Value
-       .Cells(i, mcUA + 1).Value = UA_Plus_mgdL(dblTestValue, dblULN)
+      If IsReady(mcLnUA, gcUA, clPatient, i, dblLLN, dblULN) Then     '/ UA(mg/dL)
+        dblTestValue = .Cells(i, gcUA).Value
+       .Cells(i, gcUA + 1).Value = UA_Plus_mgdL(dblTestValue, dblULN)
       End If
      
-      If IsReady(mcLnCHO, mcCHO, clPatient, i, dblLLN, dblULN) Then   '/ T-CHO(mg/dL)
-        dblTestValue = .Cells(i, mcCHO).Value
-       .Cells(i, mcCHO + 1).Value = CHO_Plus_mgdL(dblTestValue, dblULN)
+      If IsReady(mcLnCHO, gcCHO, clPatient, i, dblLLN, dblULN) Then   '/ T-CHO(mg/dL)
+        dblTestValue = .Cells(i, gcCHO).Value
+       .Cells(i, gcCHO + 1).Value = CHO_Plus_mgdL(dblTestValue, dblULN)
       End If
      
-      If IsReady(mcLnTbil, mcTbil, clPatient, i, dblLLN, dblULN) Then '/ T-Tbil(mg/dL)
-        dblTestValue = .Cells(i, mcTbil).Value
-       .Cells(i, mcTbil + 1).Value = Tbil_Plus_mgdL(dblTestValue, dblULN)
+      If IsReady(mcLnTbil, gcTbil, clPatient, i, dblLLN, dblULN) Then '/ T-Tbil(mg/dL)
+        dblTestValue = .Cells(i, gcTbil).Value
+       .Cells(i, gcTbil + 1).Value = Tbil_Plus_mgdL(dblTestValue, dblULN)
       End If
      
-      If IsReady(mcLnALP, mcALP, clPatient, i, dblLLN, dblULN) Then '/ ALT(U/L)
-        dblTestValue = .Cells(i, mcALP).Value
-       .Cells(i, mcALP + 1).Value = ALP_Plus_UL(dblTestValue, dblULN)
+      If IsReady(mcLnALP, gcALP, clPatient, i, dblLLN, dblULN) Then '/ ALT(U/L)
+        dblTestValue = .Cells(i, gcALP).Value
+       .Cells(i, gcALP + 1).Value = ALP_Plus_UL(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnCPK, mcCPK, clPatient, i, dblLLN, dblULN) Then '/ CPK(U/L)
-        dblTestValue = .Cells(i, mcCPK).Value
-       .Cells(i, mcCPK + 1).Value = CPK_Plus_UL(dblTestValue, dblULN)
+      If IsReady(mcLnCPK, gcCPK, clPatient, i, dblLLN, dblULN) Then '/ CPK(U/L)
+        dblTestValue = .Cells(i, gcCPK).Value
+       .Cells(i, gcCPK + 1).Value = CPK_Plus_UL(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnAST, mcAST, clPatient, i, dblLLN, dblULN) Then '/ AST(U/L)
-        dblTestValue = .Cells(i, mcAST).Value
-       .Cells(i, mcAST + 1).Value = AST_Plus_UL(dblTestValue, dblULN)
+      If IsReady(mcLnAST, gcAST, clPatient, i, dblLLN, dblULN) Then '/ AST(U/L)
+        dblTestValue = .Cells(i, gcAST).Value
+       .Cells(i, gcAST + 1).Value = AST_Plus_UL(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnALT, mcALT, clPatient, i, dblLLN, dblULN) Then '/ ALT(U/L)
-        dblTestValue = .Cells(i, mcALT).Value
-       .Cells(i, mcALT + 1).Value = ALT_Plus_UL(dblTestValue, dblULN)
+      If IsReady(mcLnALT, gcALT, clPatient, i, dblLLN, dblULN) Then '/ ALT(U/L)
+        dblTestValue = .Cells(i, gcALT).Value
+       .Cells(i, gcALT + 1).Value = ALT_Plus_UL(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnGTP, mcGTP, clPatient, i, dblLLN, dblULN) Then '/ γ-GTP(U/L)
-        dblTestValue = .Cells(i, mcGTP).Value
-       .Cells(i, mcGTP + 1).Value = GTP_Plus_UL(dblTestValue, dblULN)
+      If IsReady(mcLnGTP, gcGTP, clPatient, i, dblLLN, dblULN) Then '/ γ-GTP(U/L)
+        dblTestValue = .Cells(i, gcGTP).Value
+       .Cells(i, gcGTP + 1).Value = GTP_Plus_UL(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnNa, mcNa, clPatient, i, dblLLN, dblULN) Then   '/ Na(mEq/L)
-        dblTestValue = .Cells(i, mcNa).Value
-       .Cells(i, mcNa + 1).Value = Na_Plus_mEqL(dblTestValue, dblULN)
-       .Cells(i, mcNa + 2).Value = Na_Minus_mEqL(dblTestValue, dblLLN)
+      If IsReady(mcLnNa, gcNa, clPatient, i, dblLLN, dblULN) Then   '/ Na(mEq/L)
+        dblTestValue = .Cells(i, gcNa).Value
+       .Cells(i, gcNa + 1).Value = Na_Plus_mEqL(dblTestValue, dblULN)
+       .Cells(i, gcNa + 2).Value = Na_Minus_mEqL(dblTestValue, dblLLN)
       End If
       
-      If IsReady(mcLnK, mcK, clPatient, i, dblLLN, dblULN) Then     '/ K(mEq/L)
-        dblTestValue = .Cells(i, mcK).Value
-       .Cells(i, mcK + 1).Value = K_Plus_mEqL(dblTestValue, dblULN)
-       .Cells(i, mcK + 2).Value = K_Minus_mEqL(dblTestValue, dblLLN)
+      If IsReady(mcLnK, gcK, clPatient, i, dblLLN, dblULN) Then     '/ K(mEq/L)
+        dblTestValue = .Cells(i, gcK).Value
+       .Cells(i, gcK + 1).Value = K_Plus_mEqL(dblTestValue, dblULN)
+       .Cells(i, gcK + 2).Value = K_Minus_mEqL(dblTestValue, dblLLN)
       End If
       
-      If IsReady(mcLnCa, mcCa, clPatient, i, dblLLN, dblULN) Then     '/ Ca(mg/dL)
-        dblTestValue = .Cells(i, mcK).Value
-       .Cells(i, mcCa + 1).Value = Ca_Plus_mgdL(dblTestValue, dblULN)
-       .Cells(i, mcCa + 2).Value = Ca_Minus_mgdL(dblTestValue, dblLLN)
+      If IsReady(mcLnCa, gcCa, clPatient, i, dblLLN, dblULN) Then     '/ Ca(mg/dL)
+        dblTestValue = .Cells(i, gcCa).Value
+       .Cells(i, gcCa + 1).Value = Ca_Plus_mgdL(dblTestValue, dblULN)
+       .Cells(i, gcCa + 2).Value = Ca_Minus_mgdL(dblTestValue, dblLLN)
       End If
       
-      If IsReady(mcLnIP, mcIP, clPatient, i, dblLLN, dblULN) Then     '/ IP(mg/dL)
-        dblTestValue = .Cells(i, mcIP).Value
-       .Cells(i, mcIP + 2).Value = IP_Minus_mgdL(dblTestValue, dblLLN)
+      If IsReady(mcLnIP, gcIP, clPatient, i, dblLLN, dblULN) Then     '/ IP(mg/dL)
+        dblTestValue = .Cells(i, gcIP).Value
+       .Cells(i, gcIP + 2).Value = IP_Minus_mgdL(dblTestValue, dblLLN)
       End If
       
-      If IsReady(mcLnMg, mcMg, clPatient, i, dblLLN, dblULN) Then     '/ Mg(mg/dL)
-        dblTestValue = .Cells(i, mcMg).Value
-       .Cells(i, mcMg + 1).Value = Mg_Plus_mgdL(dblTestValue, dblULN)
-       .Cells(i, mcMg + 2).Value = Mg_Minus_mgdL(dblTestValue, dblLLN)
+      If IsReady(mcLnMg, gcMg, clPatient, i, dblLLN, dblULN) Then     '/ Mg(mg/dL)
+        dblTestValue = .Cells(i, gcMg).Value
+       .Cells(i, gcMg + 1).Value = Mg_Plus_mgdL(dblTestValue, dblULN)
+       .Cells(i, gcMg + 2).Value = Mg_Minus_mgdL(dblTestValue, dblLLN)
       End If
       
-      If IsReady(mcLnGluc, mcGluc, clPatient, i, dblLLN, dblULN) Then     '/ Gluc(mg/dL)
-        dblTestValue = .Cells(i, mcGluc).Value
-       .Cells(i, mcGluc + 1).Value = Gluc_Plus_mgdL(dblTestValue, dblULN)
-       .Cells(i, mcGluc + 2).Value = Gluc_Minus_mgdL(dblTestValue, dblLLN)
+      If IsReady(mcLnGluc, gcGluc, clPatient, i, dblLLN, dblULN) Then     '/ Gluc(mg/dL)
+        dblTestValue = .Cells(i, gcGluc).Value
+       .Cells(i, gcGluc + 1).Value = Gluc_Plus_mgdL(dblTestValue, dblULN)
+       .Cells(i, gcGluc + 2).Value = Gluc_Minus_mgdL(dblTestValue, dblLLN)
       End If
             
-      If IsReady(mcLnUPro, mcUPro, clPatient, i, dblLLN, dblULN) Then   '/ Upro
-        strTestValue = .Cells(i, mcUPro).Value
-       .Cells(i, mcUPro + 1).Value = UPro_Plus(strTestValue)
+      If IsReady(mcLnUPro, gcUPro, clPatient, i, dblLLN, dblULN) Then   '/ Upro
+        strTestValue = .Cells(i, gcUPro).Value
+       .Cells(i, gcUPro + 1).Value = UPro_Plus(strTestValue)
       End If
       
     Next
@@ -406,7 +408,7 @@ End Function
 Private Function IsReady(ByVal lngRefCOL As Long, ByVal lngLaboCOL As Long, ByVal clPatient As clsPatient, ByVal lngCurrentRow As Long, _
                          ByRef dblLLN As Double, ByRef dblULN As Double) As Boolean
 
-  Dim lngRow        As Long
+  Dim lngROW        As Long
   Dim strValue      As String
   Dim strLLN        As String
   Dim strULN        As String
@@ -418,13 +420,13 @@ Private Function IsReady(ByVal lngRefCOL As Long, ByVal lngLaboCOL As Long, ByVa
   strValue = Worksheets("Labo").Cells(lngCurrentRow, lngLaboCOL).Value
   If strValue = "" Then Exit Function           '/ strValue="" exit
   
-  lngRow = GetRefRow(clPatient, lngRefCOL)      '/ Target Row of RefSheet
+  lngROW = GetRefRow(clPatient, lngRefCOL)      '/ Target Row of RefSheet
   
-  If lngRow < mclngRefSttRow Then Exit Function '/ None Target Row
+  If lngROW < mclngRefSttRow Then Exit Function '/ None Target Row
   
   With Worksheets("Ref")
-    strLLN = .Cells(lngRow, lngRefCOL).Value
-    strULN = .Cells(lngRow, lngRefCOL + 1).Value
+    strLLN = .Cells(lngROW, lngRefCOL).Value
+    strULN = .Cells(lngROW, lngRefCOL + 1).Value
   End With
   
   Select Case lngRefCOL
@@ -455,7 +457,7 @@ Private Function GetRefRow(ByVal clPatient As clsPatient, ByVal lngTargetCol As 
   Dim strAgeSex         As String
   Dim strAdultAge       As String
   Dim strAdultAgeSex    As String
-  Dim lngRow            As Long
+  Dim lngROW            As Long
   
   GetRefRow = -1
   If mcolAgeKaisou Is Nothing Then Exit Function
@@ -468,24 +470,24 @@ Private Function GetRefRow(ByVal clPatient As clsPatient, ByVal lngTargetCol As 
   strAdultAgeSex = JoinKeyAgeSex(mclngAdult, clPatient.AgeM, clPatient.Sex)
   
     
-  lngRow = GetLngItem(mcolAgeKaisou, strAge)          '/ Age Only search
-  If mclngRefSttRow <= lngRow Then
-    If Worksheets("Ref").Cells(lngRow, lngTargetCol) <> "" Then GetRefRow = lngRow: Exit Function
+  lngROW = GetLngItem(mcolAgeKaisou, strAge)          '/ Age Only search
+  If mclngRefSttRow <= lngROW Then
+    If Worksheets("Ref").Cells(lngROW, lngTargetCol) <> "" Then GetRefRow = lngROW: Exit Function
   End If
   
-  lngRow = GetLngItem(mcolAgeKaisou, strAgeSex)       '/ Age,Sex search
-  If mclngRefSttRow <= lngRow Then
-    If Worksheets("Ref").Cells(lngRow, lngTargetCol) <> "" Then GetRefRow = lngRow: Exit Function
+  lngROW = GetLngItem(mcolAgeKaisou, strAgeSex)       '/ Age,Sex search
+  If mclngRefSttRow <= lngROW Then
+    If Worksheets("Ref").Cells(lngROW, lngTargetCol) <> "" Then GetRefRow = lngROW: Exit Function
   End If
   
-  lngRow = GetLngItem(mcolAgeKaisou, strAdultAgeSex)  '/ Adult,Sex search
-  If mclngRefSttRow <= lngRow Then
-    If Worksheets("Ref").Cells(lngRow, lngTargetCol) <> "" Then GetRefRow = lngRow: Exit Function
+  lngROW = GetLngItem(mcolAgeKaisou, strAdultAgeSex)  '/ Adult,Sex search
+  If mclngRefSttRow <= lngROW Then
+    If Worksheets("Ref").Cells(lngROW, lngTargetCol) <> "" Then GetRefRow = lngROW: Exit Function
   End If
 
-  lngRow = GetLngItem(mcolAgeKaisou, strAdultAge)     '/ Adult Only search
-  If mclngRefSttRow <= lngRow Then
-    If Worksheets("Ref").Cells(lngRow, lngTargetCol) <> "" Then GetRefRow = lngRow: Exit Function
+  lngROW = GetLngItem(mcolAgeKaisou, strAdultAge)     '/ Adult Only search
+  If mclngRefSttRow <= lngROW Then
+    If Worksheets("Ref").Cells(lngROW, lngTargetCol) <> "" Then GetRefRow = lngROW: Exit Function
   End If
   
   
@@ -544,35 +546,35 @@ End Function
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Sub ClearSheetLabo()
 
-  Call ClearSheetLaboSub(mcWBC1)
-  Call ClearSheetLaboSub(mcWBC2)
-  Call ClearSheetLaboSub(mcHgb1)
-  Call ClearSheetLaboSub(mcHgb2)
-  Call ClearSheetLaboSub(mcPLT1)
-  Call ClearSheetLaboSub(mcPLT2)
-  Call ClearSheetLaboSub(mcNe)
-  Call ClearSheetLaboSub(mcLy)
-  Call ClearSheetLaboSub(mcPT)
-  Call ClearSheetLaboSub(mcAPTT)
-  Call ClearSheetLaboSub(mcFib)
-  Call ClearSheetLaboSub(mcALB1)
-  Call ClearSheetLaboSub(mcALB2)
-  Call ClearSheetLaboSub(mcCre)
-  Call ClearSheetLaboSub(mcUA)
-  Call ClearSheetLaboSub(mcCHO)
-  Call ClearSheetLaboSub(mcTbil)
-  Call ClearSheetLaboSub(mcALP)
-  Call ClearSheetLaboSub(mcCPK)
-  Call ClearSheetLaboSub(mcAST)
-  Call ClearSheetLaboSub(mcALT)
-  Call ClearSheetLaboSub(mcGTP)
-  Call ClearSheetLaboSub(mcNa)
-  Call ClearSheetLaboSub(mcK)
-  Call ClearSheetLaboSub(mcCa)
-  Call ClearSheetLaboSub(mcIP)
-  Call ClearSheetLaboSub(mcMg)
-  Call ClearSheetLaboSub(mcGluc)
-  Call ClearSheetLaboSub(mcUPro)
+  Call ClearSheetLaboSub(gcWBC1)
+  Call ClearSheetLaboSub(gcWBC2)
+  Call ClearSheetLaboSub(gcHgb1)
+  Call ClearSheetLaboSub(gcHgb2)
+  Call ClearSheetLaboSub(gcPLT1)
+  Call ClearSheetLaboSub(gcPLT2)
+  Call ClearSheetLaboSub(gcNe)
+  Call ClearSheetLaboSub(gcLy)
+  Call ClearSheetLaboSub(gcPT)
+  Call ClearSheetLaboSub(gcAPTT)
+  Call ClearSheetLaboSub(gcFib)
+  Call ClearSheetLaboSub(gcALB1)
+  Call ClearSheetLaboSub(gcALB2)
+  Call ClearSheetLaboSub(gcCre)
+  Call ClearSheetLaboSub(gcUA)
+  Call ClearSheetLaboSub(gcCHO)
+  Call ClearSheetLaboSub(gcTbil)
+  Call ClearSheetLaboSub(gcALP)
+  Call ClearSheetLaboSub(gcCPK)
+  Call ClearSheetLaboSub(gcAST)
+  Call ClearSheetLaboSub(gcALT)
+  Call ClearSheetLaboSub(gcGTP)
+  Call ClearSheetLaboSub(gcNa)
+  Call ClearSheetLaboSub(gcK)
+  Call ClearSheetLaboSub(gcCa)
+  Call ClearSheetLaboSub(gcIP)
+  Call ClearSheetLaboSub(gcMg)
+  Call ClearSheetLaboSub(gcGluc)
+  Call ClearSheetLaboSub(gcUPro)
   
 End Sub
 
@@ -583,7 +585,7 @@ End Sub
 'Date created :2016/02/15 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Sub ClearSheetLaboSub(ByVal lngCOL As Long)
-  Worksheets("Labo").Range(Cells(mclngLaboSttRow, lngCOL + 1), Cells(mlngMaxRow, lngCOL + 2)).Value = ""
+  Worksheets("Labo").Range(Cells(gclngLaboSttRow, lngCOL + 1), Cells(mlngMaxRow, lngCOL + 2)).Value = ""
 End Sub
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -609,7 +611,7 @@ Private Function FirstIsReady() As Boolean
   End With
   
   With Worksheets("Labo")
-    If .Cells(mclngLaboSttRow, mcTestDay).Value = "" Then
+    If .Cells(gclngLaboSttRow, gcTestDay).Value = "" Then
       strMessage = strMessage & "Labo  Exam.Date(yyyy/mm/dd)" & vbCrLf
     End If
   End With
