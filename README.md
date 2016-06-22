@@ -15,7 +15,6 @@ Requirements
 ------------
 AECalc requires the following to run:
   * Microsoft Excel
-  * [nkf][nkf] (only when Japanese characters are required for coding)
 
 Usage
 -----
@@ -24,10 +23,9 @@ Usage
 
 Contributing
 ------------
-  * nkf
-    - 上記のリンクからファイルをダウンロードし、ソースコードのフォルダの配下に `bin` というフォルダを作成し、nkf32.exe を配置してください
-    - To use Japanese characters in the program, you'll need to download nkf32.exe and put it into 'bin' folder where your source codes are located.
-
+  * [nkf][nkf]
+    - ソースコード中の日本語のコード変換を自動的に行うため（shift-JIS←→UTF-8）上記のリンクからファイルをダウンロードし、ソースコードのフォルダの配下に `bin` というフォルダを作成し、nkf32.exe を配置してください。使うだけなら不要です。
+    - To use Japanese characters in the program, you'll need to download nkf32.exe and put it into 'bin' folder where your source codes are located in order to avoid garbled on Github . You don't need nkf to run AECalc.
 
   * 開発手順
     1. git で最新のバージョンのソースコードをプルします。
