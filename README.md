@@ -41,4 +41,4 @@ Copyright &copy; 2016, NHO Nagoya Medical Center and NPO-OSCR
 
 [nkf]: http://www.vector.co.jp/soft/dl/win95/util/se295331.html
 [shield-license]: https://img.shields.io/badge/license-MIT-blue.svg
-[AECalc]: https://github.com/nnh/AECalc/blob/master/AECalc.xlsm
+[AECalc]: https://github.com/nnh/AECalc/blob/master/AECalc.xlsm?raw=true
