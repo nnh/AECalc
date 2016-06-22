@@ -4,13 +4,6 @@ An Excel application with VBA that automatically calculates and shows CTCAE grad
 
 [![MIT licensed][shield-license]](#)
 
-Table of Contents
------------------
-  * [Requirements](#requirements)
-  * [Usage](#usage)
-  * [Contributing](#contributing)
-  * [License](#license)
-
 Requirements
 ------------
 AECalc requires the following to run:
