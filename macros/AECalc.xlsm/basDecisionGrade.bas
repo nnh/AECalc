@@ -581,7 +581,7 @@ End Function
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :Cre_Plus_mgdL    クレアチニン増加
 'Argument     :dblResult        TestValue
-'             :dblLLN           Upper  Limit
+'             :dblULN           Upper  Limit
 '             :dblCre_mgdL      Base line
 'Return Value :Grade
 'Date created :2016/02/10 yamamoto
