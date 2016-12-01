@@ -181,7 +181,7 @@ Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 
   lngGrade = 0
   
-  If dblResult >= 6.5 And dblResult < 8 Then
+  If dblResult < 8 Then
     lngGrade = 3
   ElseIf dblResult >= 8 And dblResult < 10 Then
     lngGrade = 2
