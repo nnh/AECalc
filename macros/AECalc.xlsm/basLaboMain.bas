@@ -243,7 +243,7 @@ Private Sub CalcGradeMain()
        .Cells(i, gcALT + 1).Value = ALT_Plus_UL(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnGTP, gcGTP, clPatient, i, dblLLN, dblULN) Then '/ ﾎｳ-GTP(U/L)
+      If IsReady(mcLnGTP, gcGTP, clPatient, i, dblLLN, dblULN) Then '/ γ-GTP(U/L)
         dblTestValue = .Cells(i, gcGTP).Value
        .Cells(i, gcGTP + 1).Value = GTP_Plus_UL(dblTestValue, dblULN)
       End If
@@ -399,9 +399,9 @@ End Function
 'Argument     :lngRefCOL      Ref SheetCol
 '             :lngLaboCOL     LaboSheetCol
 '             :clPatient      Patient
-'             :lngCurrentRow縲CurrentRow
-'             :dblLLN       縲lower limit
-'             :dblULN       縲upper limit
+'             :lngCurrentRow　CurrentRow
+'             :dblLLN       　lower limit
+'             :dblULN       　upper limit
 'Return Value :
 'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -497,7 +497,7 @@ End Function
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :GetKaisou
 'Argument     :
-'Return Value :Collection 縲Item:Row  Key:Age ,Month old,sex
+'Return Value :Collection 　Item:Row  Key:Age ,Month old,sex
 'Date created :2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function GetKaisou() As Collection

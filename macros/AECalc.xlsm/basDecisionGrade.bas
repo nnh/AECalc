@@ -8,7 +8,7 @@ Attribute VB_Name = "basDecisionGrade"
 Option Explicit
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :WBC_Minus_mm3    ç™½è¡€çƒæ¸›å°‘
+'Name         :WBC_Minus_mm3    ”’ŒŒ‹…Œ¸­
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -34,7 +34,7 @@ Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :WBC_Minus_10e9L  ç™½è¡€çƒæ¸›å°‘
+'Name         :WBC_Minus_10e9L  ”’ŒŒ‹…Œ¸­
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -64,7 +64,7 @@ Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :WBC_Plus_mm3   ç™½è¡€çƒå¢—åŠ ç—‡
+'Name         :WBC_Plus_mm3   ”’ŒŒ‹…‘‰ÁÇ
 'Argument     :dblResult      TestValue
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
@@ -85,7 +85,7 @@ Public Function WBC_Plus_mm3(ByVal dblResult As Double) As Long
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Hgb_Plus_gdL   ãƒ˜ãƒ¢ã‚°ãƒ­ãƒ“ãƒ³å¢—åŠ 
+'Name         :Hgb_Plus_gdL   ƒwƒ‚ƒOƒƒrƒ“‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 '             :dblHgb_gdL     Base line
@@ -129,7 +129,7 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Hgb_Plus_mgL   ãƒ˜ãƒ¢ã‚°ãƒ­ãƒ“ãƒ³å¢—åŠ 
+'Name         :Hgb_Plus_mgL   ƒwƒ‚ƒOƒƒrƒ“‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 '             :dblHgb_gdL     Base line
@@ -170,18 +170,19 @@ Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Hgb_Minus_gdL    è²§è¡€
+'Name         :Hgb_Minus_gdL    •nŒŒ
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
+'             :2016/12/02 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
   Dim lngGrade        As Long
 
   lngGrade = 0
   
-  If dblResult < 8 Then
+  If dblResult < 8 Then '2016/12/02 sakaguchi
     lngGrade = 3
   ElseIf dblResult >= 8 And dblResult < 10 Then
     lngGrade = 2
@@ -194,18 +195,19 @@ Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Hgb_Minus_mgL  è²§è¡€
+'Name         :Hgb_Minus_mgL  •nŒŒ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
+'             :2016/12/02 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double) As Long
   Dim lngGrade        As Long
 
   lngGrade = 0
   
-  If dblResult >= 65000 And dblResult < 80000 Then
+  If dblResult < 80000 Then '2016/12/02 sakaguchi
     lngGrade = 3
   ElseIf dblResult >= 80000 And dblResult < 100000 Then
     lngGrade = 2
@@ -218,7 +220,7 @@ Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :PLT_Minus_mm3    è¡€å°æ¿æ¸›å°‘
+'Name         :PLT_Minus_mm3    ŒŒ¬”ÂŒ¸­
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -244,7 +246,7 @@ Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :PLT_Minus_10e9L    è¡€å°æ¿æ¸›å°‘
+'Name         :PLT_Minus_10e9L    ŒŒ¬”ÂŒ¸­
 'Argument     :dblResult          TestValue
 '             :dblLLN             Lower Limit
 'Return Value :Grade
@@ -270,11 +272,11 @@ Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ne_Minus_Per1        å¥½ä¸­çƒæ•°æ¸›å°‘
+'Name         :Ne_Minus_Per1        D’†‹…”Œ¸­
 'Argument     :dblResult            TestValue
 '             :dblLLN               Lower Limit
-'             :dblResult_WBC_mm3    ç™½è¡€çƒæ•°
-'             :dblLLN_WBC_mm3       ç™½è¡€çƒæ•°ä¸‹é™å€¤
+'             :dblResult_WBC_mm3    ”’ŒŒ‹…”
+'             :dblLLN_WBC_mm3       ”’ŒŒ‹…”‰ºŒÀ’l
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -302,11 +304,11 @@ Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ne_Minus_Per2        å¥½ä¸­çƒæ•°æ¸›å°‘
+'Name         :Ne_Minus_Per2        D’†‹…”Œ¸­
 'Argument     :dblResult            TestValue
 '             :dblLLN               Lower Limit
-'             :dblResult_WBC_10e9L  ç™½è¡€çƒæ•°
-'             :dblLLN_WBC_10e9L     ç™½è¡€çƒæ•°ä¸‹é™å€¤
+'             :dblResult_WBC_10e9L  ”’ŒŒ‹…”
+'             :dblLLN_WBC_10e9L     ”’ŒŒ‹…”‰ºŒÀ’l
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -334,11 +336,11 @@ Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ly_Minus_Per1        ãƒªãƒ³ãƒ‘çƒæ•°æ¸›å°‘
+'Name         :Ly_Minus_Per1        ƒŠƒ“ƒp‹…”Œ¸­
 'Argument     :dblResult            TestValue
 '             :dblLLN               Lower Limit
-'             :dblResult_WBC_mm3    ç™½è¡€çƒæ•°
-'             :dblLLN_WBC_mm3       ç™½è¡€çƒæ•°ä¸‹é™å€¤
+'             :dblResult_WBC_mm3    ”’ŒŒ‹…”
+'             :dblLLN_WBC_mm3       ”’ŒŒ‹…”‰ºŒÀ’l
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -366,11 +368,11 @@ Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ly_Minus_Per2          ãƒªãƒ³ãƒ‘çƒæ•°æ¸›å°‘
+'Name         :Ly_Minus_Per2          ƒŠƒ“ƒp‹…”Œ¸­
 'Argument     :dblResult              TestValue
 '             :dblLLN                 Lower Limit
-'             :dblResult_WBC_10e9L    ç™½è¡€çƒæ•°
-'             :dblLLN_WBC_10e9L       ç™½è¡€çƒæ•°ä¸‹é™å€¤
+'             :dblResult_WBC_10e9L    ”’ŒŒ‹…”
+'             :dblLLN_WBC_10e9L       ”’ŒŒ‹…”‰ºŒÀ’l
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -398,9 +400,9 @@ Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
 End Function
 
 '///////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ly_Plus_Per1         ãƒªãƒ³ãƒ‘çƒæ•°å¢—åŠ 
+'Name         :Ly_Plus_Per1         ƒŠƒ“ƒp‹…”‘‰Á
 'Argument     :dblResult            TestValue
-'             :dblResult_WBC_mm3    ç™½è¡€çƒæ•°
+'             :dblResult_WBC_mm3    ”’ŒŒ‹…”
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -422,9 +424,9 @@ Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ly_Plus_Per2           ãƒªãƒ³ãƒ‘çƒæ•°å¢—åŠ 
+'Name         :Ly_Plus_Per2           ƒŠƒ“ƒp‹…”‘‰Á
 'Argument     :dblResult              TestValue
-'             :dblResult_WBC_10e9L    ç™½è¡€çƒæ•°
+'             :dblResult_WBC_10e9L    ”’ŒŒ‹…”
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -446,7 +448,7 @@ Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :PT_Plus_INR    INRå¢—åŠ 
+'Name         :PT_Plus_INR    INR‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -474,7 +476,7 @@ Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :APTT_Plus_SEC  æ´»æ€§åŒ–éƒ¨åˆ†ãƒˆãƒ­ãƒ³ãƒœãƒ—ãƒ©ã‚¹ãƒãƒ³æ™‚é–“å»¶é•·
+'Name         :APTT_Plus_SEC  Šˆ«‰»•”•ªƒgƒƒ“ƒ{ƒvƒ‰ƒXƒ`ƒ“ŠÔ‰„’·
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -502,7 +504,7 @@ Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Fib_Minus_mgdL fibrinogenæ¸›å°‘
+'Name         :Fib_Minus_mgdL fibrinogenŒ¸­
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 '             :dblFib_mgdL    Base line
@@ -530,7 +532,7 @@ Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :ALB_Minus_gdL  ä½ã‚¢ãƒ«ãƒ–ãƒŸãƒ³è¡€ç—‡
+'Name         :ALB_Minus_gdL  ’áƒAƒ‹ƒuƒ~ƒ“ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -554,7 +556,7 @@ Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :ALB_Minus_gL   ä½ã‚¢ãƒ«ãƒ–ãƒŸãƒ³è¡€ç—‡
+'Name         :ALB_Minus_gL   ’áƒAƒ‹ƒuƒ~ƒ“ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -579,9 +581,9 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Cre_Plus_mgdL    ã‚¯ãƒ¬ã‚¢ãƒãƒ‹ãƒ³å¢—åŠ 
+'Name         :Cre_Plus_mgdL    ƒNƒŒƒAƒ`ƒjƒ“‘‰Á
 'Argument     :dblResult        TestValue
-'             :dblULN           Upper  Limit
+'             :dblLLN           Upper  Limit
 '             :dblCre_mgdL      Base line
 'Return Value :Grade
 'Date created :2016/02/10 yamamoto
@@ -606,7 +608,7 @@ Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double,
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Cre_Plus2_mgdL   æ€¥æ€§è…ä¸å…¨
+'Name         :Cre_Plus2_mgdL   ‹}«t•s‘S
 'Argument     :dblResult        TestValue
 '             :dblLLN           Upper  Limit
 '             :dblCre_mgdL      Base line
@@ -631,7 +633,7 @@ Public Function Cre_Plus2_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :UA_Plus_mgdL   é«˜å°¿é…¸è¡€ç—‡
+'Name         :UA_Plus_mgdL   ‚”A_ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -653,7 +655,7 @@ Public Function UA_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :CHO_Plus_mgdL  ã‚³ãƒ¬ã‚¹ãƒ†ãƒ­ãƒ¼ãƒ«å¢—åŠ 
+'Name         :CHO_Plus_mgdL  ƒRƒŒƒXƒeƒ[ƒ‹‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -679,7 +681,7 @@ Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Tbil_Plus_mgdL   è¡€ä¸­ãƒ“ãƒªãƒ«ãƒ“ãƒ³å¢—åŠ 
+'Name         :Tbil_Plus_mgdL   ŒŒ’†ƒrƒŠƒ‹ƒrƒ“‘‰Á
 'Argument     :dblResult        TestValue
 '             :dblLLN           Upper  Limit
 'Return Value :Grade
@@ -705,7 +707,7 @@ Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :ALP_Plus_UL    ã‚¢ãƒ«ã‚«ãƒªãƒ›ã‚¹ãƒ•ã‚¡ã‚¿ãƒ¼ã‚¼å¢—åŠ 
+'Name         :ALP_Plus_UL    ƒAƒ‹ƒJƒŠƒzƒXƒtƒ@ƒ^[ƒ[‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -731,7 +733,7 @@ Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :CPK_Plus_UL    CPKå¢—åŠ 
+'Name         :CPK_Plus_UL    CPK‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -757,7 +759,7 @@ Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :AST_Plus_UL    ã‚¢ã‚¹ãƒ‘ãƒ©ã‚®ãƒ³é…¸ã‚¢ãƒŸãƒãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚§ãƒ©ãƒ¼ã‚¼å¢—åŠ 
+'Name         :AST_Plus_UL    ƒAƒXƒpƒ‰ƒMƒ“_ƒAƒ~ƒmƒgƒ‰ƒ“ƒXƒtƒFƒ‰[ƒ[‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -783,7 +785,7 @@ Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :ALT_Plus_UL    ã‚¢ãƒ©ãƒ‹ãƒ³ãƒ»ã‚¢ãƒŸãƒãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚§ãƒ©ãƒ¼ã‚¼å¢—åŠ 
+'Name         :ALT_Plus_UL    ƒAƒ‰ƒjƒ“EƒAƒ~ƒmƒgƒ‰ƒ“ƒXƒtƒFƒ‰[ƒ[‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -810,7 +812,7 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :GTP_Plus_UL    GGTå¢—åŠ 
+'Name         :GTP_Plus_UL    GGT‘‰Á
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -837,7 +839,7 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Na_Plus_mEqL  é«˜ãƒŠãƒˆãƒªã‚¦ãƒ è¡€ç—‡
+'Name         :Na_Plus_mEqL  ‚ƒiƒgƒŠƒEƒ€ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -863,7 +865,7 @@ Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Na_Minus_mEqL  ä½ãƒŠãƒˆãƒªã‚¦ãƒ è¡€ç—‡
+'Name         :Na_Minus_mEqL  ’áƒiƒgƒŠƒEƒ€ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -887,7 +889,7 @@ Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :K_Plus_mEqL  é«˜ã‚«ãƒªã‚¦ãƒ è¡€ç—‡
+'Name         :K_Plus_mEqL  ‚ƒJƒŠƒEƒ€ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -913,7 +915,7 @@ Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) A
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :K_Minus_mEqL   ä½ã‚«ãƒªã‚¦ãƒ è¡€ç—‡
+'Name         :K_Minus_mEqL   ’áƒJƒŠƒEƒ€ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -937,7 +939,7 @@ Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ca_Plus_mgdL   é«˜ã‚«ãƒ«ã‚·ã‚¦ãƒ è¡€ç—‡
+'Name         :Ca_Plus_mgdL   ‚ƒJƒ‹ƒVƒEƒ€ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -963,7 +965,7 @@ Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ca_Minus_mgdL  ä½ã‚«ãƒ«ã‚·ã‚¦ãƒ è¡€ç—‡
+'Name         :Ca_Minus_mgdL  ’áƒJƒ‹ƒVƒEƒ€ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -989,7 +991,7 @@ Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :IP_Minus_mgdL  ä½ãƒªãƒ³è¡€ç—‡
+'Name         :IP_Minus_mgdL  ’áƒŠƒ“ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -1015,7 +1017,7 @@ Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Mg_Plus_mgdL   é«˜ãƒã‚°ãƒã‚·ã‚¦ãƒ è¡€ç—‡
+'Name         :Mg_Plus_mgdL   ‚ƒ}ƒOƒlƒVƒEƒ€ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -1039,7 +1041,7 @@ Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Mg_Minus_mgdL  ä½ãƒã‚°ãƒã‚·ã‚¦ãƒ è¡€ç—‡
+'Name         :Mg_Minus_mgdL  ’áƒ}ƒOƒlƒVƒEƒ€ŒŒÇ
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -1065,7 +1067,7 @@ Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Gluc_Plus_mgdL   é«˜è¡€ç³–
+'Name         :Gluc_Plus_mgdL   ‚ŒŒ“œ
 'Argument     :dblResult        TestValue
 '             :dblLLN           Upper  Limit
 'Return Value :Grade
@@ -1091,7 +1093,7 @@ Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Gluc_Minus_mgdL  ä½è¡€ç³–ç—‡
+'Name         :Gluc_Minus_mgdL  ’áŒŒ“œÇ
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -1117,7 +1119,7 @@ Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Doubl
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :UPro_Plus      å°¿è›‹ç™½
+'Name         :UPro_Plus      ”A’`”’
 'Argument     :dblResult      TestValue
 'Return Value :Grade
 'Date created :2016/02/10 yamamoto
