@@ -3,6 +3,7 @@ Attribute VB_Name = "basDecisionGrade"
 'Name         :basDecisionGrade
 'Explanation  :
 'Date created :2016/02/10 sakaguchi,yamamoto
+'　　　　　　 :2016/12/07 sakaguchi (Add WBC_Plus_10e9L)
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
@@ -82,6 +83,28 @@ Public Function WBC_Plus_mm3(ByVal dblResult As Double) As Long
   
   WBC_Plus_mm3 = lngGrade
   
+End Function
+
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :WBC_Plus_10e9L 白血球増加症
+'Argument     :dblResult      TestValue
+'Return Value :Grade
+'Date created :2016/12/07 坂口
+'////////////////////////////////////////////////////////////////////////////////////////
+Public Function WBC_Plus_10e9L(ByVal dblResult As Double) As Long
+  Dim lngGrade        As Long
+
+  lngGrade = 0
+  
+  Select Case dblResult
+    Case Is > 100
+      lngGrade = 3
+    Case Else
+  End Select
+  
+  WBC_Plus_10e9L = lngGrade
+  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////

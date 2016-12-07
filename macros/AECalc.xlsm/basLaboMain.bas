@@ -4,6 +4,7 @@ Attribute VB_Name = "basLaboMain"
 'Explanation  :
 'Date created : 2016/02/10 sakaguchi
 '             : 2016/04/21 sakaguchi (Add SettingRefOver20)
+'　　　　　　 : 2016/12/07 sakaguchi (Add WBC_Plus_10e9L)
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
@@ -138,7 +139,8 @@ Private Sub CalcGradeMain()
     
       If IsReady(mcLnWBC2, gcWBC2, clPatient, i, dblLLN, dblULN) Then  '/ WBC(10e9/L)
         dblTestValue = .Cells(i, gcWBC2).Value
-       .Cells(i, gcWBC2 + 2).Value = WBC_Minus_10e9L(dblTestValue, dblLLN)
+        .Cells(i, gcWBC2 + 1).Value = WBC_Plus_10e9L(dblTestValue)
+        .Cells(i, gcWBC2 + 2).Value = WBC_Minus_10e9L(dblTestValue, dblLLN)
        
        dblTestValueWBC = dblTestValue
        dblLLNWBC = dblLLN
