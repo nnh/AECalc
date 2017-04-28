@@ -19,7 +19,7 @@ Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 1000 Then
     lngGrade = 4
   ElseIf dblResult < 2000 Then
@@ -29,9 +29,9 @@ Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf (3000 < dblLLN) And (dblResult < dblLLN) Then
     lngGrade = 1
   End If
-  
+
   WBC_Minus_mm3 = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -45,7 +45,7 @@ Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   Select Case dblResult
     Case Is < 1
       lngGrade = 4
@@ -58,10 +58,10 @@ Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
         lngGrade = 1
       End If
   End Select
-  
+
   WBC_Minus_10e9L = lngGrade
-  
-  
+
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -74,15 +74,15 @@ Public Function WBC_Plus_mm3(ByVal dblResult As Double) As Long
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   Select Case dblResult
     Case Is > 100000
       lngGrade = 3
     Case Else
   End Select
-  
+
   WBC_Plus_mm3 = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -95,15 +95,15 @@ Public Function WBC_Plus_10e9L(ByVal dblResult As Double) As Long
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   Select Case dblResult
     Case Is > 100
       lngGrade = 3
     Case Else
   End Select
-  
+
   WBC_Plus_10e9L = lngGrade
-  
+
 
 End Function
 
@@ -119,9 +119,9 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblHgb_gdL >= dblULN Then
-  
+
     Select Case dblResult - dblHgb_gdL
       Case Is > 4
         lngGrade = 3
@@ -131,9 +131,9 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
         lngGrade = 1
       Case Else
     End Select
-  
+
   Else
-      
+
     Select Case dblResult - dblULN
       Case Is > 4
         lngGrade = 3
@@ -143,12 +143,12 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
         lngGrade = 1
       Case Else
     End Select
-      
-      
+
+
   End If
-   
+
   Hgb_Plus_gdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -163,9 +163,9 @@ Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, 
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblHgb_mgL >= dblULN Then
-  
+
     Select Case dblResult - dblHgb_mgL
       Case Is > 40000
         lngGrade = 3
@@ -185,11 +185,11 @@ Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, 
         lngGrade = 1
       Case Else
     End Select
-  
+
   End If
-   
+
   Hgb_Plus_mgL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -204,7 +204,7 @@ Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 8 Then '2016/12/02 sakaguchi
     lngGrade = 3
   ElseIf dblResult >= 8 And dblResult < 10 Then
@@ -214,7 +214,7 @@ Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   End If
 
   Hgb_Minus_gdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -229,7 +229,7 @@ Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 80000 Then '2016/12/02 sakaguchi
     lngGrade = 3
   ElseIf dblResult >= 80000 And dblResult < 100000 Then
@@ -239,7 +239,7 @@ Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double)
   End If
 
   Hgb_Minus_mgL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -253,7 +253,7 @@ Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 25000 Then
     lngGrade = 4
   ElseIf dblResult < 50000 Then
@@ -265,7 +265,7 @@ Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
   End If
 
   PLT_Minus_mm3 = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -279,7 +279,7 @@ Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 25 Then
     lngGrade = 4
   ElseIf dblResult < 50 Then
@@ -291,7 +291,7 @@ Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
   End If
 
   PLT_Minus_10e9L = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -311,7 +311,7 @@ Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
   lngGrade = 0
   dblResult_mm3 = dblResult * dblResult_WBC_mm3 * 0.01
   dblLLN_mm3 = dblLLN * dblLLN_WBC_mm3 * 0.01
-  
+
   If dblResult_mm3 < 500 Then
     lngGrade = 4
   ElseIf dblResult_mm3 < 1000 Then
@@ -323,7 +323,7 @@ Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
   End If
 
   Ne_Minus_Per1 = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -343,7 +343,7 @@ Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
   lngGrade = 0
   dblResult_10e9L = dblResult * dblResult_WBC_10e9L * 0.01
   dblLLN_10e9L = dblLLN * dblLLN_WBC_10e9L * 0.01
-  
+
   If dblResult_10e9L < 0.5 Then
     lngGrade = 4
   ElseIf dblResult_10e9L < 1 Then
@@ -355,7 +355,7 @@ Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
   End If
 
   Ne_Minus_Per2 = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -375,7 +375,7 @@ Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
   lngGrade = 0
   dblResult_mm3 = dblResult * dblResult_WBC_mm3 * 0.01
   dblLLN_mm3 = dblLLN * dblLLN_WBC_mm3 * 0.01
-  
+
   If dblResult_mm3 < 200 Then
     lngGrade = 4
   ElseIf dblResult_mm3 < 500 Then
@@ -387,7 +387,7 @@ Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
   End If
 
   Ly_Minus_Per1 = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -407,7 +407,7 @@ Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
   lngGrade = 0
   dblResult_10e9L = dblResult * dblResult_WBC_10e9L * 0.01
   dblLLN_10e9L = dblLLN * dblLLN_WBC_10e9L * 0.01
-  
+
   If dblResult_10e9L < 0.2 Then
     lngGrade = 4
   ElseIf dblResult_10e9L < 0.5 Then
@@ -419,7 +419,7 @@ Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
   End If
 
   Ly_Minus_Per2 = lngGrade
-  
+
 End Function
 
 '///////////////////////////////////////////////////////////////////////////////////////
@@ -432,10 +432,10 @@ End Function
 Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 As Double) As Long
   Dim lngGrade        As Long
   Dim dblResult_mm3   As Long
- 
+
   lngGrade = 0
   dblResult_mm3 = dblResult * dblResult_WBC_mm3 * 0.01
-   
+
   If dblResult_mm3 > 20000 Then
     lngGrade = 3
   ElseIf dblResult_mm3 > 4000 Then
@@ -443,7 +443,7 @@ Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 
   End If
 
   Ly_Plus_Per1 = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -456,10 +456,10 @@ End Function
 Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9L As Double) As Long
   Dim lngGrade        As Long
   Dim dblResult_10e9L   As Long
- 
+
   lngGrade = 0
   dblResult_10e9L = dblResult * dblResult_WBC_10e9L * 0.01
-   
+
   If dblResult_10e9L > 20 Then
     lngGrade = 3
   ElseIf dblResult_10e9L > 4 Then
@@ -467,7 +467,7 @@ Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9
   End If
 
   Ly_Plus_Per2 = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -481,8 +481,8 @@ Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
-   
+
+
   Select Case dblResult
     Case Is > 2.5 * dblULN
       lngGrade = 3
@@ -492,10 +492,10 @@ Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) A
       lngGrade = 1
     Case Else
   End Select
-    
-    
+
+
   PT_Plus_INR = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -509,8 +509,8 @@ Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
-   
+
+
   Select Case dblResult
     Case Is > 2.5 * dblULN
       lngGrade = 3
@@ -520,10 +520,10 @@ Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double)
       lngGrade = 1
     Case Else
   End Select
-    
-    
+
+
   APTT_Plus_SEC = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -538,8 +538,8 @@ Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
-  
+
+
   If (dblResult < 0.25 * dblLLN) Or (dblResult <= dblFib_mgdL - (0.75 * dblFib_mgdL)) Or (dblResult < 50) Then
     lngGrade = 4
   ElseIf (dblResult < 0.5 * dblLLN) Or (dblResult <= dblFib_mgdL - (0.5 * dblFib_mgdL)) Then
@@ -549,9 +549,9 @@ Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double
   ElseIf (dblResult < 1 * dblLLN) Or (dblResult < dblFib_mgdL) Then
     lngGrade = 1
   End If
-   
+
   Fib_Minus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -565,7 +565,7 @@ Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 2 Then
     lngGrade = 3
   ElseIf dblResult < 3 Then
@@ -575,7 +575,7 @@ Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   End If
 
   ALB_Minus_gdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -589,7 +589,7 @@ Public Function ALB_Minus_gL(ByVal dblResult As Double, ByVal dblLLN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 20 Then
     lngGrade = 3
   ElseIf dblResult < 30 Then
@@ -599,7 +599,7 @@ Public Function ALB_Minus_gL(ByVal dblResult As Double, ByVal dblLLN As Double) 
   End If
 
   ALB_Minus_gL = lngGrade
-  
+
 End Function
 
 
@@ -615,7 +615,7 @@ Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double,
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If (dblResult > 6 * dblULN) Then
     lngGrade = 4
   ElseIf (dblResult > 3 * dblULN) Or (dblResult > 3 * dblCre_mgdL) Then
@@ -625,9 +625,9 @@ Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double,
   ElseIf (dblResult > dblULN) Or (dblResult > dblCre_mgdL) Then
     lngGrade = 1
   End If
-   
+
   Cre_Plus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -642,7 +642,7 @@ Public Function Cre_Plus2_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If (dblResult > 4) Or (dblResult > 3 * dblCre_mgdL) Then
     lngGrade = 3
   ElseIf dblResult > 2 * dblCre_mgdL Then
@@ -650,9 +650,9 @@ Public Function Cre_Plus2_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   ElseIf (dblResult - dblCre_mgdL > 0.3) Or (dblResult > 1.5 * dblCre_mgdL) Then
     lngGrade = 1
   End If
-   
+
   Cre_Plus2_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -666,15 +666,15 @@ Public Function UA_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > 10 Then
     lngGrade = 4
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   UA_Plus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -688,7 +688,7 @@ Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > 500 Then
     lngGrade = 4
   ElseIf dblResult > 400 Then
@@ -698,9 +698,9 @@ Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double)
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   CHO_Plus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -714,7 +714,7 @@ Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > dblULN * 10 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 3 Then
@@ -724,9 +724,9 @@ Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   Tbil_Plus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -740,7 +740,7 @@ Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > dblULN * 20 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -750,9 +750,9 @@ Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   ALP_Plus_UL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -766,7 +766,7 @@ Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > dblULN * 10 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -776,9 +776,9 @@ Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   CPK_Plus_UL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -792,7 +792,7 @@ Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > dblULN * 20 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -802,9 +802,9 @@ Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   AST_Plus_UL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -818,7 +818,7 @@ Public Function ALT_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > dblULN * 20 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -828,9 +828,9 @@ Public Function ALT_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   ALT_Plus_UL = lngGrade
-  
+
 End Function
 
 
@@ -845,7 +845,7 @@ Public Function GTP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > dblULN * 20 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -855,9 +855,9 @@ Public Function GTP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   GTP_Plus_UL = lngGrade
-  
+
 End Function
 
 
@@ -872,7 +872,7 @@ Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > 160 Then
     lngGrade = 4
   ElseIf dblResult > 155 Then
@@ -882,9 +882,9 @@ Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) 
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   Na_Plus_mEqL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -898,7 +898,7 @@ Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 120 Then
     lngGrade = 4
   ElseIf dblResult < 130 Then
@@ -906,9 +906,9 @@ Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-   
+
   Na_Minus_mEqL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -922,7 +922,7 @@ Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > 7 Then
     lngGrade = 4
   ElseIf dblResult > 6 Then
@@ -932,9 +932,9 @@ Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   K_Plus_mEqL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -948,7 +948,7 @@ Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 2.5 Then
     lngGrade = 4
   ElseIf dblResult < 3 Then
@@ -956,9 +956,9 @@ Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) 
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-   
+
   K_Minus_mEqL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -972,7 +972,7 @@ Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > 13.5 Then
     lngGrade = 4
   ElseIf dblResult > 12.5 Then
@@ -982,9 +982,9 @@ Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   Ca_Plus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -998,7 +998,7 @@ Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 6 Then
     lngGrade = 4
   ElseIf dblResult < 7 Then
@@ -1008,9 +1008,9 @@ Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-   
+
   Ca_Minus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -1024,7 +1024,7 @@ Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 1 Then
     lngGrade = 4
   ElseIf dblResult < 2 Then
@@ -1034,9 +1034,9 @@ Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-   
+
   IP_Minus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -1050,7 +1050,7 @@ Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > 8 Then
     lngGrade = 4
   ElseIf dblResult > 3 Then
@@ -1058,9 +1058,9 @@ Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   Mg_Plus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -1074,7 +1074,7 @@ Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 0.7 Then
     lngGrade = 4
   ElseIf dblResult < 0.9 Then
@@ -1084,9 +1084,9 @@ Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-   
+
   Mg_Minus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -1100,7 +1100,7 @@ Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult > 500 Then
     lngGrade = 4
   ElseIf dblResult > 250 Then
@@ -1110,9 +1110,9 @@ Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-   
+
   Gluc_Plus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -1126,7 +1126,7 @@ Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Doubl
   Dim lngGrade        As Long
 
   lngGrade = 0
-  
+
   If dblResult < 30 Then
     lngGrade = 4
   ElseIf dblResult < 40 Then
@@ -1136,9 +1136,9 @@ Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Doubl
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-   
+
   Gluc_Minus_mgdL = lngGrade
-  
+
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -1147,19 +1147,21 @@ End Function
 'Return Value :Grade
 'Date created :2016/02/10 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
-Public Function UPro_Plus(ByVal strResult As String) As Long
-  Dim lngGrade        As Long
+Public Function UPro_Plus(ByVal strResult As String) As Variant
+  Dim lngGrade        As Variant
 
   lngGrade = 0
-  
+
   If strResult = "2+" Then
     lngGrade = 2
   ElseIf strResult = "1+" Then
     lngGrade = 1
+  ElseIf strResult = "3+" Then
+    lngGrade = 2*
+  ElseIf strResult = "4+" Then
+    lngGrade = 2*
   End If
-   
+
   UPro_Plus = lngGrade
-  
+
 End Function
-
-
