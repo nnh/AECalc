@@ -4,7 +4,7 @@ Attribute VB_Name = "basLaboMain"
 'Explanation  :
 'Date created : 2016/02/10 sakaguchi
 '             : 2016/04/21 sakaguchi (Add SettingRefOver20)
-'　　　　　　 : 2016/12/07 sakaguchi (Add WBC_Plus_10e9L)
+'縲縲縲縲縲縲 : 2016/12/07 sakaguchi (Add WBC_Plus_10e9L)
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
@@ -30,20 +30,21 @@ Public Const gcALB1        As Long = 36
 Public Const gcALB2        As Long = 39
 Public Const gcCre         As Long = 42
 Public Const gcUA          As Long = 45
-Public Const gcCHO         As Long = 48
-Public Const gcTbil        As Long = 51
-Public Const gcALP         As Long = 54
-Public Const gcCPK         As Long = 57
-Public Const gcAST         As Long = 60
-Public Const gcALT         As Long = 63
-Public Const gcGTP         As Long = 66
-Public Const gcNa          As Long = 69
-Public Const gcK           As Long = 72
-Public Const gcCa          As Long = 75
-Public Const gcIP          As Long = 78
-Public Const gcMg          As Long = 81
-Public Const gcGluc        As Long = 84
-Public Const gcUPro        As Long = 87
+Public Const gcTG          As Long = 48
+Public Const gcCHO         As Long = 51
+Public Const gcTbil        As Long = 54
+Public Const gcALP         As Long = 57
+Public Const gcCPK         As Long = 60
+Public Const gcAST         As Long = 63
+Public Const gcALT         As Long = 66
+Public Const gcGTP         As Long = 69
+Public Const gcNa          As Long = 72
+Public Const gcK           As Long = 75
+Public Const gcCa          As Long = 78
+Public Const gcIP          As Long = 81
+Public Const gcMg          As Long = 84
+Public Const gcGluc        As Long = 87
+Public Const gcUPro        As Long = 90
 
 '// Private Const
 Private Const mcstrOver20         As String = "over20"
@@ -67,20 +68,21 @@ Private Const mcLnALB1      As Long = 26
 Private Const mcLnALB2      As Long = 28
 Private Const mcLnCre       As Long = 30
 Private Const mcLnUA        As Long = 32
-Private Const mcLnCHO       As Long = 34
-Private Const mcLnTbil      As Long = 36
-Private Const mcLnALP       As Long = 38
-Private Const mcLnCPK       As Long = 40
-Private Const mcLnAST       As Long = 42
-Private Const mcLnALT       As Long = 44
-Private Const mcLnGTP       As Long = 46
-Private Const mcLnNa        As Long = 48
-Private Const mcLnK         As Long = 50
-Private Const mcLnCa        As Long = 52
-Private Const mcLnIP        As Long = 54
-Private Const mcLnMg        As Long = 56
-Private Const mcLnGluc      As Long = 58
-Private Const mcLnUPro      As Long = 60
+Private Const mcLnTG        As Long = 34
+Private Const mcLnCHO       As Long = 36
+Private Const mcLnTbil      As Long = 38
+Private Const mcLnALP       As Long = 40
+Private Const mcLnCPK       As Long = 42
+Private Const mcLnAST       As Long = 44
+Private Const mcLnALT       As Long = 46
+Private Const mcLnGTP       As Long = 48
+Private Const mcLnNa        As Long = 50
+Private Const mcLnK         As Long = 52
+Private Const mcLnCa        As Long = 54
+Private Const mcLnIP        As Long = 56
+Private Const mcLnMg        As Long = 58
+Private Const mcLnGluc      As Long = 60
+Private Const mcLnUPro      As Long = 62
 
 '// variable
 Private mcolAgeKaisou       As Collection '/ AgeSexCollection
@@ -214,7 +216,13 @@ Private Sub CalcGradeMain()
         dblTestValue = .Cells(i, gcUA).Value
        .Cells(i, gcUA + 1).Value = UA_Plus_mgdL(dblTestValue, dblULN)
       End If
-     
+      
+      'TG縺ｯ蛻､螳壹′蝗ｺ螳壼､縺ｪ縺ｮ縺ｧ譁ｽ險ｭ蝓ｺ貅門､蛻､螳壹ｒ繧ｹ繧ｭ繝�繝�
+      If Trim(.Cells(i, gcTG).Value) <> "" Then   '/ TG(mg/dL)
+        dblTestValue = .Cells(i, gcTG).Value
+        .Cells(i, gcTG + 1).Value = TG_Plus_mgdL(dblTestValue)
+      End If
+      
       If IsReady(mcLnCHO, gcCHO, clPatient, i, dblLLN, dblULN) Then   '/ T-CHO(mg/dL)
         dblTestValue = .Cells(i, gcCHO).Value
        .Cells(i, gcCHO + 1).Value = CHO_Plus_mgdL(dblTestValue, dblULN)
@@ -245,7 +253,7 @@ Private Sub CalcGradeMain()
        .Cells(i, gcALT + 1).Value = ALT_Plus_UL(dblTestValue, dblULN)
       End If
       
-      If IsReady(mcLnGTP, gcGTP, clPatient, i, dblLLN, dblULN) Then '/ γ-GTP(U/L)
+      If IsReady(mcLnGTP, gcGTP, clPatient, i, dblLLN, dblULN) Then '/ ﾎｳ-GTP(U/L)
         dblTestValue = .Cells(i, gcGTP).Value
        .Cells(i, gcGTP + 1).Value = GTP_Plus_UL(dblTestValue, dblULN)
       End If
@@ -401,9 +409,9 @@ End Function
 'Argument     :lngRefCOL      Ref SheetCol
 '             :lngLaboCOL     LaboSheetCol
 '             :clPatient      Patient
-'             :lngCurrentRow　CurrentRow
-'             :dblLLN       　lower limit
-'             :dblULN       　upper limit
+'             :lngCurrentRow縲CurrentRow
+'             :dblLLN       縲lower limit
+'             :dblULN       縲upper limit
 'Return Value :
 'Date created :2016/02/10 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -499,7 +507,7 @@ End Function
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :GetKaisou
 'Argument     :
-'Return Value :Collection 　Item:Row  Key:Age ,Month old,sex
+'Return Value :Collection 縲Item:Row  Key:Age ,Month old,sex
 'Date created :2016/02/08 sakaguchi
 '////////////////////////////////////////////////////////////////////////////////////////
 Private Function GetKaisou() As Collection

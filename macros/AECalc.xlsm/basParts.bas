@@ -10,8 +10,8 @@ Option Explicit
 
 '////////////////////////////////////////////////////////////////////////////////////////
 'Name         :CalcAge
-'Argument     :ByRef lngYÅ@       Age
-'             :ByRef lngMÅ@       MonthOld
+'Argument     :ByRef lngY„ÄÄ       Age
+'             :ByRef lngM„ÄÄ       MonthOld
 '             :ByVal dtBirthday   Birthday
 '             :ByVal dtTestday    TestDay
 'Return Value :0(Error then ErrorNumber)
@@ -34,7 +34,7 @@ Public Function CalcAge(ByRef lngY As Long, ByRef lngM As Long, ByVal dtBirthday
   lngMwork = DateDiff("m", dtBirthday, dtTestday)
   lngMwork = lngMwork Mod 12
   If Format(dtTestday, "dd") < Format(dtBirthday, "dd") Then
-    If 0 < lngMwork Then lngMwork = lngMwork - 1 Else lngMwork = 11  '/ -1 Month  Å®  11 Month
+    If 0 < lngMwork Then lngMwork = lngMwork - 1 Else lngMwork = 11  '/ -1 Month  ‚Üí  11 Month
   End If
   lngM = lngMwork
     

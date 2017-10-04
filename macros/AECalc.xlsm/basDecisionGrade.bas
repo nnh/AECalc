@@ -3,13 +3,13 @@ Attribute VB_Name = "basDecisionGrade"
 'Name         :basDecisionGrade
 'Explanation  :
 'Date created :2016/02/10 sakaguchi,yamamoto
-'Å@Å@Å@Å@Å@Å@ :2016/12/07 sakaguchi (Add WBC_Plus_10e9L)
+'„ÄÄ„ÄÄ„ÄÄ„ÄÄ„ÄÄ„ÄÄ :2016/12/07 sakaguchi (Add WBC_Plus_10e9L)
 '////////////////////////////////////////////////////////////////////////////////////////
 
 Option Explicit
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :WBC_Minus_mm3    îíååãÖå∏è≠
+'Name         :WBC_Minus_mm3    ÁôΩË°ÄÁêÉÊ∏õÂ∞ë
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -19,7 +19,7 @@ Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 1000 Then
     lngGrade = 4
   ElseIf dblResult < 2000 Then
@@ -29,13 +29,13 @@ Public Function WBC_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf (3000 < dblLLN) And (dblResult < dblLLN) Then
     lngGrade = 1
   End If
-
+  
   WBC_Minus_mm3 = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :WBC_Minus_10e9L  îíååãÖå∏è≠
+'Name         :WBC_Minus_10e9L  ÁôΩË°ÄÁêÉÊ∏õÂ∞ë
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -45,7 +45,7 @@ Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   Select Case dblResult
     Case Is < 1
       lngGrade = 4
@@ -58,14 +58,14 @@ Public Function WBC_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
         lngGrade = 1
       End If
   End Select
-
+  
   WBC_Minus_10e9L = lngGrade
-
-
+  
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :WBC_Plus_mm3   îíååãÖëùâ¡è«
+'Name         :WBC_Plus_mm3   ÁôΩË°ÄÁêÉÂ¢óÂä†Áóá
 'Argument     :dblResult      TestValue
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
@@ -74,41 +74,41 @@ Public Function WBC_Plus_mm3(ByVal dblResult As Double) As Long
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   Select Case dblResult
     Case Is > 100000
       lngGrade = 3
     Case Else
   End Select
-
+  
   WBC_Plus_mm3 = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :WBC_Plus_10e9L îíååãÖëùâ¡è«
+'Name         :WBC_Plus_10e9L ÁôΩË°ÄÁêÉÂ¢óÂä†Áóá
 'Argument     :dblResult      TestValue
 'Return Value :Grade
-'Date created :2016/12/07 ç‚å˚
+'Date created :2016/12/07 ÂùÇÂè£
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function WBC_Plus_10e9L(ByVal dblResult As Double) As Long
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   Select Case dblResult
     Case Is > 100
       lngGrade = 3
     Case Else
   End Select
-
+  
   WBC_Plus_10e9L = lngGrade
-
+  
 
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Hgb_Plus_gdL   ÉwÉÇÉOÉçÉrÉìëùâ¡
+'Name         :Hgb_Plus_gdL   „Éò„É¢„Ç∞„É≠„Éì„É≥Â¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 '             :dblHgb_gdL     Base line
@@ -119,9 +119,9 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblHgb_gdL >= dblULN Then
-
+  
     Select Case dblResult - dblHgb_gdL
       Case Is > 4
         lngGrade = 3
@@ -131,9 +131,9 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
         lngGrade = 1
       Case Else
     End Select
-
+  
   Else
-
+      
     Select Case dblResult - dblULN
       Case Is > 4
         lngGrade = 3
@@ -143,16 +143,16 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
         lngGrade = 1
       Case Else
     End Select
-
-
+      
+      
   End If
-
+   
   Hgb_Plus_gdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Hgb_Plus_mgL   ÉwÉÇÉOÉçÉrÉìëùâ¡
+'Name         :Hgb_Plus_mgL   „Éò„É¢„Ç∞„É≠„Éì„É≥Â¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 '             :dblHgb_gdL     Base line
@@ -163,9 +163,9 @@ Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, 
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblHgb_mgL >= dblULN Then
-
+  
     Select Case dblResult - dblHgb_mgL
       Case Is > 40000
         lngGrade = 3
@@ -185,15 +185,15 @@ Public Function Hgb_Plus_mgL(ByVal dblResult As Double, ByVal dblULN As Double, 
         lngGrade = 1
       Case Else
     End Select
-
+  
   End If
-
+   
   Hgb_Plus_mgL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Hgb_Minus_gdL    ïnåå
+'Name         :Hgb_Minus_gdL    Ë≤ßË°Ä
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -204,7 +204,7 @@ Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 8 Then '2016/12/02 sakaguchi
     lngGrade = 3
   ElseIf dblResult >= 8 And dblResult < 10 Then
@@ -214,11 +214,11 @@ Public Function Hgb_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   End If
 
   Hgb_Minus_gdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Hgb_Minus_mgL  ïnåå
+'Name         :Hgb_Minus_mgL  Ë≤ßË°Ä
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -229,7 +229,7 @@ Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 80000 Then '2016/12/02 sakaguchi
     lngGrade = 3
   ElseIf dblResult >= 80000 And dblResult < 100000 Then
@@ -239,11 +239,11 @@ Public Function Hgb_Minus_mgL(ByVal dblResult As Double, ByVal dblLLN As Double)
   End If
 
   Hgb_Minus_mgL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :PLT_Minus_mm3    ååè¨î¬å∏è≠
+'Name         :PLT_Minus_mm3    Ë°ÄÂ∞èÊùøÊ∏õÂ∞ë
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -253,7 +253,7 @@ Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 25000 Then
     lngGrade = 4
   ElseIf dblResult < 50000 Then
@@ -265,11 +265,11 @@ Public Function PLT_Minus_mm3(ByVal dblResult As Double, ByVal dblLLN As Double)
   End If
 
   PLT_Minus_mm3 = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :PLT_Minus_10e9L    ååè¨î¬å∏è≠
+'Name         :PLT_Minus_10e9L    Ë°ÄÂ∞èÊùøÊ∏õÂ∞ë
 'Argument     :dblResult          TestValue
 '             :dblLLN             Lower Limit
 'Return Value :Grade
@@ -279,7 +279,7 @@ Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 25 Then
     lngGrade = 4
   ElseIf dblResult < 50 Then
@@ -291,15 +291,15 @@ Public Function PLT_Minus_10e9L(ByVal dblResult As Double, ByVal dblLLN As Doubl
   End If
 
   PLT_Minus_10e9L = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ne_Minus_Per1        çDíÜãÖêîå∏è≠
+'Name         :Ne_Minus_Per1        Â•Ω‰∏≠ÁêÉÊï∞Ê∏õÂ∞ë
 'Argument     :dblResult            TestValue
 '             :dblLLN               Lower Limit
-'             :dblResult_WBC_mm3    îíååãÖêî
-'             :dblLLN_WBC_mm3       îíååãÖêîâ∫å¿íl
+'             :dblResult_WBC_mm3    ÁôΩË°ÄÁêÉÊï∞
+'             :dblLLN_WBC_mm3       ÁôΩË°ÄÁêÉÊï∞‰∏ãÈôêÂÄ§
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -311,7 +311,7 @@ Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
   lngGrade = 0
   dblResult_mm3 = dblResult * dblResult_WBC_mm3 * 0.01
   dblLLN_mm3 = dblLLN * dblLLN_WBC_mm3 * 0.01
-
+  
   If dblResult_mm3 < 500 Then
     lngGrade = 4
   ElseIf dblResult_mm3 < 1000 Then
@@ -323,15 +323,15 @@ Public Function Ne_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
   End If
 
   Ne_Minus_Per1 = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ne_Minus_Per2        çDíÜãÖêîå∏è≠
+'Name         :Ne_Minus_Per2        Â•Ω‰∏≠ÁêÉÊï∞Ê∏õÂ∞ë
 'Argument     :dblResult            TestValue
 '             :dblLLN               Lower Limit
-'             :dblResult_WBC_10e9L  îíååãÖêî
-'             :dblLLN_WBC_10e9L     îíååãÖêîâ∫å¿íl
+'             :dblResult_WBC_10e9L  ÁôΩË°ÄÁêÉÊï∞
+'             :dblLLN_WBC_10e9L     ÁôΩË°ÄÁêÉÊï∞‰∏ãÈôêÂÄ§
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -343,7 +343,7 @@ Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
   lngGrade = 0
   dblResult_10e9L = dblResult * dblResult_WBC_10e9L * 0.01
   dblLLN_10e9L = dblLLN * dblLLN_WBC_10e9L * 0.01
-
+  
   If dblResult_10e9L < 0.5 Then
     lngGrade = 4
   ElseIf dblResult_10e9L < 1 Then
@@ -355,15 +355,15 @@ Public Function Ne_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
   End If
 
   Ne_Minus_Per2 = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ly_Minus_Per1        ÉäÉìÉpãÖêîå∏è≠
+'Name         :Ly_Minus_Per1        „É™„É≥„ÉëÁêÉÊï∞Ê∏õÂ∞ë
 'Argument     :dblResult            TestValue
 '             :dblLLN               Lower Limit
-'             :dblResult_WBC_mm3    îíååãÖêî
-'             :dblLLN_WBC_mm3       îíååãÖêîâ∫å¿íl
+'             :dblResult_WBC_mm3    ÁôΩË°ÄÁêÉÊï∞
+'             :dblLLN_WBC_mm3       ÁôΩË°ÄÁêÉÊï∞‰∏ãÈôêÂÄ§
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -375,7 +375,7 @@ Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
   lngGrade = 0
   dblResult_mm3 = dblResult * dblResult_WBC_mm3 * 0.01
   dblLLN_mm3 = dblLLN * dblLLN_WBC_mm3 * 0.01
-
+  
   If dblResult_mm3 < 200 Then
     lngGrade = 4
   ElseIf dblResult_mm3 < 500 Then
@@ -387,15 +387,15 @@ Public Function Ly_Minus_Per1(ByVal dblResult As Double, ByVal dblLLN As Double,
   End If
 
   Ly_Minus_Per1 = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ly_Minus_Per2          ÉäÉìÉpãÖêîå∏è≠
+'Name         :Ly_Minus_Per2          „É™„É≥„ÉëÁêÉÊï∞Ê∏õÂ∞ë
 'Argument     :dblResult              TestValue
 '             :dblLLN                 Lower Limit
-'             :dblResult_WBC_10e9L    îíååãÖêî
-'             :dblLLN_WBC_10e9L       îíååãÖêîâ∫å¿íl
+'             :dblResult_WBC_10e9L    ÁôΩË°ÄÁêÉÊï∞
+'             :dblLLN_WBC_10e9L       ÁôΩË°ÄÁêÉÊï∞‰∏ãÈôêÂÄ§
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
@@ -407,7 +407,7 @@ Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
   lngGrade = 0
   dblResult_10e9L = dblResult * dblResult_WBC_10e9L * 0.01
   dblLLN_10e9L = dblLLN * dblLLN_WBC_10e9L * 0.01
-
+  
   If dblResult_10e9L < 0.2 Then
     lngGrade = 4
   ElseIf dblResult_10e9L < 0.5 Then
@@ -419,23 +419,23 @@ Public Function Ly_Minus_Per2(ByVal dblResult As Double, ByVal dblLLN As Double,
   End If
 
   Ly_Minus_Per2 = lngGrade
-
+  
 End Function
 
 '///////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ly_Plus_Per1         ÉäÉìÉpãÖêîëùâ¡
+'Name         :Ly_Plus_Per1         „É™„É≥„ÉëÁêÉÊï∞Â¢óÂä†
 'Argument     :dblResult            TestValue
-'             :dblResult_WBC_mm3    îíååãÖêî
+'             :dblResult_WBC_mm3    ÁôΩË°ÄÁêÉÊï∞
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 As Double) As Long
   Dim lngGrade        As Long
   Dim dblResult_mm3   As Long
-
+ 
   lngGrade = 0
   dblResult_mm3 = dblResult * dblResult_WBC_mm3 * 0.01
-
+   
   If dblResult_mm3 > 20000 Then
     lngGrade = 3
   ElseIf dblResult_mm3 > 4000 Then
@@ -443,23 +443,23 @@ Public Function Ly_Plus_Per1(ByVal dblResult As Double, ByVal dblResult_WBC_mm3 
   End If
 
   Ly_Plus_Per1 = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ly_Plus_Per2           ÉäÉìÉpãÖêîëùâ¡
+'Name         :Ly_Plus_Per2           „É™„É≥„ÉëÁêÉÊï∞Â¢óÂä†
 'Argument     :dblResult              TestValue
-'             :dblResult_WBC_10e9L    îíååãÖêî
+'             :dblResult_WBC_10e9L    ÁôΩË°ÄÁêÉÊï∞
 'Return Value :Grade
 'Date created :2016/02/09 yamamoto
 '////////////////////////////////////////////////////////////////////////////////////////
 Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9L As Double) As Long
   Dim lngGrade        As Long
   Dim dblResult_10e9L   As Long
-
+ 
   lngGrade = 0
   dblResult_10e9L = dblResult * dblResult_WBC_10e9L * 0.01
-
+   
   If dblResult_10e9L > 20 Then
     lngGrade = 3
   ElseIf dblResult_10e9L > 4 Then
@@ -467,11 +467,11 @@ Public Function Ly_Plus_Per2(ByVal dblResult As Double, ByVal dblResult_WBC_10e9
   End If
 
   Ly_Plus_Per2 = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :PT_Plus_INR    INRëùâ¡
+'Name         :PT_Plus_INR    INRÂ¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -481,8 +481,8 @@ Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-
-
+  
+   
   Select Case dblResult
     Case Is > 2.5 * dblULN
       lngGrade = 3
@@ -492,14 +492,14 @@ Public Function PT_Plus_INR(ByVal dblResult As Double, ByVal dblULN As Double) A
       lngGrade = 1
     Case Else
   End Select
-
-
+    
+    
   PT_Plus_INR = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :APTT_Plus_SEC  äàê´âªïîï™ÉgÉçÉìÉ{ÉvÉâÉXÉ`Éìéûä‘âÑí∑
+'Name         :APTT_Plus_SEC  Ê¥ªÊÄßÂåñÈÉ®ÂàÜ„Éà„É≠„É≥„Éú„Éó„É©„Çπ„ÉÅ„É≥ÊôÇÈñìÂª∂Èï∑
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -509,8 +509,8 @@ Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
-
+  
+   
   Select Case dblResult
     Case Is > 2.5 * dblULN
       lngGrade = 3
@@ -520,14 +520,14 @@ Public Function APTT_Plus_SEC(ByVal dblResult As Double, ByVal dblULN As Double)
       lngGrade = 1
     Case Else
   End Select
-
-
+    
+    
   APTT_Plus_SEC = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Fib_Minus_mgdL fibrinogenå∏è≠
+'Name         :Fib_Minus_mgdL fibrinogenÊ∏õÂ∞ë
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 '             :dblFib_mgdL    Base line
@@ -538,8 +538,8 @@ Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double
   Dim lngGrade        As Long
 
   lngGrade = 0
-
-
+  
+  
   If (dblResult < 0.25 * dblLLN) Or (dblResult <= dblFib_mgdL - (0.75 * dblFib_mgdL)) Or (dblResult < 50) Then
     lngGrade = 4
   ElseIf (dblResult < 0.5 * dblLLN) Or (dblResult <= dblFib_mgdL - (0.5 * dblFib_mgdL)) Then
@@ -549,13 +549,13 @@ Public Function Fib_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double
   ElseIf (dblResult < 1 * dblLLN) Or (dblResult < dblFib_mgdL) Then
     lngGrade = 1
   End If
-
+   
   Fib_Minus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :ALB_Minus_gdL  í·ÉAÉãÉuÉ~Éìååè«
+'Name         :ALB_Minus_gdL  ‰Ωé„Ç¢„É´„Éñ„Éü„É≥Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -565,7 +565,7 @@ Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 2 Then
     lngGrade = 3
   ElseIf dblResult < 3 Then
@@ -575,11 +575,11 @@ Public Function ALB_Minus_gdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   End If
 
   ALB_Minus_gdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :ALB_Minus_gL   í·ÉAÉãÉuÉ~Éìååè«
+'Name         :ALB_Minus_gL   ‰Ωé„Ç¢„É´„Éñ„Éü„É≥Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -589,7 +589,7 @@ Public Function ALB_Minus_gL(ByVal dblResult As Double, ByVal dblLLN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 20 Then
     lngGrade = 3
   ElseIf dblResult < 30 Then
@@ -599,12 +599,12 @@ Public Function ALB_Minus_gL(ByVal dblResult As Double, ByVal dblLLN As Double) 
   End If
 
   ALB_Minus_gL = lngGrade
-
+  
 End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Cre_Plus_mgdL    ÉNÉåÉAÉ`ÉjÉìëùâ¡
+'Name         :Cre_Plus_mgdL    „ÇØ„É¨„Ç¢„ÉÅ„Éã„É≥Â¢óÂä†
 'Argument     :dblResult        TestValue
 '             :dblLLN           Upper  Limit
 '             :dblCre_mgdL      Base line
@@ -615,7 +615,7 @@ Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double,
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If (dblResult > 6 * dblULN) Then
     lngGrade = 4
   ElseIf (dblResult > 3 * dblULN) Or (dblResult > 3 * dblCre_mgdL) Then
@@ -625,13 +625,13 @@ Public Function Cre_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double,
   ElseIf (dblResult > dblULN) Or (dblResult > dblCre_mgdL) Then
     lngGrade = 1
   End If
-
+   
   Cre_Plus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Cre_Plus2_mgdL   ã}ê´êtïsëS
+'Name         :Cre_Plus2_mgdL   ÊÄ•ÊÄßËÖé‰∏çÂÖ®
 'Argument     :dblResult        TestValue
 '             :dblLLN           Upper  Limit
 '             :dblCre_mgdL      Base line
@@ -642,21 +642,21 @@ Public Function Cre_Plus2_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   Dim lngGrade        As Long
 
   lngGrade = 0
-
-  If (dblResult > 4) Or (dblResult > 3 * dblCre_mgdL) Then
+  
+  If ((dblResult - dblCre_mgdL) > 4) Or (dblResult > 3 * dblCre_mgdL) Then
     lngGrade = 3
   ElseIf dblResult > 2 * dblCre_mgdL Then
     lngGrade = 2
-  ElseIf (dblResult - dblCre_mgdL > 0.3) Or (dblResult > 1.5 * dblCre_mgdL) Then
+  ElseIf ((dblResult - dblCre_mgdL) > 0.3) Or (dblResult > 1.5 * dblCre_mgdL) Then
     lngGrade = 1
   End If
-
+   
   Cre_Plus2_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :UA_Plus_mgdL   çÇîAé_ååè«
+'Name         :UA_Plus_mgdL   È´òÂ∞øÈÖ∏Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -666,19 +666,44 @@ Public Function UA_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > 10 Then
     lngGrade = 4
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   UA_Plus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :CHO_Plus_mgdL  ÉRÉåÉXÉeÉçÅ[Éãëùâ¡
+'Name         :TG_Plus_mgdL   È´ò„Éà„É™„Ç∞„É™„Çª„É™„ÉâË°ÄÁóá
+'Argument     :dblResult      TestValue
+'Return Value :Grade
+'Date created :2017/09/21 ohtsuka
+'////////////////////////////////////////////////////////////////////////////////////////
+Public Function TG_Plus_mgdL(ByVal dblResult As Double) As Long
+  Dim lngGrade        As Long
+
+  lngGrade = 0
+  
+  If dblResult > 1000 Then
+    lngGrade = 4
+  ElseIf dblResult > 500 Then
+    lngGrade = 3
+  ElseIf dblResult > 300 Then
+    lngGrade = 2
+  ElseIf dblResult > 150 Then
+    lngGrade = 1
+  End If
+   
+  TG_Plus_mgdL = lngGrade
+  
+End Function
+
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :CHO_Plus_mgdL  „Ç≥„É¨„Çπ„ÉÜ„É≠„Éº„É´Â¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -688,7 +713,7 @@ Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > 500 Then
     lngGrade = 4
   ElseIf dblResult > 400 Then
@@ -698,13 +723,13 @@ Public Function CHO_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double)
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   CHO_Plus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Tbil_Plus_mgdL   ååíÜÉrÉäÉãÉrÉìëùâ¡
+'Name         :Tbil_Plus_mgdL   Ë°Ä‰∏≠„Éì„É™„É´„Éì„É≥Â¢óÂä†
 'Argument     :dblResult        TestValue
 '             :dblLLN           Upper  Limit
 'Return Value :Grade
@@ -714,7 +739,7 @@ Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > dblULN * 10 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 3 Then
@@ -724,13 +749,13 @@ Public Function Tbil_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   Tbil_Plus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :ALP_Plus_UL    ÉAÉãÉJÉäÉzÉXÉtÉ@É^Å[É[ëùâ¡
+'Name         :ALP_Plus_UL    „Ç¢„É´„Ç´„É™„Éõ„Çπ„Éï„Ç°„Çø„Éº„ÇºÂ¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -740,7 +765,7 @@ Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > dblULN * 20 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -750,13 +775,13 @@ Public Function ALP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   ALP_Plus_UL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :CPK_Plus_UL    CPKëùâ¡
+'Name         :CPK_Plus_UL    CPKÂ¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -766,7 +791,7 @@ Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > dblULN * 10 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -776,13 +801,13 @@ Public Function CPK_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   CPK_Plus_UL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :AST_Plus_UL    ÉAÉXÉpÉâÉMÉìé_ÉAÉ~ÉmÉgÉâÉìÉXÉtÉFÉâÅ[É[ëùâ¡
+'Name         :AST_Plus_UL    „Ç¢„Çπ„Éë„É©„ÇÆ„É≥ÈÖ∏„Ç¢„Éü„Éé„Éà„É©„É≥„Çπ„Éï„Çß„É©„Éº„ÇºÂ¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -792,7 +817,7 @@ Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > dblULN * 20 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -802,13 +827,13 @@ Public Function AST_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   AST_Plus_UL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :ALT_Plus_UL    ÉAÉâÉjÉìÅEÉAÉ~ÉmÉgÉâÉìÉXÉtÉFÉâÅ[É[ëùâ¡
+'Name         :ALT_Plus_UL    „Ç¢„É©„Éã„É≥„Éª„Ç¢„Éü„Éé„Éà„É©„É≥„Çπ„Éï„Çß„É©„Éº„ÇºÂ¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -818,7 +843,7 @@ Public Function ALT_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > dblULN * 20 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -828,14 +853,14 @@ Public Function ALT_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   ALT_Plus_UL = lngGrade
-
+  
 End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :GTP_Plus_UL    GGTëùâ¡
+'Name         :GTP_Plus_UL    GGTÂ¢óÂä†
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -845,7 +870,7 @@ Public Function GTP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > dblULN * 20 Then
     lngGrade = 4
   ElseIf dblResult > dblULN * 5 Then
@@ -855,14 +880,14 @@ Public Function GTP_Plus_UL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   GTP_Plus_UL = lngGrade
-
+  
 End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Na_Plus_mEqL  çÇÉiÉgÉäÉEÉÄååè«
+'Name         :Na_Plus_mEqL  È´ò„Éä„Éà„É™„Ç¶„É†Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -872,7 +897,7 @@ Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > 160 Then
     lngGrade = 4
   ElseIf dblResult > 155 Then
@@ -882,13 +907,13 @@ Public Function Na_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) 
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   Na_Plus_mEqL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Na_Minus_mEqL  í·ÉiÉgÉäÉEÉÄååè«
+'Name         :Na_Minus_mEqL  ‰Ωé„Éä„Éà„É™„Ç¶„É†Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -898,7 +923,7 @@ Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 120 Then
     lngGrade = 4
   ElseIf dblResult < 130 Then
@@ -906,13 +931,13 @@ Public Function Na_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-
+   
   Na_Minus_mEqL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :K_Plus_mEqL  çÇÉJÉäÉEÉÄååè«
+'Name         :K_Plus_mEqL  È´ò„Ç´„É™„Ç¶„É†Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -922,7 +947,7 @@ Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) A
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > 7 Then
     lngGrade = 4
   ElseIf dblResult > 6 Then
@@ -932,13 +957,13 @@ Public Function K_Plus_mEqL(ByVal dblResult As Double, ByVal dblULN As Double) A
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   K_Plus_mEqL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :K_Minus_mEqL   í·ÉJÉäÉEÉÄååè«
+'Name         :K_Minus_mEqL   ‰Ωé„Ç´„É™„Ç¶„É†Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -948,7 +973,7 @@ Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 2.5 Then
     lngGrade = 4
   ElseIf dblResult < 3 Then
@@ -956,13 +981,13 @@ Public Function K_Minus_mEqL(ByVal dblResult As Double, ByVal dblLLN As Double) 
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-
+   
   K_Minus_mEqL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ca_Plus_mgdL   çÇÉJÉãÉVÉEÉÄååè«
+'Name         :Ca_Plus_mgdL   È´ò„Ç´„É´„Ç∑„Ç¶„É†Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -972,7 +997,7 @@ Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > 13.5 Then
     lngGrade = 4
   ElseIf dblResult > 12.5 Then
@@ -982,13 +1007,13 @@ Public Function Ca_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   Ca_Plus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Ca_Minus_mgdL  í·ÉJÉãÉVÉEÉÄååè«
+'Name         :Ca_Minus_mgdL  ‰Ωé„Ç´„É´„Ç∑„Ç¶„É†Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -998,7 +1023,7 @@ Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 6 Then
     lngGrade = 4
   ElseIf dblResult < 7 Then
@@ -1008,13 +1033,13 @@ Public Function Ca_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-
+   
   Ca_Minus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :IP_Minus_mgdL  í·ÉäÉìååè«
+'Name         :IP_Minus_mgdL  ‰Ωé„É™„É≥Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -1024,7 +1049,7 @@ Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 1 Then
     lngGrade = 4
   ElseIf dblResult < 2 Then
@@ -1034,13 +1059,13 @@ Public Function IP_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-
+   
   IP_Minus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Mg_Plus_mgdL   çÇÉ}ÉOÉlÉVÉEÉÄååè«
+'Name         :Mg_Plus_mgdL   È´ò„Éû„Ç∞„Éç„Ç∑„Ç¶„É†Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
 'Return Value :Grade
@@ -1050,7 +1075,7 @@ Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > 8 Then
     lngGrade = 4
   ElseIf dblResult > 3 Then
@@ -1058,13 +1083,13 @@ Public Function Mg_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double) 
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   Mg_Plus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Mg_Minus_mgdL  í·É}ÉOÉlÉVÉEÉÄååè«
+'Name         :Mg_Minus_mgdL  ‰Ωé„Éû„Ç∞„Éç„Ç∑„Ç¶„É†Ë°ÄÁóá
 'Argument     :dblResult      TestValue
 '             :dblLLN         Lower Limit
 'Return Value :Grade
@@ -1074,7 +1099,7 @@ Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 0.7 Then
     lngGrade = 4
   ElseIf dblResult < 0.9 Then
@@ -1084,13 +1109,13 @@ Public Function Mg_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Double)
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-
+   
   Mg_Minus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Gluc_Plus_mgdL   çÇååìú
+'Name         :Gluc_Plus_mgdL   È´òË°ÄÁ≥ñ
 'Argument     :dblResult        TestValue
 '             :dblLLN           Upper  Limit
 'Return Value :Grade
@@ -1100,7 +1125,7 @@ Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult > 500 Then
     lngGrade = 4
   ElseIf dblResult > 250 Then
@@ -1110,13 +1135,13 @@ Public Function Gluc_Plus_mgdL(ByVal dblResult As Double, ByVal dblULN As Double
   ElseIf dblResult > dblULN Then
     lngGrade = 1
   End If
-
+   
   Gluc_Plus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :Gluc_Minus_mgdL  í·ååìúè«
+'Name         :Gluc_Minus_mgdL  ‰ΩéË°ÄÁ≥ñÁóá
 'Argument     :dblResult        TestValue
 '             :dblLLN           Lower Limit
 'Return Value :Grade
@@ -1126,7 +1151,7 @@ Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Doubl
   Dim lngGrade        As Long
 
   lngGrade = 0
-
+  
   If dblResult < 30 Then
     lngGrade = 4
   ElseIf dblResult < 40 Then
@@ -1136,13 +1161,13 @@ Public Function Gluc_Minus_mgdL(ByVal dblResult As Double, ByVal dblLLN As Doubl
   ElseIf dblResult < dblLLN Then
     lngGrade = 1
   End If
-
+   
   Gluc_Minus_mgdL = lngGrade
-
+  
 End Function
 
 '////////////////////////////////////////////////////////////////////////////////////////
-'Name         :UPro_Plus      îAí`îí
+'Name         :UPro_Plus      Â∞øËõãÁôΩ
 'Argument     :dblResult      TestValue
 'Return Value :Grade
 'Date created :2016/02/10 yamamoto
@@ -1151,17 +1176,19 @@ Public Function UPro_Plus(ByVal strResult As String) As Variant
   Dim lngGrade        As Variant
 
   lngGrade = 0
-
+  
   If strResult = "2+" Then
     lngGrade = 2
   ElseIf strResult = "1+" Then
     lngGrade = 1
   ElseIf strResult = "3+" Then
-    lngGrade = 2*
+    lngGrade = "2*"
   ElseIf strResult = "4+" Then
-    lngGrade = 2*
+    lngGrade = "2*"
   End If
-
+   
   UPro_Plus = lngGrade
-
+  
 End Function
+
+
