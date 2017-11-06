@@ -694,7 +694,7 @@ Public Function TG_Plus_mgdL(ByVal dblResult As Double) As Long
     lngGrade = 3
   ElseIf dblResult > 300 Then
     lngGrade = 2
-  ElseIf dblResult > 150 Then
+  ElseIf dblResult >= 150 Then
     lngGrade = 1
   End If
    
