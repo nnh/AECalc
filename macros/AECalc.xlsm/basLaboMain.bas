@@ -38,13 +38,16 @@ Public Const gcCPK         As Long = 60
 Public Const gcAST         As Long = 63
 Public Const gcALT         As Long = 66
 Public Const gcGTP         As Long = 69
-Public Const gcNa          As Long = 72
-Public Const gcK           As Long = 75
-Public Const gcCa          As Long = 78
-Public Const gcIP          As Long = 81
-Public Const gcMg          As Long = 84
-Public Const gcGluc        As Long = 87
-Public Const gcUPro        As Long = 90
+Public Const gcAMY         As Long = 72
+Public Const gcLIP         As Long = 75
+Public Const gcNa          As Long = 78
+Public Const gcK           As Long = 81
+Public Const gcCa          As Long = 84
+Public Const gcIP          As Long = 87
+Public Const gcMg          As Long = 90
+Public Const gcGluc        As Long = 93
+Public Const gcUPro        As Long = 96
+
 
 '// Private Const
 Private Const mcstrOver20         As String = "over20"
@@ -76,13 +79,15 @@ Private Const mcLnCPK       As Long = 42
 Private Const mcLnAST       As Long = 44
 Private Const mcLnALT       As Long = 46
 Private Const mcLnGTP       As Long = 48
-Private Const mcLnNa        As Long = 50
-Private Const mcLnK         As Long = 52
-Private Const mcLnCa        As Long = 54
-Private Const mcLnIP        As Long = 56
-Private Const mcLnMg        As Long = 58
-Private Const mcLnGluc      As Long = 60
-Private Const mcLnUPro      As Long = 62
+Private Const mcLnAMY       As Long = 50
+Private Const mcLnLIP       As Long = 52
+Private Const mcLnNa        As Long = 54
+Private Const mcLnK         As Long = 56
+Private Const mcLnCa        As Long = 58
+Private Const mcLnIP        As Long = 60
+Private Const mcLnMg        As Long = 62
+Private Const mcLnGluc      As Long = 64
+Private Const mcLnUPro      As Long = 66
 
 '// variable
 Private mcolAgeKaisou       As Collection '/ AgeSexCollection
@@ -256,6 +261,16 @@ Private Sub CalcGradeMain()
       If IsReady(mcLnGTP, gcGTP, clPatient, i, dblLLN, dblULN) Then '/ γ-GTP(U/L)
         dblTestValue = .Cells(i, gcGTP).Value
        .Cells(i, gcGTP + 1).Value = GTP_Plus_UL(dblTestValue, dblULN)
+      End If
+      
+      If IsReady(mcLnAMY, gcAMY, clPatient, i, dblLLN, dblULN) Then '/ AMY(IU/L)
+        dblTestValue = .Cells(i, gcAMY).Value
+       .Cells(i, gcAMY + 1).Value = AMY_Plus_IUL(dblTestValue, dblULN)
+      End If
+      
+      If IsReady(mcLnLIP, gcLIP, clPatient, i, dblLLN, dblULN) Then '/ LIP(IU/L)
+        dblTestValue = .Cells(i, gcLIP).Value
+       .Cells(i, gcLIP + 1).Value = LIP_Plus_IUL(dblTestValue, dblULN)
       End If
       
       If IsReady(mcLnNa, gcNa, clPatient, i, dblLLN, dblULN) Then   '/ Na(mEq/L)
@@ -571,6 +586,7 @@ Private Sub ClearSheetLabo()
   Call ClearSheetLaboSub(gcALB2)
   Call ClearSheetLaboSub(gcCre)
   Call ClearSheetLaboSub(gcUA)
+  Call ClearSheetLaboSub(gcTG)
   Call ClearSheetLaboSub(gcCHO)
   Call ClearSheetLaboSub(gcTbil)
   Call ClearSheetLaboSub(gcALP)
@@ -578,6 +594,8 @@ Private Sub ClearSheetLabo()
   Call ClearSheetLaboSub(gcAST)
   Call ClearSheetLaboSub(gcALT)
   Call ClearSheetLaboSub(gcGTP)
+  Call ClearSheetLaboSub(gcAMY)
+  Call ClearSheetLaboSub(gcLIP)
   Call ClearSheetLaboSub(gcNa)
   Call ClearSheetLaboSub(gcK)
   Call ClearSheetLaboSub(gcCa)

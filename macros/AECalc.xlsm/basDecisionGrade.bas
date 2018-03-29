@@ -887,6 +887,59 @@ End Function
 
 
 '////////////////////////////////////////////////////////////////////////////////////////
+'Name         :AMY_Plus_IUL    血清アミラーゼ増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         International Upper  Limit
+'Return Value :Grade
+'Date created :2018/03/23 kobayashi
+'////////////////////////////////////////////////////////////////////////////////////////
+Public Function AMY_Plus_IUL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
+  Dim lngGrade        As Long
+
+  lngGrade = 0
+  
+  If dblResult > dblULN * 5 Then
+    lngGrade = 4
+  ElseIf dblResult > dblULN * 2 Then
+    lngGrade = 3
+  ElseIf dblResult > dblULN * 1.5 Then
+    lngGrade = 2
+  ElseIf dblResult > dblULN Then
+    lngGrade = 1
+  End If
+   
+  AMY_Plus_IUL = lngGrade
+  
+End Function
+
+'////////////////////////////////////////////////////////////////////////////////////////
+'Name         :LIP_Plus_IUL    リパーゼ増加
+'Argument     :dblResult      TestValue
+'             :dblLLN         International Upper  Limit
+'Return Value :Grade
+'Date created :2018/03/26 kobayashi
+'////////////////////////////////////////////////////////////////////////////////////////
+Public Function LIP_Plus_IUL(ByVal dblResult As Double, ByVal dblULN As Double) As Long
+  Dim lngGrade        As Long
+
+  lngGrade = 0
+  
+  If dblResult > dblULN * 5 Then
+    lngGrade = 4
+  ElseIf dblResult > dblULN * 2 Then
+    lngGrade = 3
+  ElseIf dblResult > dblULN * 1.5 Then
+    lngGrade = 2
+  ElseIf dblResult > dblULN Then
+    lngGrade = 1
+  End If
+   
+  LIP_Plus_IUL = lngGrade
+  
+End Function
+
+
+'////////////////////////////////////////////////////////////////////////////////////////
 'Name         :Na_Plus_mEqL  高ナトリウム血症
 'Argument     :dblResult      TestValue
 '             :dblLLN         Upper  Limit
