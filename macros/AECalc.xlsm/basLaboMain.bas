@@ -725,7 +725,7 @@ Private Sub SettingRefOver20()
   i = 4   '/WBC_COL of Sheet(Ref)
   j = 6   '/WBC_COL of Sheet(Another_facility_date)
   With Worksheets("Another_facility_date")
-    For i = 4 To 61
+    For i = 4 To 67
       Worksheets("Ref").Cells(clngRowOv, i) = .Cells(lngSelectedRow, j)
       Worksheets("Ref").Cells(clngRowOvM, i) = .Cells(lngSelectedRow + 1, j)
       Worksheets("Ref").Cells(clngRowOvF, i) = .Cells(lngSelectedRow + 2, j)

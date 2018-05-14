@@ -46,7 +46,7 @@ Private Sub SettingBackColor(ByVal lngROW As Long)
   Dim varROW()  As Variant
 
   varROW() = Array(gcCaseNo, gcTestDay, gcWBC1, gcWBC2, gcHgb1, gcHgb2, gcPLT1, gcPLT2, gcNe, gcLy, gcPT, gcAPTT, gcFib, gcALB1, gcALB2, _
-                    gcCre, gcUA, gcCHO, gcTbil, gcALP, gcCPK, gcAST, gcALT, gcGTP, gcNa, gcK, gcCa, gcIP, gcMg, gcGluc, gcUPro)
+                    gcCre, gcUA, gcTG, gcCHO, gcTbil, gcALP, gcCPK, gcAST, gcALT, gcGTP, gcAMY, gcLIP, gcNa, gcK, gcCa, gcIP, gcMg, gcGluc, gcUPro)
   
   With Worksheets("Labo")
     For i = LBound(varROW) To UBound(varROW)
