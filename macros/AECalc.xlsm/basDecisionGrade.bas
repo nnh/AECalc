@@ -120,7 +120,7 @@ Public Function Hgb_Plus_gdL(ByVal dblResult As Double, ByVal dblULN As Double, 
 
   lngGrade = 0
   
-  If dblHgb_gdL >= dblULN Then
+  If dblHgb_gdL > dblULN Then
   
     Select Case dblResult - dblHgb_gdL
       Case Is > 4
